@@ -3,8 +3,8 @@
 
 namespace Muriel
 {
-	SpotLight::SpotLight(Color color, float intensity, Attenuation attenuation, float cutoff)
-		: PointLight(color, intensity, attenuation)
+	SpotLight::SpotLight(const string& name, const Color& color, float intensity, Attenuation attenuation, float cutoff)
+		: PointLight(name, color, intensity, attenuation)
 	{
 		_cutoff = cutoff;
 	}

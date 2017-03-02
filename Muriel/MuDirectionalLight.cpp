@@ -3,8 +3,8 @@
 
 namespace Muriel
 {
-	DirectionalLight::DirectionalLight(Color color, float intensity)
-		: BaseLight(color, intensity)
+	DirectionalLight::DirectionalLight(const string& name, const Color& color, float intensity)
+		: BaseLight(name, color, intensity)
 	{
 
 	}

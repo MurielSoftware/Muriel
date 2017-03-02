@@ -3,7 +3,8 @@
 
 namespace Muriel
 {
-	BaseLight::BaseLight(Color color, float intensity)
+	BaseLight::BaseLight(const string& name, const Color& color, float intensity)
+		: GameObject(name)
 	{
 		_color = color;
 		_intensity = intensity;

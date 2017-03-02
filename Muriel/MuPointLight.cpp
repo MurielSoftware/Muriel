@@ -3,8 +3,8 @@
 
 namespace Muriel
 {
-	PointLight::PointLight(Color color, float intensity, Attenuation attenuation)
-		: BaseLight(color, intensity)
+	PointLight::PointLight(const string& name, const Color& color, float intensity, Attenuation attenuation)
+		: BaseLight(name, color, intensity)
 	{
 		_attenuation = attenuation;
 		float a = attenuation.GetExponent();

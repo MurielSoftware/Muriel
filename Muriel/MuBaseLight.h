@@ -1,18 +1,19 @@
 #pragma once
 
+#include "MuGameObject.h"
 #include "Color.h"
 
 using namespace Glml;
 
 namespace Muriel
 {
-	class BaseLight
+	class BaseLight : public GameObject
 	{
 	private:
 		Color _color;
 		float _intensity;
 	public:
-		BaseLight(Color color, float intensity);
+		BaseLight(const string& name, const Color& color, float intensity);
 		virtual ~BaseLight();
 
 		inline Color& GetColor() { return _color; }

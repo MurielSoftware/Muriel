@@ -9,10 +9,10 @@ namespace Muriel
 	private:
 		float _cutoff;
 	public:
-		SpotLight(Color color, float intensity, Attenuation attenuation, float cutoff);
+		SpotLight(const string& name, const Color& color, float intensity, Attenuation attenuation, float cutoff);
 		virtual ~SpotLight();
 
-		//inline Vec3 GetDirection() { return Vec3(); }
+		inline const Vec3& GetDirection() { return GetTransform().GetForward(); }
 		inline float GetCutoff() { return _cutoff; }
 	};
 }
