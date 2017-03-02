@@ -368,7 +368,7 @@
     <ClCompile Include="MuStringUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="BoundingBox.cpp">
+    <ClCompile Include="MuBoundingBox.cpp">
       <Filter>Source Files\Render\Geometrics</Filter>
     </ClCompile>
   </ItemGroup>
