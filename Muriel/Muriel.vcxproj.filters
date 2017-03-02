@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Main">
+      <UniqueIdentifier>{da760fe2-919e-4842-8bf1-788f122f4a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main">
+      <UniqueIdentifier>{38c0e8c8-26da-4cee-ac90-122c584c9fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{874483e3-3c5b-46c5-b867-9cc19e7ffff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceptions">
+      <UniqueIdentifier>{33ad9aba-6569-499c-b1a0-6748ea08ddaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render">
+      <UniqueIdentifier>{ebc4c669-072b-4684-8ccd-7e0ffd2c2da6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render">
+      <UniqueIdentifier>{9ace52bb-fbf9-41fd-85d1-78a0d8428eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{e6985c62-4421-417d-a42e-3158910fd79c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{98c67375-69d0-453e-a695-20ed1365c84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources">
+      <UniqueIdentifier>{2d3dc313-c82a-456d-86f3-43d1965cdb00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources">
+      <UniqueIdentifier>{ebf4d165-7416-4e79-ace1-61884445ea0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources\Shaders">
+      <UniqueIdentifier>{4dfb95fe-0591-459a-a934-0ae09b58418c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{3260c728-cb96-4686-b1e3-fd0a341093e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{81d83d28-31ca-47d1-a2cd-123b6dd02de3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Cameras">
+      <UniqueIdentifier>{40756139-ec2b-4684-ad38-38f110f83735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Cameras">
+      <UniqueIdentifier>{252c8697-7ec7-45c5-829d-7f0152eeced4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Lights">
+      <UniqueIdentifier>{6400428c-0c27-4660-adb4-0fb1d9db8ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Lights">
+      <UniqueIdentifier>{0b4f49eb-d141-4aac-ae44-44495713e176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Geometrics">
+      <UniqueIdentifier>{05c592e3-d6d2-4d4d-92b7-e514815496bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Geometrics">
+      <UniqueIdentifier>{a929beac-587d-42c7-81e1-23b30b4664a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Buffers">
+      <UniqueIdentifier>{b869fa27-a261-4981-99c2-47ded1c78ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buffers">
+      <UniqueIdentifier>{fabaf7a9-799f-44d7-a9d5-8e9a00d3382d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources\Shaders">
+      <UniqueIdentifier>{f6b4419e-cab6-4cae-a432-29ac83de6d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources\Textures">
+      <UniqueIdentifier>{6088404a-4310-40dc-b57c-992ead253655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources\Textures">
+      <UniqueIdentifier>{f9d0e39f-4f60-4fa5-82a1-ba2c184ca254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GL">
+      <UniqueIdentifier>{764a1bd6-bf86-4709-8f1a-b80c87cff58e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GL">
+      <UniqueIdentifier>{7487f18d-82b9-4cb7-95e7-9a55ffb25495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Materials">
+      <UniqueIdentifier>{f0a10a9f-a901-4812-8d53-8c5f2652fad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Materials">
+      <UniqueIdentifier>{14ee8117-0ad8-42c2-b313-6cc0762595f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render\Renderers">
+      <UniqueIdentifier>{8d06637e-c10d-4f08-a4d4-1b6cc3d9fc4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render\Renderers">
+      <UniqueIdentifier>{0d2c9ec9-d57e-49d3-882a-615e3cd06110}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MuVertexBuffer.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuVertexAttributeInformation.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBuffer.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuIndexBuffer.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="MuKeyboard.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMouse.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MuEngine.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGame.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MuWindow.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MuAbstractCamera.h">
+      <Filter>Header Files\Render\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="MuFirstPersonCamera.h">
+      <Filter>Header Files\Render\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="MuOrbitCamera.h">
+      <Filter>Header Files\Render\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="MuFrustum.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MuSceneManager.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MuShader.h">
+      <Filter>Header Files\Resources\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="MuShaderManager.h">
+      <Filter>Header Files\Resources\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTexture.h">
+      <Filter>Header Files\Resources\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTextureManager.h">
+      <Filter>Header Files\Resources\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="MuAbstractResourceManager.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="MuObject.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="MuFileUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTimer.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MuPrerequisities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MuSingleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBox.h">
+      <Filter>Header Files\Render\Geometrics</Filter>
+    </ClInclude>
+    <ClInclude Include="MuVertexPosNormTex.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBufferType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBufferUsage.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGraphicsDataType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuShaderType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGraphicsPrimitiveType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGL.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuPolygonMode.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTextureParameterType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTextureType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuColorFormat.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuCullMode.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGraphicsMode.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTextureParameterValue.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuPixelStorageType.h">
+      <Filter>Header Files\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MuGameObject.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTransform.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMaterial.h">
+      <Filter>Header Files\Render\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="MuLog.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MuDiffuseMaterial.h">
+      <Filter>Header Files\Render\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMeshRenderer.h">
+      <Filter>Header Files\Render\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="MuIRenderer.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MuStringUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MuConstants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WndProc.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MuVertexBuffer.cpp">
+      <Filter>Source Files\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="MuVertexAttributeInformation.cpp">
+      <Filter>Source Files\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="MuIndexBuffer.cpp">
+      <Filter>Source Files\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="MuBuffer.cpp">
+      <Filter>Source Files\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="MuExceptions.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="MuKeyboard.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMouse.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MuEngine.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MuGame.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MuWindow.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MuAbstractCamera.cpp">
+      <Filter>Source Files\Render\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="MuFirstPersonCamera.cpp">
+      <Filter>Source Files\Render\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="MuOrbitCamera.cpp">
+      <Filter>Source Files\Render\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="MuFrustum.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MuSceneManager.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MuShader.cpp">
+      <Filter>Source Files\Resources\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="MuShaderManager.cpp">
+      <Filter>Source Files\Resources\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="MuTexture.cpp">
+      <Filter>Source Files\Resources\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="MuTextureManager.cpp">
+      <Filter>Source Files\Resources\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="MuFileUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MulTimer.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MuBox.cpp">
+      <Filter>Source Files\Render\Geometrics</Filter>
+    </ClCompile>
+    <ClCompile Include="MuGL.cpp">
+      <Filter>Source Files\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="MuGameObject.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="MuObject.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="MuTransform.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMaterial.cpp">
+      <Filter>Source Files\Render\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="MuLog.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MuDiffuseMaterial.cpp">
+      <Filter>Source Files\Render\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMeshRenderer.cpp">
+      <Filter>Source Files\Render\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="MuStringUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

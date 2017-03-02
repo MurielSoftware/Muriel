@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/soil-1.16.0
+/FreeImage-3.17.0
+/glew-2.0.0

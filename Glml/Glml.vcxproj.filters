@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Matrices">
+      <UniqueIdentifier>{a5aea1ad-70b0-4a04-97df-cec74ad82e65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Matrices">
+      <UniqueIdentifier>{5c1a9ab3-06cb-44f9-9d5c-1f6ceca06462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Vectors">
+      <UniqueIdentifier>{9e839f06-d4dd-46b1-9984-3451a82fb752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vectors">
+      <UniqueIdentifier>{53ea9d60-5a75-4535-ac23-561867841313}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlmlPrerequisities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlmlConstants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SSEOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mat3x3.h">
+      <Filter>Header Files\Matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="Mat4x3.h">
+      <Filter>Header Files\Matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="Mat4x4.h">
+      <Filter>Header Files\Matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Header Files\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec3.h">
+      <Filter>Header Files\Vectors</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SSEOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat3x3.cpp">
+      <Filter>Source Files\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat4x3.cpp">
+      <Filter>Source Files\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat4x4.cpp">
+      <Filter>Source Files\Matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec3.cpp">
+      <Filter>Source Files\Vectors</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
+      <Filter>Source Files\Vectors</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
