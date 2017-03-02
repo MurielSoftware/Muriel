@@ -1,24 +1,24 @@
 #include "stdafx.h"
-#include "MuMaterial.h"
+#include "MuBaseMaterial.h"
 #include "MuShader.h"
 
 namespace Muriel
 {
-	Material::Material(Shader* shader)
+	BaseMaterial::BaseMaterial(Shader* shader)
 	{
 		_shader = shader;
 	}
 
-	Material::~Material()
+	BaseMaterial::~BaseMaterial()
 	{
 	}
 
-	void Material::Start()
+	void BaseMaterial::Start()
 	{
 		_shader->Activate();
 	}
 
-	void Material::End()
+	void BaseMaterial::End()
 	{
 		_shader->Deactivate();
 	}

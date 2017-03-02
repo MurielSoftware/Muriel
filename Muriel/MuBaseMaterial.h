@@ -4,13 +4,13 @@
 
 namespace Muriel
 {
-	class Material
+	class BaseMaterial
 	{
 	protected:
 		Shader* _shader;
 	public:
-		Material(Shader* shader);
-		virtual ~Material();
+		BaseMaterial(Shader* shader);
+		virtual ~BaseMaterial();
 
 		inline Shader* GetShader() { return _shader; }
 

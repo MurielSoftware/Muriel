@@ -9,7 +9,7 @@
 #include "MuBox.h"
 #include "MuShaderManager.h"
 #include "MuLog.h"
-#include "MuMaterial.h"
+#include "MuBaseMaterial.h"
 #include "MuTextureManager.h"
 #include "MuMeshRenderer.h"
 #include "MuDiffuseMaterial.h"

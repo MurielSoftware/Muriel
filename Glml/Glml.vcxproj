@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Color.h" />
     <ClInclude Include="GlmlConstants.h" />
     <ClInclude Include="GlmlPrerequisities.h" />
     <ClInclude Include="Mat3x3.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Vec3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

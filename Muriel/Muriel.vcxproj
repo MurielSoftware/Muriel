@@ -144,8 +144,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuAttenuation.h" />
+    <ClInclude Include="MuBaseLight.h" />
     <ClInclude Include="MuBoundingBox.h" />
     <ClInclude Include="MuConstants.h" />
+    <ClInclude Include="MuDirectionalLight.h" />
     <ClInclude Include="MuMeshRenderer.h" />
     <ClInclude Include="MuBufferType.h" />
     <ClInclude Include="MuBufferUsage.h" />
@@ -169,17 +172,19 @@
     <ClInclude Include="MuIRenderer.h" />
     <ClInclude Include="MuKeyboard.h" />
     <ClInclude Include="MuLog.h" />
-    <ClInclude Include="MuMaterial.h" />
+    <ClInclude Include="MuBaseMaterial.h" />
     <ClInclude Include="MuMouse.h" />
     <ClInclude Include="MuEngine.h" />
     <ClInclude Include="MuException.h" />
     <ClInclude Include="MuObject.h" />
     <ClInclude Include="MuPixelStorageType.h" />
+    <ClInclude Include="MuPointLight.h" />
     <ClInclude Include="MuPolygonMode.h" />
     <ClInclude Include="MuPrerequisities.h" />
     <ClInclude Include="MuShaderType.h" />
     <ClInclude Include="MuSingleton.h" />
     <ClInclude Include="MuOrbitCamera.h" />
+    <ClInclude Include="MuSpotLight.h" />
     <ClInclude Include="MuTextureManager.h" />
     <ClInclude Include="MuTextureParameterType.h" />
     <ClInclude Include="MuTextureParameterValue.h" />
@@ -199,10 +204,13 @@
     <ClInclude Include="MuTexture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MuAttenuation.cpp" />
+    <ClCompile Include="MuBaseLight.cpp" />
     <ClCompile Include="MuBoundingBox.cpp" />
     <ClCompile Include="MuDiffuseMaterial.cpp" />
+    <ClCompile Include="MuDirectionalLight.cpp" />
     <ClCompile Include="MuLog.cpp" />
-    <ClCompile Include="MuMaterial.cpp" />
+    <ClCompile Include="MuBaseMaterial.cpp" />
     <ClCompile Include="MuBox.cpp" />
     <ClCompile Include="MuGameObject.cpp" />
     <ClCompile Include="MuGL.cpp" />
@@ -234,6 +242,8 @@
     <ClCompile Include="MuExceptions.cpp" />
     <ClCompile Include="MuObject.cpp" />
     <ClCompile Include="MuOrbitCamera.cpp" />
+    <ClCompile Include="MuPointLight.cpp" />
+    <ClCompile Include="MuSpotLight.cpp" />
     <ClCompile Include="MuStringUtils.cpp" />
     <ClCompile Include="MuTexture.cpp" />
     <ClCompile Include="MuTextureManager.cpp" />

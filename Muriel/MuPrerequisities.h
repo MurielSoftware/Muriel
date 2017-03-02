@@ -2,9 +2,10 @@
 
 namespace Muriel
 {
-	class AbstractCamera;
+	class AbstractCamera;	
+	class BaseLight;
+	class BaseMaterial;
 	class Buffer;
-	class AbstractCamera;
 	class IndexBuffer;
 	class FirstPersonCamera;
 	class Frustum;
@@ -13,7 +14,6 @@ namespace Muriel
 	class Exception;
 	class Game;
 	class IndexBuffer;
-	class Material;
 	class MeshRenderer;
 	class Object;
 	class OrbitCamera;

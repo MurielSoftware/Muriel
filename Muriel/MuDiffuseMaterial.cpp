@@ -8,7 +8,7 @@
 namespace Muriel
 {
 	DiffuseMaterial::DiffuseMaterial(Shader* shader, Texture* texture)
-		: Material(shader)
+		: BaseMaterial(shader)
 	{
 		_texture = texture;
 	}

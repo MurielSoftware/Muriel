@@ -1,13 +1,13 @@
 #include "stdafx.h"
 #include "MuMeshRenderer.h"
-#include "MuMaterial.h"
+#include "MuBaseMaterial.h"
 #include "MuGameObject.h"
 #include "MuVertexBuffer.h"
 #include "MuIndexBuffer.h"
 
 namespace Muriel
 {
-	MeshRenderer::MeshRenderer(GameObject* gameObject, Material* material)
+	MeshRenderer::MeshRenderer(GameObject* gameObject, BaseMaterial* material)
 	{
 		_gameObject = gameObject;
 		_material = material;

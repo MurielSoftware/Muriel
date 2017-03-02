@@ -60,6 +60,9 @@
     <ClInclude Include="Vec3.h">
       <Filter>Header Files\Vectors</Filter>
     </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -88,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Vec2.cpp">
       <Filter>Source Files\Vectors</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

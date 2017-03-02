@@ -1,2 +1,0 @@
-18.02.2017 - added first person and orbit camera
-17.02.2017 - created Glml math library

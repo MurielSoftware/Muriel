@@ -9,9 +9,9 @@ namespace Muriel
 	{
 	private:
 		GameObject* _gameObject;
-		Material* _material;
+		BaseMaterial* _material;
 	public:
-		MeshRenderer(GameObject* gameObject, Material* material);
+		MeshRenderer(GameObject* gameObject, BaseMaterial* material);
 		virtual ~MeshRenderer();
 
 		void PreRender(AbstractCamera* camera);

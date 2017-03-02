@@ -240,9 +240,6 @@
     <ClInclude Include="MuTransform.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="MuMaterial.h">
-      <Filter>Header Files\Render\Materials</Filter>
-    </ClInclude>
     <ClInclude Include="MuLog.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
@@ -263,6 +260,24 @@
     </ClInclude>
     <ClInclude Include="MuBoundingBox.h">
       <Filter>Header Files\Render\Geometrics</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBaseMaterial.h">
+      <Filter>Header Files\Render\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="MuBaseLight.h">
+      <Filter>Header Files\Render\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="MuAttenuation.h">
+      <Filter>Header Files\Render\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="MuPointLight.h">
+      <Filter>Header Files\Render\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="MuSpotLight.h">
+      <Filter>Header Files\Render\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="MuDirectionalLight.h">
+      <Filter>Header Files\Render\Lights</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -353,9 +368,6 @@
     <ClCompile Include="MuTransform.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="MuMaterial.cpp">
-      <Filter>Source Files\Render\Materials</Filter>
-    </ClCompile>
     <ClCompile Include="MuLog.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -370,6 +382,24 @@
     </ClCompile>
     <ClCompile Include="MuBoundingBox.cpp">
       <Filter>Source Files\Render\Geometrics</Filter>
+    </ClCompile>
+    <ClCompile Include="MuBaseMaterial.cpp">
+      <Filter>Source Files\Render\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="MuBaseLight.cpp">
+      <Filter>Source Files\Render\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="MuAttenuation.cpp">
+      <Filter>Source Files\Render\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="MuPointLight.cpp">
+      <Filter>Source Files\Render\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="MuSpotLight.cpp">
+      <Filter>Source Files\Render\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="MuDirectionalLight.cpp">
+      <Filter>Source Files\Render\Lights</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

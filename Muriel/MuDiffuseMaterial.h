@@ -1,10 +1,10 @@
 #pragma once
 
-#include "MuMaterial.h"
+#include "MuBaseMaterial.h"
 
 namespace Muriel
 {
-	class DiffuseMaterial : public Material
+	class DiffuseMaterial : public BaseMaterial
 	{
 	private:
 		Texture* _texture;
