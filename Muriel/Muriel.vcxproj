@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuBoundingBox.h" />
     <ClInclude Include="MuConstants.h" />
     <ClInclude Include="MuMeshRenderer.h" />
     <ClInclude Include="MuBufferType.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="MuTexture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="MuDiffuseMaterial.cpp" />
     <ClCompile Include="MuLog.cpp" />
     <ClCompile Include="MuMaterial.cpp" />

@@ -261,6 +261,9 @@
     <ClInclude Include="MuConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MuBoundingBox.h">
+      <Filter>Header Files\Render\Geometrics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -364,6 +367,9 @@
     </ClCompile>
     <ClCompile Include="MuStringUtils.cpp">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Source Files\Render\Geometrics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
