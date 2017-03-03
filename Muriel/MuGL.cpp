@@ -96,8 +96,8 @@ namespace Muriel
 			case GL_TESS_CONTROL_SHADER: strShaderType = "tesselation control"; break;
 			case GL_TESS_EVALUATION_SHADER: strShaderType = "tesselation evaluation"; break;
 			}
-			//fprintf(stderr, "Compile failure in %s shader:\n%s\n", strShaderType, strInfoLog);
-			//delete[] strInfoLog;
+			fprintf(stderr, "Compile failure in %s shader:\n%s\n", strShaderType, strInfoLog);
+			delete[] strInfoLog;
 		}
 		return success;
 	}

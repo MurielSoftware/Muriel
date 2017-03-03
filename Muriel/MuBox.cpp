@@ -24,35 +24,35 @@ namespace Muriel
 
 	const VertexPosNormTex vertices[] =
 	{
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(0.0f, 0.0f, 1.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(0.0f, 0.0f, 1.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(0.0f, 0.0f, 1.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(0.0f, 0.0f, 1.0f), Vec2(1.0f, 0.0f)),
 
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(0.0f, 0.0f, -1.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(0.0f, 0.0f, -1.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(0.0f, 0.0f, -1.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(0.0f, 0.0f, -1.0f), Vec2(1.0f, 0.0f)),
 
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(0.0f, 1.0f, 0.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(0.0f, 1.0f, 0.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(0.0f, 1.0f, 0.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(0.0f, 1.0f, 0.0f), Vec2(1.0f, 0.0f)),
 
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(0.0f, -1.0f, 0.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(0.0f, -1.0f, 0.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(0.0f, -1.0f, 0.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(0.0f, -1.0f, 0.0f), Vec2(1.0f, 0.0f)),
 
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, 1.0f), Vec3(-1.0f, 0.0f, 0.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, 1.0f), Vec3(-1.0f, 0.0f, 0.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(-1.0f, -1.0f, -1.0f), Vec3(-1.0f, 0.0f, 0.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(-1.0f, 1.0f, -1.0f), Vec3(-1.0f, 0.0f, 0.0f), Vec2(1.0f, 0.0f)),
 
-		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 1.0f)),
-		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(0.0f, 0.0f)),
-		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(-1.0f, -1.0f, -1.0f), Vec2(1.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, 1.0f), Vec3(1.0f, 0.0f, 0.0f), Vec2(0.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, 1.0f), Vec3(1.0f, 0.0f, 0.0f), Vec2(1.0f, 1.0f)),
+		VertexPosNormTex(Vec3(1.0f, -1.0f, -1.0f), Vec3(1.0f, 0.0f, 0.0f), Vec2(0.0f, 0.0f)),
+		VertexPosNormTex(Vec3(1.0f, 1.0f, -1.0f), Vec3(1.0f, 0.0f, 0.0f), Vec2(1.0f, 0.0f)),
 	};
 
 	Box::Box(const string& name)

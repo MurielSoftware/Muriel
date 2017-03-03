@@ -40,6 +40,7 @@ namespace Muriel
 		CreateCamera();
 
 		Shader* shader = ShaderManager::GetInstance()->Load("base", "data/shaders/base");
+		Shader* directionalLightShader = ShaderManager::GetInstance()->Load("directionallight", "data/shaders/directionallight");
 		Texture* texture = TextureManager::GetInstance()->Load("box", "data/textures/box.jpg");
 		DiffuseMaterial* boxMaterial = new DiffuseMaterial(shader, texture);
 

@@ -10,7 +10,6 @@ namespace Muriel
 	{
 	private:
 		Transform _transform;
-		//Material* _material;
 	protected:
 		IRenderer* _renderer;
 		VertexBuffer* _vertexBuffer;
@@ -24,10 +23,6 @@ namespace Muriel
 		inline VertexBuffer* GetVertexBuffer() { return _vertexBuffer; }
 		inline IndexBuffer* GetIndexBuffer() { return _indexBuffer; }
 
-		//inline void SetMaterial(Material* material) { _material = material; }
-
 		virtual Transform& GetTransform();
-		//virtual void PreRender(AbstractCamera* camera);
-		//virtual void Render();
 	};
 }
