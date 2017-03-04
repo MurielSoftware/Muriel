@@ -46,6 +46,7 @@ namespace Muriel
 		static void SetShaderDataSource(const unsigned int shaderIndex, int numberOfElements, const char* shaderData, int* length);
 		static const unsigned int GetUniformLocation(const unsigned int shaderIndex, const char* uniformName);
 		static void SetUniform(const int uniformLocation, const int uniformValue);
+		static void SetUniform(const int uniformLocation, const float uniformValue);
 		static void SetUniform(const int uniformLocation, const int count, const float* uniformValue);
 		static void SetUniform(const int uniformLocation, const Vec2& uniformValue);
 		static void SetUniform(const int uniformLocation, const Vec3& uniformValue);

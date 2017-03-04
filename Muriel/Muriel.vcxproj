@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuGameComponent.h" />
     <ClInclude Include="MuAttenuation.h" />
     <ClInclude Include="MuBaseLight.h" />
     <ClInclude Include="MuBoundingBox.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="MuBoundingBox.cpp" />
     <ClCompile Include="MuDiffuseMaterial.cpp" />
     <ClCompile Include="MuDirectionalLight.cpp" />
+    <ClCompile Include="MuGameComponent.cpp" />
     <ClCompile Include="MuLog.cpp" />
     <ClCompile Include="MuBaseMaterial.cpp" />
     <ClCompile Include="MuBox.cpp" />

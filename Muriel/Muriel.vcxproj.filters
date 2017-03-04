@@ -279,6 +279,9 @@
     <ClInclude Include="MuDirectionalLight.h">
       <Filter>Header Files\Render\Lights</Filter>
     </ClInclude>
+    <ClInclude Include="MuGameComponent.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -400,6 +403,9 @@
     </ClCompile>
     <ClCompile Include="MuDirectionalLight.cpp">
       <Filter>Source Files\Render\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="MuGameComponent.cpp">
+      <Filter>Source Files\Resources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -20,8 +20,8 @@ namespace Muriel
 
 	void MeshRenderer::PreRender(AbstractCamera* camera)
 	{
-		_material->Start();
-		_material->SetUniforms(camera);
+//		_material->Start();
+	//	_material->SetUniforms(camera);
 	}
 
 	void MeshRenderer::Render()
@@ -49,6 +49,6 @@ namespace Muriel
 
 	void MeshRenderer::PostRender()
 	{
-		_material->End();
+	//	_material->End();
 	}
 }

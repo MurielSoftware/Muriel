@@ -10,7 +10,7 @@ namespace Muriel
 	private:
 		AbstractCamera* _camera;
 		vector<GameObject*> _gameObjects;
-
+		DirectionalLight* _directionalLight;
 	protected:
 		virtual void CreateCamera();
 

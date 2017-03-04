@@ -6,6 +6,11 @@
 
 namespace Muriel
 {
+	Shader::Shader()
+	{
+
+	}
+
 	Shader::Shader(const string& name, const string& path)
 		: Object(name)
 	{
@@ -44,10 +49,16 @@ namespace Muriel
 		GL::UseShader(0);
 	}
 
-	void Shader::Uniformi(const string& name, const int i)
+	void Shader::Uniform1i(const string& name, const int i)
 	{
 		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, i);
+	}
+
+	void Shader::Uniform1f(const string& name, const float f)
+	{
+		GLint location = GL::GetUniformLocation(_programId, name.c_str());
+		GL::SetUniform(location, f);
 	}
 
 	void Shader::Uniform2f(const string& name, const Glml::Vec2& v)

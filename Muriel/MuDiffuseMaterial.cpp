@@ -23,7 +23,7 @@ namespace Muriel
 		_shader->UniformMat4x4(SHADER_UNIFORM_PROJECTION_VIEW_MATRIX, false, camera->GetProjectionViewMatrix());
 		GL::SetActiveTexture(0);
 		GL::BindTexture(TextureType::Texture2D(), _texture->GetTextureId());
-		_shader->Uniformi(SHADER_UNIFORM_DIFFUSE_TEXTURE, 0);
+		_shader->Uniform1i(SHADER_UNIFORM_DIFFUSE_TEXTURE, 0);
 	}
 
 	void DiffuseMaterial::SetUniforms(GameObject* gameObject)

@@ -9,6 +9,7 @@ namespace Muriel
 	private:
 		string _name;
 	public:
+		Object();
 		Object(const string& name);
 		virtual ~Object();
 

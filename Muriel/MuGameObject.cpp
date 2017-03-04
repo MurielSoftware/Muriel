@@ -24,6 +24,11 @@ namespace Muriel
 		return _transform; 
 	}
 
+	void GameObject::AddComponent(GameComponent* component)
+	{
+		_components.push_back(component);
+	}
+
 	//void GameObject::PreRender(AbstractCamera* camera)
 	//{
 	//	_material->Start();

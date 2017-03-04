@@ -41,6 +41,7 @@ namespace Muriel
 		virtual ~AbstractCamera();
 
 		inline void SetPosition(const Vec3 &position) { _eye = position; }
+		inline const Vec3& GetPosition() const { return _eye; }
 		inline Mat4x4 GetViewMatrix() const { return _viewMatrix; }
 		inline Mat4x4 GetProjectionMatrix() const { return _projMatrix; }
 		inline Mat4x4 GetProjectionViewMatrix() const { return _projViewMatrix; }

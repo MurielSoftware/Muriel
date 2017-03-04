@@ -20,6 +20,7 @@ namespace Muriel
 
 		unsigned CompileShader(ShaderType shaderType, const string& path);
 	public:
+		Shader();
 		Shader(const string& name, const string& path);
 		~Shader();
 
@@ -27,7 +28,8 @@ namespace Muriel
 
 		void Activate();
 		void Deactivate();
-		void Uniformi(const string& name, const int i);
+		void Uniform1i(const string& name, const int i);
+		void Uniform1f(const string& name, const float f);
 		void Uniform2f(const string& name, const Glml::Vec2& v);
 		void Uniform3f(const string& name, const Glml::Vec3& v);
 		void UniformArray(const string& name, float* values, int size);

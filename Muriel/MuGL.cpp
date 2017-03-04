@@ -143,6 +143,11 @@ namespace Muriel
 		glUniform1i(uniformLocation, uniformValue);
 	}
 
+	void GL::SetUniform(const int uniformLocation, const float uniformValue)
+	{
+		glUniform1f(uniformLocation, uniformValue);
+	}
+
 	void GL::SetUniform(const int uniformLocation, const int count, const float* uniformValue)
 	{
 		glUniform1fv(uniformLocation, count, uniformValue);

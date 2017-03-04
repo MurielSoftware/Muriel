@@ -13,7 +13,7 @@ namespace Muriel
 
 		const short COLOR_DEPTH = 256;
 	public:
-		PointLight(const string& name, const Color& color, float intensity, Attenuation attenuation);
+		PointLight(const string& name, const Shader& shader, const Color& color, float intensity, Attenuation attenuation);
 		virtual ~PointLight();
 
 		inline const Attenuation& GetAttenuation() const { return _attenuation; }
