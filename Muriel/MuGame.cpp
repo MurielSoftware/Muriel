@@ -92,7 +92,7 @@ namespace Muriel
 		{
 			_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
 			_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
-			_directionalLight->GetShader().UniformMat4x4("normalMatrix", true, _camera->GetViewMatrix());
+			_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
 			_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
 			_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
 			_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());

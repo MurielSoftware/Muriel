@@ -6,7 +6,7 @@ layout (location = 2) in vec2 texCoord;
 
 uniform mat4 worldMatrix;
 uniform mat4 projectionViewMatrix;
-uniform mat4 normalMatrix;
+uniform mat3 normalMatrix;
 uniform mat4 modelViewMatrix;
 
 out vec3 worldPosOut;
@@ -14,7 +14,10 @@ out vec3 normalOut;
 
 void main()
 {
-    normalOut = normalize(normalMatrix * vec4(normal, 0.0)).xyz;
+    mat3 nm = mat3(modelViewMatrix);
+    nm = transpose(inverse(nm));
+    //mat3 nm = mat3(transpose(inverse(modelViewMatrix)));	
+    normalOut = normalize(normalMatrix * normal);
     worldPosOut = (modelViewMatrix * vec4(position, 1.0)).xyz;
-    gl_Position = projectionViewMatrix * vec4(position, 1.0);
+    gl_Position = projectionViewMatrix * worldMatrix * vec4(position, 1.0);
 }

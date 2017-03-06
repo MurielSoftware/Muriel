@@ -222,7 +222,7 @@ namespace Glml
 		return result;
 	}
 
-	Mat3x3 Mat3x3::INVERT(Mat3x3 m)
+	Mat3x3 Mat3x3::INVERT(const Mat3x3& m)
 	{
 		Mat3x3 result = m;
 		result.Inverse();

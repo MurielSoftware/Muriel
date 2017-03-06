@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Muriel", "Muriel\Muriel.vcxproj", "{E50A7440-3607-4515-B096-0D50DBC90A84}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Glml", "Glml\Glml.vcxproj", "{4C7E8869-C324-4773-9491-C484CA7F17C7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApplication", "TestApplication\TestApplication.vcxproj", "{91D6DF3C-86AA-4260-AABC-94FAD1CC9DFB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GlmlTest", "GlmlTest\GlmlTest.vcxproj", "{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{91D6DF3C-86AA-4260-AABC-94FAD1CC9DFB}.Release|x64.Build.0 = Release|x64
 		{91D6DF3C-86AA-4260-AABC-94FAD1CC9DFB}.Release|x86.ActiveCfg = Release|Win32
 		{91D6DF3C-86AA-4260-AABC-94FAD1CC9DFB}.Release|x86.Build.0 = Release|Win32
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Debug|x64.ActiveCfg = Debug|x64
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Debug|x64.Build.0 = Debug|x64
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Debug|x86.ActiveCfg = Debug|Win32
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Debug|x86.Build.0 = Debug|Win32
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Release|x64.ActiveCfg = Release|x64
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Release|x64.Build.0 = Release|x64
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Release|x86.ActiveCfg = Release|Win32
+		{6ED62BE8-5ED8-44C2-A724-84FD0C86CB5D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

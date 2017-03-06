@@ -33,7 +33,7 @@ namespace Glml
 		Mat3x3 Transpose();
 		const float* Pointer() const;
 
-		static Mat3x3 INVERT(Mat3x3 m);
+		static Mat3x3 INVERT(const Mat3x3& m);
 		static Mat3x3 TRANSFORM_INERTIA_TENSOR(const Quat& q, const Mat3x3& iitBody, const Mat4x3& rotMatrix);
 	};
 }
