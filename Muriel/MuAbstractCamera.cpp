@@ -156,6 +156,8 @@ namespace Muriel
 		_viewMatrix[14] = -Vec3::DOT(_zAxis, _eye);
 
 		_projViewMatrix = _projMatrix * _viewMatrix;
+		_normalMatrix = _viewMatrix;
+		//_normalMatrix.Transpose();
 		_frustum.CalculateFrustum(_projViewMatrix);
 	}
 }

@@ -17,6 +17,7 @@
 #include "Vec2.h"
 #include "Vec3.h"
 #include "Mat4x4.h"
+#include "Mat3x3.h"
 
 using namespace Glml;
 
@@ -50,6 +51,7 @@ namespace Muriel
 		static void SetUniform(const int uniformLocation, const int count, const float* uniformValue);
 		static void SetUniform(const int uniformLocation, const Vec2& uniformValue);
 		static void SetUniform(const int uniformLocation, const Vec3& uniformValue);
+		static void SetUniform(const int uniformLocation, bool transpose, const Mat3x3& uniformValue);
 		static void SetUniform(const int uniformLocation, bool transpose, const Mat4x4& uniformValue);
 
 		static void GenerateTextures(int count, unsigned int* textures);

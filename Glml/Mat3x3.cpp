@@ -2,12 +2,28 @@
 #include "Mat3x3.h"
 #include "Vec3.h"
 #include "Mat4x3.h"
+#include "Mat4x4.h"
 
 namespace Glml
 {
 	Mat3x3::Mat3x3()
 	{
 
+	}
+
+	Mat3x3::Mat3x3(const Mat4x4& m)
+	{
+		data[0] = m[0];
+		data[1] = m[1];
+		data[2] = m[2];
+
+		data[3] = m[3];
+		data[4] = m[4];
+		data[5] = m[5];
+
+		data[6] = m[6];
+		data[7] = m[7];
+		data[8] = m[8];
 	}
 
 	float& Mat3x3::operator[] (int i)
@@ -272,5 +288,10 @@ namespace Glml
 			t57*rotMatrix[9] +
 			t62*rotMatrix[10];
 		return iitWorld;
+	}
+
+	const float* Mat3x3::Pointer() const
+	{
+		return &data[0];
 	}
 }

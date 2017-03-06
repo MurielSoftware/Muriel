@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Mat4x4.h"
+#include "Mat3x3.h"
 #include "Vec3.h"
 #include "Quat.h"
 #include "MuFrustum.h"
@@ -28,6 +29,7 @@ namespace Muriel
 		Mat4x4 _viewMatrix;
 		Mat4x4 _projMatrix;
 		Mat4x4 _projViewMatrix;
+		Mat3x3 _normalMatrix;
 		Frustum _frustum;
 
 		virtual void DoRotate(float headingDegrees, float pitchDegrees, float rollDegrees) = 0;
@@ -42,9 +44,10 @@ namespace Muriel
 
 		inline void SetPosition(const Vec3 &position) { _eye = position; }
 		inline const Vec3& GetPosition() const { return _eye; }
-		inline Mat4x4 GetViewMatrix() const { return _viewMatrix; }
-		inline Mat4x4 GetProjectionMatrix() const { return _projMatrix; }
-		inline Mat4x4 GetProjectionViewMatrix() const { return _projViewMatrix; }
+		inline const Mat4x4& GetViewMatrix() const { return _viewMatrix; }
+		inline const Mat4x4& GetProjectionMatrix() const { return _projMatrix; }
+		inline const Mat4x4& GetProjectionViewMatrix() const { return _projViewMatrix; }
+		inline const Mat3x3& GetNormalMatrix() const { return _normalMatrix; }
 
 		void LookAt(const Vec3 &target);
 		void LookAt(const Vec3 &eye, const Vec3 &target, const Vec3 &up);

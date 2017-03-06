@@ -1,10 +1,29 @@
 #include "stdafx.h"
 #include "Mat4x3.h"
+#include "Mat4x4.h"
 #include "Vec3.h"
 #include "Quat.h"
 
 namespace Glml
 {
+	Mat4x3::Mat4x3(const Mat4x4& m)
+	{
+		data[0] = m[0];
+		data[1] = m[1];
+		data[2] = m[2];
+		data[3] = m[3];
+		
+		data[4] = m[4];
+		data[5] = m[5];
+		data[6] = m[6];
+		data[7] = m[7];
+
+		data[8] = m[8];
+		data[9] = m[9];
+		data[10] = m[10];
+		data[11] = m[11];
+	}
+
 	Mat4x3::Mat4x3()
 	{
 		Identity();

@@ -9,6 +9,7 @@ namespace Glml
 	private:
 		float data[12];
 	public:
+		Mat4x3(const Mat4x4& m);
 		Mat4x3();
 
 		float& operator[] (int i);

@@ -45,7 +45,7 @@ namespace Muriel
 		Texture* texture = TextureManager::GetInstance()->Load("box", "data/textures/box.jpg");
 		DiffuseMaterial* boxMaterial = new DiffuseMaterial(shader, texture);
 		
-		_directionalLight = new DirectionalLight("light", *directionalLightShader, Color(1.0f, 1.0f, 1.0f), 1.7f);
+		_directionalLight = new DirectionalLight("light", *directionalLightShader, Color(1.0f, 1.0f, 1.0f), 0.7f);
 		Box* box = new Box("box");
 		//box->SetMaterial(boxMaterial);
 		box->SetRenderer(new MeshRenderer(box, boxMaterial));
@@ -91,6 +91,8 @@ namespace Muriel
 		for (GameObject* gameObject : _gameObjects)
 		{
 			_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
+			_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
+			_directionalLight->GetShader().UniformMat4x4("normalMatrix", true, _camera->GetViewMatrix());
 			_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
 			_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
 			_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());

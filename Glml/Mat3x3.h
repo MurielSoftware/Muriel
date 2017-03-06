@@ -10,6 +10,7 @@ namespace Glml
 		float data[9];
 	public:
 		Mat3x3();
+		Mat3x3::Mat3x3(const Mat4x4& m);
 
 		float& operator[] (int i);
 		const float& operator[] (int i) const;
@@ -30,6 +31,7 @@ namespace Glml
 		Vec3 TransformTranspose(const Vec3& v);
 		void SetTranspose(const Mat3x3& m);
 		Mat3x3 Transpose();
+		const float* Pointer() const;
 
 		static Mat3x3 INVERT(Mat3x3 m);
 		static Mat3x3 TRANSFORM_INERTIA_TENSOR(const Quat& q, const Mat3x3& iitBody, const Mat4x3& rotMatrix);

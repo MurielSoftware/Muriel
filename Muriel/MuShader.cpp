@@ -79,6 +79,12 @@ namespace Muriel
 		GL::SetUniform(location, size, values);
 	}
 
+	void Shader::UniformMat3x3(const string& name, bool transpose, const Glml::Mat3x3& m)
+	{
+		GLint location = GL::GetUniformLocation(_programId, name.c_str());
+		GL::SetUniform(location, transpose, m);
+	}
+
 	void Shader::UniformMat4x4(const string& name, bool transpose, const Glml::Mat4x4& m)
 	{
 		GLint location = GL::GetUniformLocation(_programId, name.c_str());

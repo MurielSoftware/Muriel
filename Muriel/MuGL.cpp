@@ -163,6 +163,10 @@ namespace Muriel
 		glUniform3fv(uniformLocation, 1, uniformValue.data);
 	}
 
+	void GL::SetUniform(const int uniformLocation, bool transpose, const Mat3x3& uniformValue)
+	{
+		glUniformMatrix3fv(uniformLocation, 1, transpose, uniformValue.Pointer());
+	}
 
 	void GL::SetUniform(const int uniformLocation, bool transpose, const Mat4x4& uniformValue)
 	{

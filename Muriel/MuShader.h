@@ -33,6 +33,7 @@ namespace Muriel
 		void Uniform2f(const string& name, const Glml::Vec2& v);
 		void Uniform3f(const string& name, const Glml::Vec3& v);
 		void UniformArray(const string& name, float* values, int size);
+		void UniformMat3x3(const string& name, bool transpose, const Glml::Mat3x3& m);
 		void UniformMat4x4(const string& name, bool transpose, const Glml::Mat4x4& m);
 	};
 }
