@@ -90,13 +90,13 @@ namespace Muriel
 		_directionalLight->GetShader().Activate();
 		for (GameObject* gameObject : _gameObjects)
 		{
-			_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
+			//_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
 			_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
-			_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
+			//_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
 			_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
-			_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
-			_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());
-			_directionalLight->GetShader().Uniform3f("directionalLight.direction", Vec3(1, 0, 0));
+			//_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
+			//_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());
+			//_directionalLight->GetShader().Uniform3f("directionalLight.direction", Vec3(1, 0, 0));
 			_directionalLight->GetShader().Uniform3f("cameraPosition", _camera->GetPosition());	
 
 			IRenderer* renderer = gameObject->GetRenderer();

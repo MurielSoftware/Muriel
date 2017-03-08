@@ -1,51 +1,36 @@
 #version 330
 
-in vec3 worldPosOut;
-in vec3 normalOut;
+in vec3 PositionOut;
+in vec3 NormalOut;
+in vec3 CameraOut;
 
 out vec4 outputColor;
 
-struct BaseLight
-{
-    vec3 color;
-    float intensity;
-};
-
-struct DirectionalLight
-{
-    BaseLight base;
-    vec3 direction;
-};
-
-uniform DirectionalLight directionalLight;
-uniform vec3 cameraPosition;
-
-vec4 CalcDirectionalLight(BaseLight base, vec3 direction)
+vec4 CalcDirectionalLight(vec3 color, float intensity, vec3 direction)
 {
   float specularPower = 50.0;
   float specularIntensity = 0.5;
-  float diffuseFactor = dot(normalOut, -direction);
-  vec4 diffuseColor = vec4(0,0,0,0);
-  vec4 specularColor = vec4(0,0,0,0);
-  vec4 ambientColor = vec4(0.05, 0.05, 0.05, 1.0);
-   
+  float diffuseFactor = dot(NormalOut, -direction);
+  vec4 diffuseColor = vec4(0, 0, 0, 0);
+  vec4 specularColor = vec4(0, 0, 0, 0);
+  vec4 ambientColor = vec4(0.1, 0.1, 0.1, 1.0);
   if(diffuseFactor > 0.0)
   {
-    diffuseColor = vec4(base.color, 1.0) * base.intensity * diffuseFactor;
-    vec3 directionToEye = normalize(cameraPosition - worldPosOut);
+    diffuseColor = vec4(color, 1.0) * intensity * diffuseFactor;
+    vec3 directionToEye = normalize(CameraOut - PositionOut);
     vec3 halfDirection = normalize(directionToEye - direction);
-    float specularFactor = dot(halfDirection, normalOut);
+    float specularFactor = dot(halfDirection, NormalOut);
     specularFactor = pow(specularFactor, specularPower);
     if(specularFactor > 0.0)
     {
-      specularColor = vec4(base.color, 1.0) * specularIntensity * specularFactor;
+      specularColor = vec4(color, 1.0) * specularIntensity * specularFactor;
     }
   }
   
-  return ambientColor + diffuseColor + specularColor; 
+  return ambientColor + specularColor + diffuseColor; 
 }
 
-void main()
+void main( void )
 {
-  outputColor = CalcDirectionalLight(directionalLight.base, -directionalLight.direction);
+  outputColor = CalcDirectionalLight(vec3(1.0, 1.0, 1.0), 0.7, -vec3(1.0, 0.0, 0.0));       
 }
