@@ -29,13 +29,13 @@ namespace Muriel
 		Transform();
 		virtual ~Transform();
 
-		const Vec3& GetScale();
-		const Vec3 GetRotationEuler()const;
-		const Vec3& GetPosition();
+		const Vec3 GetScale() const;
+		const Vec3 GetRotationEuler() const;
+		const Vec3 GetPosition() const;
 		const Mat4x4& GetWorldMatrix();
-		const Vec3& GetForward();
-		const Vec3& GetRight();
-		const Vec3& GetUp();
+		const Vec3 GetForward() const;
+		const Vec3 GetRight() const;
+		const Vec3 GetUp() const;
 		void SetScale(float x, float y, float z);
 		void SetScale(const Vec3& scale);
 		void SetRotationEuler(float x, float y, float z);

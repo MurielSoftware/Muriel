@@ -144,6 +144,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuMS3DImporter.h" />
+    <ClInclude Include="MuMS3DModel.h" />
+    <ClInclude Include="MuMS3DStructures.h" />
+    <ClInclude Include="MuModel.h" />
+    <ClInclude Include="MuModelManager.h" />
     <ClInclude Include="MuGameComponent.h" />
     <ClInclude Include="MuAttenuation.h" />
     <ClInclude Include="MuBaseLight.h" />
@@ -239,9 +244,12 @@
     <ClCompile Include="MuGame.cpp" />
     <ClCompile Include="MuKeyboard.cpp" />
     <ClCompile Include="MuMeshRenderer.cpp" />
+    <ClCompile Include="MuModelManager.cpp" />
     <ClCompile Include="MuMouse.cpp" />
     <ClCompile Include="MuEngine.cpp" />
     <ClCompile Include="MuExceptions.cpp" />
+    <ClCompile Include="MuMS3DImporter.cpp" />
+    <ClCompile Include="MuMS3DModel.cpp" />
     <ClCompile Include="MuObject.cpp" />
     <ClCompile Include="MuOrbitCamera.cpp" />
     <ClCompile Include="MuPointLight.cpp" />

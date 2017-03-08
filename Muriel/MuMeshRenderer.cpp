@@ -30,7 +30,7 @@ namespace Muriel
 		IndexBuffer* indexBuffer = _gameObject->GetIndexBuffer();
 		_material->SetUniforms(_gameObject);
 		vertexBuffer->Bind();
-		for (int i = 0; i < vertexBuffer->GetVertexAttributeInfosCount(); i++)
+		for (unsigned i = 0; i < vertexBuffer->GetVertexAttributeInfosCount(); i++)
 		{
 			const VertexAttributeInformation vertexAttributeInformation = vertexBuffer->GetVertexAttributeInformation(i);
 			GL::EnableVertexAttribute(vertexAttributeInformation.GetIndex());
@@ -39,7 +39,7 @@ namespace Muriel
 		indexBuffer->Bind();
 		GL::DrawElements(GraphicsPrimitiveType::Triangles(), indexBuffer->GetNumberOfElements(), indexBuffer->GetIndexDataType(), (void*)0);
 
-		for (int i = 0; i < vertexBuffer->GetVertexAttributeInfosCount(); i++)
+		for (unsigned i = 0; i < vertexBuffer->GetVertexAttributeInfosCount(); i++)
 		{
 			GL::DisableVertexAttribute(vertexBuffer->GetVertexAttributeInformation(i).GetIndex());
 		}

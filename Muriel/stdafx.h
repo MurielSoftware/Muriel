@@ -9,6 +9,7 @@
 #pragma comment(lib, "glu32.lib")
 #pragma comment(lib, "../glew-2.0.0/lib/Release/Win32/glew32.lib")
 #pragma comment(lib, "../soil-1.16.0/lib/soil32.lib")
+#pragma warning(disable: 4251)
 
 #include "targetver.h"
 

@@ -13,7 +13,7 @@ namespace Muriel
 
 	}
 
-	const Vec3& Transform::GetScale()
+	const Vec3 Transform::GetScale() const
 	{
 		return Vec3(_scaleMatrix[0], _scaleMatrix[5], _scaleMatrix[10]);
 	}
@@ -23,7 +23,7 @@ namespace Muriel
 		return _rotation.ToVector();
 	}
 
-	const Vec3& Transform::GetPosition()
+	const Vec3 Transform::GetPosition() const
 	{
 		return Vec3(_scaleMatrix[12], _scaleMatrix[13], _scaleMatrix[14]);
 	}
@@ -34,17 +34,17 @@ namespace Muriel
 		return _worldMatrix;
 	}
 
-	const Vec3& Transform::GetForward()
+	const Vec3 Transform::GetForward() const
 	{
 		return Vec3(_scaleMatrix[8], _scaleMatrix[9], _scaleMatrix[10]);
 	}
 
-	const Vec3& Transform::GetRight()
+	const Vec3 Transform::GetRight() const
 	{
 		return Vec3(_scaleMatrix[0], _scaleMatrix[1], _scaleMatrix[2]);
 	}
 
-	const Vec3& Transform::GetUp()
+	const Vec3 Transform::GetUp() const
 	{
 		return Vec3(_scaleMatrix[4], _scaleMatrix[5], _scaleMatrix[6]);
 	}

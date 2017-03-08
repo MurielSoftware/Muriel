@@ -1,10 +1,11 @@
 #pragma once
 
+#include "stdafx.h"
 #include "MuGL.h"
 
 namespace Muriel
 {
-	class Buffer
+	class MURIEL_API Buffer
 	{
 	private:
 		BufferType _bufferType;

@@ -103,6 +103,18 @@
     <Filter Include="Source Files\Render\Renderers">
       <UniqueIdentifier>{0d2c9ec9-d57e-49d3-882a-615e3cd06110}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Resources\Models">
+      <UniqueIdentifier>{0488d825-eb6b-45ca-b913-5659c00db363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources\Models\MS3D">
+      <UniqueIdentifier>{f430ac9e-b4fd-4fd7-b2fb-8bb425fd3654}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources\Models">
+      <UniqueIdentifier>{40812ab9-db51-4de5-bbd4-4ff5b8cacf9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources\Models\MS3D">
+      <UniqueIdentifier>{dc50ff42-a564-47e2-92b0-a8bbefde9fa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -282,6 +294,21 @@
     <ClInclude Include="MuGameComponent.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="MuModel.h">
+      <Filter>Header Files\Resources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MuModelManager.h">
+      <Filter>Header Files\Resources\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMS3DStructures.h">
+      <Filter>Header Files\Resources\Models\MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMS3DModel.h">
+      <Filter>Header Files\Resources\Models\MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="MuMS3DImporter.h">
+      <Filter>Header Files\Resources\Models\MS3D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -406,6 +433,15 @@
     </ClCompile>
     <ClCompile Include="MuGameComponent.cpp">
       <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMS3DImporter.cpp">
+      <Filter>Source Files\Resources\Models\MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMS3DModel.cpp">
+      <Filter>Source Files\Resources\Models\MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="MuModelManager.cpp">
+      <Filter>Source Files\Resources\Models</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

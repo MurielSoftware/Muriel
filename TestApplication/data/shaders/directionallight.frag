@@ -30,7 +30,7 @@ vec4 CalcDirectionalLight(vec3 color, float intensity, vec3 direction)
   return ambientColor + specularColor + diffuseColor; 
 }
 
-void main( void )
+void main()
 {
   outputColor = CalcDirectionalLight(vec3(1.0, 1.0, 1.0), 0.7, -vec3(1.0, 0.0, 0.0));       
 }

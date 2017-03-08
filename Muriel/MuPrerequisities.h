@@ -17,6 +17,10 @@ namespace Muriel
 	class GameObject;
 	class IndexBuffer;
 	class MeshRenderer;
+	class Model;
+	class ModelManager;
+	class MS3DImporter;
+	class MS3DModel;
 	class Object;
 	class OrbitCamera;
 	class PointLight;

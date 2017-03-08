@@ -14,10 +14,8 @@ out vec3 CameraOut;
 
 void main()
 {
-   mat3 nm = transpose(inverse(mat3(modelViewMatrix)));
-   NormalOut = nm * normal;
-   //NormalOut = normalize(modelViewMatrix * vec4(normal, 0.0)).xyz;
-   CameraOut = (modelViewMatrix * vec4(cameraPosition, 1.0)).xyz;
+   NormalOut = normalize(modelViewMatrix * vec4(normal, 0.0)).xyz;
+ //  CameraOut = (vec4(cameraPosition, 1.0)).xyz;
    PositionOut = (modelViewMatrix * vec4(position, 1.0)).xyz;
    gl_Position = projectionViewMatrix * vec4(position, 1.0);
 }
