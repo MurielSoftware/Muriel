@@ -17,13 +17,13 @@ namespace Glml
 		data[1] = m[1];
 		data[2] = m[2];
 
-		data[3] = m[3];
-		data[4] = m[4];
-		data[5] = m[5];
+		data[3] = m[4];
+		data[4] = m[5];
+		data[5] = m[6];
 
-		data[6] = m[6];
-		data[7] = m[7];
-		data[8] = m[8];
+		data[6] = m[8];
+		data[7] = m[9];
+		data[8] = m[10];
 	}
 
 	float& Mat3x3::operator[] (int i)

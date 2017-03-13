@@ -2,14 +2,15 @@
 
 in vec3 PositionOut;
 in vec3 NormalOut;
-in vec3 CameraOut;
 
 out vec4 outputColor;
+
+uniform vec3 cameraPosition;
 
 vec4 CalcDirectionalLight(vec3 color, float intensity, vec3 direction)
 {
   float specularPower = 50.0;
-  float specularIntensity = 0.5;
+  float specularIntensity = 5.5;
   float diffuseFactor = dot(NormalOut, -direction);
   vec4 diffuseColor = vec4(0, 0, 0, 0);
   vec4 specularColor = vec4(0, 0, 0, 0);
@@ -17,7 +18,7 @@ vec4 CalcDirectionalLight(vec3 color, float intensity, vec3 direction)
   if(diffuseFactor > 0.0)
   {
     diffuseColor = vec4(color, 1.0) * intensity * diffuseFactor;
-    vec3 directionToEye = normalize(CameraOut - PositionOut);
+    vec3 directionToEye = normalize(cameraPosition - PositionOut);
     vec3 halfDirection = normalize(directionToEye - direction);
     float specularFactor = dot(halfDirection, NormalOut);
     specularFactor = pow(specularFactor, specularPower);

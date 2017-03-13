@@ -67,10 +67,10 @@ namespace Muriel
 
 	void Box::Init()
 	{
-		_vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPosNormTex), 24);
-		_vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
-		_vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
-		_vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
-		_indexBuffer = new IndexBuffer((void*)indices, sizeof(unsigned short), 36, GraphicsDataType::UnsignedShort());
+		//_vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPosNormTex), 24);
+		//_vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
+		//_vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
+		//_vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
+		//_indexBuffer = new IndexBuffer((void*)indices, sizeof(unsigned short), 36, GraphicsDataType::UnsignedShort());
 	}
 }

@@ -14,6 +14,7 @@
 #include "MuMeshRenderer.h"
 #include "MuDiffuseMaterial.h"
 #include "MuDirectionalLight.h"
+#include "MuModelManager.h"
 
 namespace Muriel
 {
@@ -44,13 +45,15 @@ namespace Muriel
 		Shader* directionalLightShader = ShaderManager::GetInstance()->Load("directionallight", "data/shaders/directionallight");
 		Texture* texture = TextureManager::GetInstance()->Load("box", "data/textures/box.jpg");
 		DiffuseMaterial* boxMaterial = new DiffuseMaterial(shader, texture);
-		
+		Model* model = ModelManager::GetInstance()->Load("scooter", "data/models/scooter.ms3d");
 		_directionalLight = new DirectionalLight("light", *directionalLightShader, Color(1.0f, 1.0f, 1.0f), 0.7f);
-		Box* box = new Box("box");
-		//box->SetMaterial(boxMaterial);
-		box->SetRenderer(new MeshRenderer(box, boxMaterial));
-		box->GetTransform().SetPosition(0, 0, 0);
-		_gameObjects.push_back(box);
+		//Box* box = new Box("box");
+		//box->SetRenderer(new MeshRenderer(box, boxMaterial));
+		//box->GetTransform().SetPosition(0, 0, 0);
+		GameObject* gameObject = new GameObject("scooter");
+		gameObject->SetModel(model);
+		gameObject->SetRenderer(new MeshRenderer(gameObject, boxMaterial));
+		_gameObjects.push_back(gameObject);
 
 	}
 
@@ -93,7 +96,7 @@ namespace Muriel
 			//_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
 			_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
 			_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
-			//_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
+			_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
 			
 			//_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
 			//_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());

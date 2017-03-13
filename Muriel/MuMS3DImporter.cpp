@@ -23,8 +23,8 @@ namespace Muriel
 		LoadAnimationInfo(model, file);
 		LoadJoints(model, file);
 		file.close();
-		model->Setup();
-		model->CreateVBO();
+		//model->Setup();
+		model->CreateBuffers();
 		return model;
 	}
 

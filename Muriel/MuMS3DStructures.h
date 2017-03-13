@@ -1,5 +1,6 @@
 #pragma once
 
+#include "stdafx.h"
 #include "Quat.h"
 #include "Vec3.h"
 //#include "VertexBufferObject.h"
@@ -42,7 +43,8 @@ namespace Muriel
 		unsigned short* indices;
 		char material;
 
-		//	VertexBufferObject* vertexBufferObject;
+	//	VertexBuffer* vertexBuffer;
+		IndexBuffer* indexBuffer;
 	};
 
 	struct MS3DMaterial

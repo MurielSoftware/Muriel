@@ -44,7 +44,7 @@ namespace Muriel
 		inline MS3DJoint* GetJoints() { return _joints; }
 
 		void Setup();
-		void CreateVBO();
+		void CreateBuffers();
 		void Animate(float dt);
 		void Render();
 	};

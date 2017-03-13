@@ -21,6 +21,6 @@ namespace Muriel
 
 	void OrbitCamera::DoAdditionalEyeUpdateCamera()
 	{
-		_eye = _target + _zAxis * 10.0f;
+		_eye = _target + _zAxis * 140.0f;
 	}
 }

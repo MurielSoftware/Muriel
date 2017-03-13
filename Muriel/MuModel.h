@@ -13,6 +13,8 @@ namespace Muriel
 		unsigned short _trianglesCount;
 		unsigned short _materialsCount;
 		BoundingBox _boundingBox;
+		VertexBuffer* _vertexBuffer;
+		//IndexBuffer* _indexBuffer;
 
 		Model(const string& name)
 			: Object(name)
@@ -32,6 +34,8 @@ namespace Muriel
 		inline unsigned short GetMaterialsCount() const { return _materialsCount; }
 		inline void SetBoundingBox(const BoundingBox& boundingBox) { _boundingBox = boundingBox; }
 		inline BoundingBox& GetBoundingBox() { return _boundingBox; }
+		inline VertexBuffer* GetVertexBuffer() { return _vertexBuffer; }
+		//inline IndexBuffer* GetIndexBuffer() { return _indexBuffer; }
 
 		virtual void Render() = 0;
 	};

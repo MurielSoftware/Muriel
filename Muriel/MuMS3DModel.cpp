@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "MuMS3DModel.h"
+#include "MuVertexPosNormTex.h"
+#include "MuVertexBuffer.h"
+#include "MuIndexBuffer.h"
 
 namespace Muriel
 {
@@ -73,8 +76,73 @@ namespace Muriel
 		}
 	}
 
-	void MS3DModel::CreateVBO()
+	void MS3DModel::CreateBuffers()
 	{
+		int verticesInformationIndex = 0;
+		VertexPosNormTex* vertices = new VertexPosNormTex[_verticesCount];
+
+		for (unsigned i = 0; i < _verticesCount; i++)
+		{
+			Vec3 position = Vec3(_vertices[i].vert.x, _vertices[i].vert.y, _vertices[i].vert.z);
+			vertices[verticesInformationIndex++] = VertexPosNormTex(position);
+		}
+
+		for (unsigned i = 0; i < _meshesCount; i++)
+		{
+			int indicesCount = _meshes[i].numTris * 3;
+			unsigned short* indices = new unsigned short[indicesCount];
+			int indicesIndex = 0;
+			for (unsigned j = 0; j < _meshes[i].numTris; j++)
+			{
+				int triangleIndex = _meshes[i].indices[j];
+				MS3DTriangle* triangle = &_triangles[triangleIndex];
+				for (unsigned k = 0; k < 3; k++)
+				{
+					unsigned short verticesIndex = triangle->vertIndices[k];
+					indices[indicesIndex++] = verticesIndex;
+					vertices[verticesIndex].SetNormal(Vec3(triangle->normals[k].x, triangle->normals[k].y, triangle->normals[k].z));
+					vertices[verticesIndex].SetTexCoord(Vec2(triangle->texCoords[0][k], 1.0f - triangle->texCoords[1][k]));
+				}
+			}
+			_meshes[i].indexBuffer = new IndexBuffer((void*)indices, sizeof(unsigned short), indicesCount, GraphicsDataType::UnsignedShort());
+		}
+
+		_vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPosNormTex), _verticesCount);
+		_vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
+		_vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
+		_vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
+
+		//for (int i = 0; i < _meshesCount; i++)
+		//{
+		//	int verticesCount = _meshes[i].numTris * 3;
+		//	int indicesCount = _meshes[i].numTris;
+		//	VertexPosNormTex* vertices = new VertexPosNormTex[verticesCount];
+		//	int* indices = new int[indicesCount];
+		//	int vertexInformationsIndex = 0;
+		//	int indicesIndex = 0;
+		//	for (int j = 0; j < _meshes[i].numTris; j++)
+		//	{
+		//		int triangleIndex = _meshes[i].indices[j];
+		//		MS3DTriangle* triangle = &_triangles[triangleIndex];
+		//		for (int k = 0; k < 3; k++)
+		//		{
+		//			int vertexIndex = triangle->vertIndices[k];
+		//			Vec3 position = Vec3(_vertices[vertexIndex].vert.x, _vertices[vertexIndex].vert.y, _vertices[vertexIndex].vert.z);
+		//			Vec3 normal = Vec3(triangle->normals[k].x, triangle->normals[k].y, triangle->normals[k].z);
+		//			Vec2 texture = Vec2(triangle->texCoords[0][k], 1.0f - triangle->texCoords[1][k]);
+		//			vertices[vertexInformationsIndex++] = VertexPosNormTex(position, normal, texture);
+		//		}
+		//		indices[indicesIndex] = indicesIndex;
+		//		indicesIndex++;
+		//	}
+
+		//	_meshes[i].vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPosNormTex), verticesCount);
+		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
+		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
+		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
+		//	_meshes[i].indexBuffer = new IndexBuffer((void*)indices, sizeof(unsigned short), indicesCount, GraphicsDataType::UnsignedShort());
+
+		//}
 		//for (int i = 0; i < _meshesCount; i++)
 		//{
 		//	int vi = 0;
@@ -211,96 +279,114 @@ namespace Muriel
 	}
 
 
-	// CPU
-	void MS3DModel::Render()
-	{
-		static float act = 1.0f;
-		this->Animate(act / 100.0f);
-		act += 1.f;
-
-		if (act == 100.0f) act = 0.0f;
-
-		for (int i = 0; i < _meshesCount; i++)
-		{
-			int materialIndex = _meshes[i].material;
-			if (materialIndex >= 0)
-			{
-				//TextureManager::GetInstance()->Get(_materials[materialIndex].textureName)->Bind();
-			}
-			glBegin(GL_TRIANGLES);
-			for (int j = 0; j < _meshes[i].numTris; j++)
-			{
-				int triangleIndex = _meshes[i].indices[j];
-				const MS3DTriangle* pTri = &_triangles[triangleIndex];
-
-				for (int k = 0; k < 3; k++)
-				{
-					const MS3DVertex* vertex = &_vertices[pTri->vertIndices[k]];
-					if (vertex->bone == -1)
-					{
-						glTexCoord2f(pTri->texCoords[0][k], 1 - pTri->texCoords[1][k]);
-						glVertex3f(vertex->vert.x, vertex->vert.y, vertex->vert.z);
-					}
-					else
-					{
-						const MS3DJoint* joint = &_joints[vertex->bone];
-						glTexCoord2f(pTri->texCoords[0][k], 1 - pTri->texCoords[1][k]);
-						Glml::Vec3 transformedVector = (joint->finalQuaternion * vertex->vert) + joint->finalVector;
-						Glml::Vec3 transformedNormal = (joint->finalQuaternion * pTri->normals[k]) + joint->finalVector;
-						glNormal3f(transformedNormal.x, transformedNormal.y, transformedNormal.z);
-						glVertex3f(transformedVector.x, transformedVector.y, transformedVector.z);
-					}
-				}
-			}
-			glEnd();
-		}
-
-		glDisable(GL_DEPTH_TEST);
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glLineWidth(3.0f);
-		glBegin(GL_LINES);
-		for (int x = 1; x < this->_jointsCount; x++)
-		{
-			glVertex3f(this->_joints[x].finalVector.x, this->_joints[x].finalVector.y, this->_joints[x].finalVector.z);
-			glVertex3f(this->_joints[this->_joints[x].parentIndex].finalVector.x, this->_joints[this->_joints[x].parentIndex].finalVector.y, this->_joints[this->_joints[x].parentIndex].finalVector.z);
-		}
-		glEnd();
-		glEnable(GL_DEPTH_TEST);
-		glColor3f(1.0f, 1.0f, 1.0f);
-	}
-
-	// vbo + shader
+	 //CPU
 	//void MS3DModel::Render()
 	//{
-	//	static float act = 1.0f;
-	//	this->Animate(act / 100.0f);
-	//	act += 1.f;
-	//
-	//	if (act == 100.0f) act = 0.0f;
-	//
-	//	ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Activate();
+	////	static float act = 1.0f;
+	//////	this->Animate(act / 100.0f);
+	////	act += 1.f;
+
+	////	if (act == 100.0f) act = 0.0f;
+
 	//	for (int i = 0; i < _meshesCount; i++)
 	//	{
 	//		int materialIndex = _meshes[i].material;
 	//		if (materialIndex >= 0)
 	//		{
-	//			TextureManager::GetInstance()->Get(_materials[materialIndex].textureName)->Bind();
+	//			//TextureManager::GetInstance()->Get(_materials[materialIndex].textureName)->Bind();
 	//		}
-	//		_meshes[i].vertexBufferObject->Render();
+	//		glBegin(GL_TRIANGLES);
+	//		for (int j = 0; j < _meshes[i].numTris; j++)
+	//		{
+	//			int triangleIndex = _meshes[i].indices[j];
+	//			const MS3DTriangle* pTri = &_triangles[triangleIndex];
+
+	//			for (int k = 0; k < 3; k++)
+	//			{
+	//				const MS3DVertex* vertex = &_vertices[pTri->vertIndices[k]];
+	//				//if (vertex->bone == -1)
+	//				//{
+	//					glTexCoord2f(pTri->texCoords[0][k], 1 - pTri->texCoords[1][k]);
+	//					glVertex3f(vertex->vert.x, vertex->vert.y, vertex->vert.z);
+	//				//}
+	//				//else
+	//				//{
+	//				//	const MS3DJoint* joint = &_joints[vertex->bone];
+	//				//	glTexCoord2f(pTri->texCoords[0][k], 1 - pTri->texCoords[1][k]);
+	//				//	Glml::Vec3 transformedVector = (joint->finalQuaternion * vertex->vert) + joint->finalVector;
+	//				//	Glml::Vec3 transformedNormal = (joint->finalQuaternion * pTri->normals[k]) + joint->finalVector;
+	//				//	glNormal3f(transformedNormal.x, transformedNormal.y, transformedNormal.z);
+	//				//	glVertex3f(transformedVector.x, transformedVector.y, transformedVector.z);
+	//				//}
+	//			}
+	//		}
+	//		glEnd();
 	//	}
-	//	ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Deactivate();
-	//
+
 	//	glDisable(GL_DEPTH_TEST);
 	//	glColor3f(1.0f, 0.0f, 0.0f);
 	//	glLineWidth(3.0f);
 	//	glBegin(GL_LINES);
-	//	for (int x = 1; x < this->_jointsCount; x++)
-	//	{
-	//		glVertex3f(this->_joints[x].finalVector.x, this->_joints[x].finalVector.y, this->_joints[x].finalVector.z);
-	//		glVertex3f(this->_joints[this->_joints[x].parentIndex].finalVector.x, this->_joints[this->_joints[x].parentIndex].finalVector.y, this->_joints[this->_joints[x].parentIndex].finalVector.z);
-	//	}
+	//	//for (int x = 1; x < this->_jointsCount; x++)
+	//	//{
+	//	//	glVertex3f(this->_joints[x].finalVector.x, this->_joints[x].finalVector.y, this->_joints[x].finalVector.z);
+	//	//	glVertex3f(this->_joints[this->_joints[x].parentIndex].finalVector.x, this->_joints[this->_joints[x].parentIndex].finalVector.y, this->_joints[this->_joints[x].parentIndex].finalVector.z);
+	//	//}
 	//	glEnd();
 	//	glEnable(GL_DEPTH_TEST);
 	//	glColor3f(1.0f, 1.0f, 1.0f);
 	//}
+
+	// vbo + shader
+	void MS3DModel::Render()
+	{
+		_vertexBuffer->Bind();
+		for (unsigned i = 0; i < _vertexBuffer->GetVertexAttributeInfosCount(); i++)
+		{
+			const VertexAttributeInformation vertexAttributeInformation = _vertexBuffer->GetVertexAttributeInformation(i);
+			GL::EnableVertexAttribute(vertexAttributeInformation.GetIndex());
+			GL::SetVertexAttribute(vertexAttributeInformation.GetIndex(), vertexAttributeInformation.GetSize(), vertexAttributeInformation.GetGraphicsDataType(), vertexAttributeInformation.GetNormalized(), vertexAttributeInformation.GetStride(), vertexAttributeInformation.GetOffset());
+		}
+		for (unsigned i = 0; i < _meshesCount; i++)
+		{
+			_meshes[i].indexBuffer->Bind();
+			GL::DrawElements(GraphicsPrimitiveType::Triangles(), _meshes[i].indexBuffer->GetNumberOfElements(), _meshes[i].indexBuffer->GetIndexDataType(), (void*)0);
+			_meshes[i].indexBuffer->Unbind();
+		}
+		for (unsigned i = 0; i < _vertexBuffer->GetVertexAttributeInfosCount(); i++)
+		{
+			GL::DisableVertexAttribute(_vertexBuffer->GetVertexAttributeInformation(i).GetIndex());
+		}
+		_vertexBuffer->Unbind();
+		//static float act = 1.0f;
+		//this->Animate(act / 100.0f);
+		//act += 1.f;
+	
+		//if (act == 100.0f) act = 0.0f;
+	
+		//ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Activate();
+		//for (int i = 0; i < _meshesCount; i++)
+		//{
+		//	int materialIndex = _meshes[i].material;
+		//	if (materialIndex >= 0)
+		//	{
+		//		TextureManager::GetInstance()->Get(_materials[materialIndex].textureName)->Bind();
+		//	}
+		//	_meshes[i].vertexBufferObject->Render();
+		//}
+		//ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Deactivate();
+	
+		//glDisable(GL_DEPTH_TEST);
+		//glColor3f(1.0f, 0.0f, 0.0f);
+		//glLineWidth(3.0f);
+		//glBegin(GL_LINES);
+		//for (int x = 1; x < this->_jointsCount; x++)
+		//{
+		//	glVertex3f(this->_joints[x].finalVector.x, this->_joints[x].finalVector.y, this->_joints[x].finalVector.z);
+		//	glVertex3f(this->_joints[this->_joints[x].parentIndex].finalVector.x, this->_joints[this->_joints[x].parentIndex].finalVector.y, this->_joints[this->_joints[x].parentIndex].finalVector.z);
+		//}
+		//glEnd();
+		//glEnable(GL_DEPTH_TEST);
+		//glColor3f(1.0f, 1.0f, 1.0f);
+	}
 }
