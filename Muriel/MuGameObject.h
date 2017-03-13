@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "MuObject.h"
 #include "MuTransform.h"
+#include "MuBoundingBox.h"
 
 #include <vector>
 
@@ -12,6 +13,7 @@ namespace Muriel
 	{
 	private:
 		Transform _transform;
+		BoundingBox _transformedBoundingBox;
 	protected:
 		IRenderer* _renderer;
 		Model* _model;
@@ -25,7 +27,9 @@ namespace Muriel
 		inline IRenderer* GetRenderer() { return _renderer; }
 		inline Model* GetModel() { return _model; }
 		inline vector<GameComponent*>& GetComponents() { return _components; }
+		
 		virtual Transform& GetTransform();
 		virtual void AddComponent(GameComponent* component);
+		virtual const BoundingBox& GetTransformedBoundingBox();
 	};
 }

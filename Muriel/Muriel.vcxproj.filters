@@ -312,6 +312,15 @@
     <ClInclude Include="MuBumpMaterial.h">
       <Filter>Header Files\Render\Materials</Filter>
     </ClInclude>
+    <ClInclude Include="MuVertex.h">
+      <Filter>Header Files\Render\Geometrics</Filter>
+    </ClInclude>
+    <ClInclude Include="MuTriangle.h">
+      <Filter>Header Files\Render\Geometrics</Filter>
+    </ClInclude>
+    <ClInclude Include="MuVertexPos.h">
+      <Filter>Header Files\Buffers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -198,6 +198,9 @@
     <ClInclude Include="MuTextureType.h" />
     <ClInclude Include="MuTimer.h" />
     <ClInclude Include="MuTransform.h" />
+    <ClInclude Include="MuTriangle.h" />
+    <ClInclude Include="MuVertex.h" />
+    <ClInclude Include="MuVertexPos.h" />
     <ClInclude Include="MuVertexPosNormTex.h" />
     <ClInclude Include="MuWindow.h" />
     <ClInclude Include="MuSceneManager.h" />

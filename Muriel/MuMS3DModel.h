@@ -45,6 +45,7 @@ namespace Muriel
 
 		void Setup();
 		void CreateBuffers();
+		void CreateBoundingBox();
 		void Animate(float dt);
 		void Render();
 	};

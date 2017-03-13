@@ -22,6 +22,7 @@ namespace Muriel
 		LoadJoints(model, file);
 		file.close();
 		//model->Setup();
+		model->CreateBoundingBox();
 		model->CreateBuffers();
 		return model;
 	}
@@ -34,16 +35,13 @@ namespace Muriel
 
 	void MS3DImporter::Loadvertices(MS3DModel* model, ifstream& file)
 	{
-		//BoundingBox boundingBox;
 		unsigned short numVertices;
 		file.read((char*)&numVertices, sizeof(unsigned short));
 		MS3DVertex* vertices = new MS3DVertex[numVertices];
 		for (int i = 0; i < numVertices; i++)
 		{
 			file.read((char*)&vertices[i], sizeof(MS3DVertex));
-			//axisAlignedBox.Update(vertices[i].vert);
 		}
-		//model->SetBoundingBox(boundingBox);
 		model->SetVerticesCount(numVertices);
 		model->SetVertices(vertices);
 	}

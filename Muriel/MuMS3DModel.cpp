@@ -3,6 +3,7 @@
 #include "MuVertexPosNormTex.h"
 #include "MuVertexBuffer.h"
 #include "MuIndexBuffer.h"
+#include <cfloat>
 
 namespace Muriel
 {
@@ -14,7 +15,6 @@ namespace Muriel
 		_meshes = NULL;
 		_materials = NULL;
 		_joints = NULL;
-		//		_aabb = NULL;
 	}
 
 	MS3DModel::~MS3DModel()
@@ -24,14 +24,12 @@ namespace Muriel
 		delete[] _meshes;
 		delete[] _materials;
 		delete[] _joints;
-		//	delete _aabb;
 
 		_vertices = NULL;
 		_triangles = NULL;
 		_meshes = NULL;
 		_materials = NULL;
 		_joints = NULL;
-		//_aabb = NULL;
 	}
 
 	void MS3DModel::Setup()
@@ -111,68 +109,41 @@ namespace Muriel
 		_vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
 		_vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
 		_vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
+	}
 
-		//for (int i = 0; i < _meshesCount; i++)
-		//{
-		//	int verticesCount = _meshes[i].numTris * 3;
-		//	int indicesCount = _meshes[i].numTris;
-		//	VertexPosNormTex* vertices = new VertexPosNormTex[verticesCount];
-		//	int* indices = new int[indicesCount];
-		//	int vertexInformationsIndex = 0;
-		//	int indicesIndex = 0;
-		//	for (int j = 0; j < _meshes[i].numTris; j++)
-		//	{
-		//		int triangleIndex = _meshes[i].indices[j];
-		//		MS3DTriangle* triangle = &_triangles[triangleIndex];
-		//		for (int k = 0; k < 3; k++)
-		//		{
-		//			int vertexIndex = triangle->vertIndices[k];
-		//			Vec3 position = Vec3(_vertices[vertexIndex].vert.x, _vertices[vertexIndex].vert.y, _vertices[vertexIndex].vert.z);
-		//			Vec3 normal = Vec3(triangle->normals[k].x, triangle->normals[k].y, triangle->normals[k].z);
-		//			Vec2 texture = Vec2(triangle->texCoords[0][k], 1.0f - triangle->texCoords[1][k]);
-		//			vertices[vertexInformationsIndex++] = VertexPosNormTex(position, normal, texture);
-		//		}
-		//		indices[indicesIndex] = indicesIndex;
-		//		indicesIndex++;
-		//	}
-
-		//	_meshes[i].vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPosNormTex), verticesCount);
-		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), 0);
-		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(1, 3, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3));
-		//	_meshes[i].vertexBuffer->AddVertexAttributeInformation(2, 2, GraphicsDataType::Float(), false, sizeof(VertexPosNormTex), sizeof(Vec3) * 2);
-		//	_meshes[i].indexBuffer = new IndexBuffer((void*)indices, sizeof(unsigned short), indicesCount, GraphicsDataType::UnsignedShort());
-
-		//}
-		//for (int i = 0; i < _meshesCount; i++)
-		//{
-		//	int vi = 0;
-		//	Vertex4Buffer* vertexBuffer = new Vertex4Buffer(_meshes[i].numTris * 3);
-		//	IndexBuffer* indexBuffer = new IndexBuffer(_meshes[i].numTris * 3);
-		//	for (int j = 0; j < _meshes[i].numTris; j++)
-		//	{
-		//		int triangleIndex = _meshes[i].indices[j];
-		//		MS3DTriangle* triangle = &_triangles[triangleIndex];
-		//		for (int k = 0; k < 3; k++)
-		//		{
-		//			int vertexIndex = triangle->vertIndices[k];
-		//			Vertex4Structure v4s;
-		//			v4s.x = _vertices[vertexIndex].vert.x;
-		//			v4s.y = _vertices[vertexIndex].vert.y;
-		//			v4s.z = _vertices[vertexIndex].vert.z;
-		//			v4s.w = _vertices[vertexIndex].bone;
-		//			v4s.nx = triangle->normals[k].x;
-		//			v4s.ny = triangle->normals[k].y;
-		//			v4s.nz = triangle->normals[k].z;
-		//			v4s.u = triangle->texCoords[0][k];
-		//			v4s.v = 1 - triangle->texCoords[1][k];
-		//			vertexBuffer->Add(v4s);
-		//			//		textureBuffer->Add(Vector2(triangle->texCoords[0][k], 1 - triangle->texCoords[1][k]));
-		//			//	    vertexBuffer->Add(Vector4(_vertices[vertexIndex].vert.x, _vertices[vertexIndex].vert.y, _vertices[vertexIndex].vert.z, _vertices[vertexIndex].bone)); // VBO
-		//			indexBuffer->Add(vi++);
-		//		}
-		//	}
-		//	_meshes[i].vertexBufferObject = new VertexBufferObject(vertexBuffer, indexBuffer);
-		//}
+	void MS3DModel::CreateBoundingBox()
+	{
+		static Vec3 min = Vec3(FLT_MAX, FLT_MAX, FLT_MAX);
+		static Vec3 max = Vec3(FLT_MIN, FLT_MIN, FLT_MIN);
+		for (unsigned i = 0; i < _verticesCount; i++)
+		{
+			Vec3 vert = _vertices[i].vert;
+			if (vert.x < min.x) 
+			{
+				min.x = vert.x;
+			}
+			if (vert.y < min.y)
+			{
+				min.y = vert.y;
+			}
+			if (vert.z < min.z)
+			{
+				min.z = vert.z;
+			}
+			if (vert.x > max.x)
+			{
+				max.x = vert.x;
+			}
+			if (vert.y > max.y)
+			{
+				max.y = vert.y;
+			}
+			if (vert.z > max.z)
+			{
+				max.z = vert.z;
+			}
+		}
+		_boundingBox = BoundingBox((max + min) / 2.0f, max - min);
 	}
 
 	void MS3DModel::Animate(float dt)
@@ -254,28 +225,28 @@ namespace Muriel
 				joint->finalVector = (_joints[joint->parentIndex].finalQuaternion * finalTranslation) + _joints[joint->parentIndex].finalVector;
 			}
 		}
-		if (_jointsCount > 0)
-		{
-			float* q = new float[_jointsCount * 4];
-			float* v = new float[_jointsCount * 3];
-			for (int i = 0, vi = 0, qi = 0; i < _jointsCount; i++)
-			{
-				q[qi++] = _joints[i].finalQuaternion.x;
-				q[qi++] = _joints[i].finalQuaternion.y;
-				q[qi++] = _joints[i].finalQuaternion.z;
-				q[qi++] = _joints[i].finalQuaternion.w;
+		//if (_jointsCount > 0)
+		//{
+		//	float* q = new float[_jointsCount * 4];
+		//	float* v = new float[_jointsCount * 3];
+		//	for (int i = 0, vi = 0, qi = 0; i < _jointsCount; i++)
+		//	{
+		//		q[qi++] = _joints[i].finalQuaternion.x;
+		//		q[qi++] = _joints[i].finalQuaternion.y;
+		//		q[qi++] = _joints[i].finalQuaternion.z;
+		//		q[qi++] = _joints[i].finalQuaternion.w;
 
-				v[vi++] = _joints[i].finalVector.x;
-				v[vi++] = _joints[i].finalVector.y;
-				v[vi++] = _joints[i].finalVector.z;
-			}
+		//		v[vi++] = _joints[i].finalVector.x;
+		//		v[vi++] = _joints[i].finalVector.y;
+		//		v[vi++] = _joints[i].finalVector.z;
+		//	}
 
-			/*	ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Uniform4fArray("rotation", q, _jointsCount);
-			ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Uniform3fArray("translation", v, _jointsCount);*/
+		//	/*	ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Uniform4fArray("rotation", q, _jointsCount);
+		//	ShaderManager::GetInstance()->Get(MODEL_ANIMATION_SHADER)->Uniform3fArray("translation", v, _jointsCount);*/
 
-			delete[] q;
-			delete[] v;
-		}
+		//	delete[] q;
+		//	delete[] v;
+		//}
 	}
 
 
