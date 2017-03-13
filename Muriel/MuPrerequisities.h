@@ -6,6 +6,7 @@ namespace Muriel
 	class BaseLight;
 	class BaseMaterial;
 	class Buffer;
+	class BumpMaterial;
 	class DirectionalLight;
 	class IndexBuffer;
 	class FirstPersonCamera;

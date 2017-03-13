@@ -2,8 +2,6 @@
 #include "MuMS3DImporter.h"
 #include "MuMS3DModel.h"
 #include <fstream>
-//#include "TextureManager.h"
-//#include "AABB.h"
 
 namespace Muriel
 {
@@ -53,26 +51,12 @@ namespace Muriel
 	void MS3DImporter::LoadTriangles(MS3DModel* model, ifstream& file)
 	{
 		unsigned short numTriangles = 0;
-		unsigned short tempNumTriangles = 0;
-		file.read((char*)&tempNumTriangles, sizeof(unsigned short));
-		MS3DTriangle* tempTriangles = new MS3DTriangle[tempNumTriangles];
-		for (int i = 0, j = 0; i < tempNumTriangles; i++)
-		{
-			file.read((char*)&tempTriangles[i], sizeof(MS3DTriangle));
-			if (tempTriangles[i].vertIndices[0] != tempTriangles[i].vertIndices[1] && tempTriangles[i].vertIndices[1] != tempTriangles[i].vertIndices[2] && tempTriangles[i].vertIndices[0] != tempTriangles[i].vertIndices[2])
-			{
-				numTriangles++;
-			}
-		}
+		file.read((char*)&numTriangles, sizeof(unsigned short));
 		MS3DTriangle* triangles = new MS3DTriangle[numTriangles];
-		for (int i = 0, j = 0; i < tempNumTriangles; i++)
+		for (int i = 0, j = 0; i < numTriangles; i++)
 		{
-			if (tempTriangles[i].vertIndices[0] != tempTriangles[i].vertIndices[1] && tempTriangles[i].vertIndices[1] != tempTriangles[i].vertIndices[2] && tempTriangles[i].vertIndices[0] != tempTriangles[i].vertIndices[2])
-			{
-				triangles[j++] = tempTriangles[i];
-			}
+			file.read((char*)&triangles[i], sizeof(MS3DTriangle));
 		}
-		delete[] tempTriangles;
 		model->SetTrianglesCount(numTriangles);
 		model->SetTriangles(triangles);
 	}

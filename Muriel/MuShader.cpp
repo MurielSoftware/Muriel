@@ -73,6 +73,12 @@ namespace Muriel
 		GL::SetUniform(location, v);
 	}
 
+	void Shader::Uniform4f(const string& name, const Glml::Color& c)
+	{
+		GLint location = GL::GetUniformLocation(_programId, name.c_str());
+		GL::SetUniform(location, c);
+	}
+
 	void Shader::UniformArray(const string& name, float* values, int size)
 	{
 		GLint location = GL::GetUniformLocation(_programId, name.c_str());

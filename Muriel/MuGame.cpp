@@ -15,7 +15,7 @@
 #include "MuDiffuseMaterial.h"
 #include "MuDirectionalLight.h"
 #include "MuModelManager.h"
-
+#include "MuBumpMaterial.h"
 namespace Muriel
 {
 	Game::Game()
@@ -42,9 +42,12 @@ namespace Muriel
 		CreateCamera();
 
 		Shader* shader = ShaderManager::GetInstance()->Load("base", "data/shaders/base");
+		Shader* bumpShader = ShaderManager::GetInstance()->Load("bump", "data/shaders/bump");
 		Shader* directionalLightShader = ShaderManager::GetInstance()->Load("directionallight", "data/shaders/directionallight");
 		Texture* texture = TextureManager::GetInstance()->Load("box", "data/textures/box.jpg");
-		DiffuseMaterial* boxMaterial = new DiffuseMaterial(shader, texture);
+		Texture* textureStone = TextureManager::GetInstance()->Load("stone", "data/textures/stone.jpg");
+		Texture* textureStoneNormal = TextureManager::GetInstance()->Load("stoneNormal", "data/textures/stone_normal.jpg");
+		BumpMaterial* boxMaterial = new BumpMaterial(bumpShader, textureStone, textureStoneNormal);
 		Model* model = ModelManager::GetInstance()->Load("scooter", "data/models/scooter.ms3d");
 		_directionalLight = new DirectionalLight("light", *directionalLightShader, Color(1.0f, 1.0f, 1.0f), 0.7f);
 		//Box* box = new Box("box");
@@ -90,18 +93,14 @@ namespace Muriel
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-		_directionalLight->GetShader().Activate();
+	//	_directionalLight->GetShader().Activate();
 		for (GameObject* gameObject : _gameObjects)
 		{
 			//_directionalLight->GetShader().UniformMat4x4("worldMatrix", false, gameObject->GetTransform().GetWorldMatrix());
-			_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
-			_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
-			_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
-			
-			//_directionalLight->GetShader().Uniform3f("directionalLight.base.color", Vec3(_directionalLight->GetColor().r, _directionalLight->GetColor().g, _directionalLight->GetColor().b));
-			//_directionalLight->GetShader().Uniform1f("directionalLight.base.intensity", _directionalLight->GetIntensity());
-			//_directionalLight->GetShader().Uniform3f("directionalLight.direction", Vec3(1, 0, 0));
-			_directionalLight->GetShader().Uniform3f("cameraPosition", _camera->GetPosition());	
+			//_directionalLight->GetShader().UniformMat4x4("projectionViewMatrix", false, _camera->GetProjectionViewMatrix());
+			//_directionalLight->GetShader().UniformMat4x4("modelViewMatrix", false, _camera->GetViewMatrix());
+			//_directionalLight->GetShader().UniformMat3x3("normalMatrix", false, _camera->GetNormalMatrix());
+			//_directionalLight->GetShader().Uniform3f("cameraPosition", _camera->GetPosition());	
 
 			IRenderer* renderer = gameObject->GetRenderer();
 			renderer->PreRender(_camera);
@@ -109,7 +108,7 @@ namespace Muriel
 			renderer->PostRender();
 		}
 
-		_directionalLight->GetShader().Deactivate();
+	//	_directionalLight->GetShader().Deactivate();
 
 		glFlush();
 		SwapBuffers(g_hDC);

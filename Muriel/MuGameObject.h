@@ -14,8 +14,6 @@ namespace Muriel
 		Transform _transform;
 	protected:
 		IRenderer* _renderer;
-		//VertexBuffer* _vertexBuffer;
-		//IndexBuffer* _indexBuffer;
 		Model* _model;
 		vector<GameComponent*> _components;
 	public:
@@ -26,8 +24,6 @@ namespace Muriel
 		inline void SetModel(Model* model) { _model = model; }
 		inline IRenderer* GetRenderer() { return _renderer; }
 		inline Model* GetModel() { return _model; }
-		//inline VertexBuffer* GetVertexBuffer() { return _vertexBuffer; }
-		//inline IndexBuffer* GetIndexBuffer() { return _indexBuffer; }
 		inline vector<GameComponent*>& GetComponents() { return _components; }
 		virtual Transform& GetTransform();
 		virtual void AddComponent(GameComponent* component);

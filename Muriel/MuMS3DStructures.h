@@ -3,6 +3,8 @@
 #include "stdafx.h"
 #include "Quat.h"
 #include "Vec3.h"
+#include "Vec2.h"
+#include "Color.h"
 //#include "VertexBufferObject.h"
 
 using namespace Glml;
@@ -50,10 +52,10 @@ namespace Muriel
 	struct MS3DMaterial
 	{
 		char name[32];
-		float ambient[4];
-		float diffuse[4];
-		float specular[4];
-		float emissive[4];
+		Color ambient;
+		Color diffuse;
+		Color specular;
+		Color emissive;
 		float shininess;
 		float transparency;
 		char mode;

@@ -309,6 +309,9 @@
     <ClInclude Include="MuMS3DImporter.h">
       <Filter>Header Files\Resources\Models\MS3D</Filter>
     </ClInclude>
+    <ClInclude Include="MuBumpMaterial.h">
+      <Filter>Header Files\Render\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -437,10 +440,13 @@
     <ClCompile Include="MuMS3DImporter.cpp">
       <Filter>Source Files\Resources\Models\MS3D</Filter>
     </ClCompile>
-    <ClCompile Include="MuMS3DModel.cpp">
-      <Filter>Source Files\Resources\Models\MS3D</Filter>
-    </ClCompile>
     <ClCompile Include="MuModelManager.cpp">
+      <Filter>Source Files\Resources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MuBumpMaterial.cpp">
+      <Filter>Source Files\Render\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="MuMS3DModel.cpp">
       <Filter>Source Files\Resources\Models</Filter>
     </ClCompile>
   </ItemGroup>

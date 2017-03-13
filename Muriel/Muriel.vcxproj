@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuBumpMaterial.h" />
     <ClInclude Include="MuMS3DImporter.h" />
     <ClInclude Include="MuMS3DModel.h" />
     <ClInclude Include="MuMS3DStructures.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="MuAttenuation.cpp" />
     <ClCompile Include="MuBaseLight.cpp" />
     <ClCompile Include="MuBoundingBox.cpp" />
+    <ClCompile Include="MuBumpMaterial.cpp" />
     <ClCompile Include="MuDiffuseMaterial.cpp" />
     <ClCompile Include="MuDirectionalLight.cpp" />
     <ClCompile Include="MuGameComponent.cpp" />
