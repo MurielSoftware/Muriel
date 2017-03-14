@@ -321,6 +321,15 @@
     <ClInclude Include="MuVertexPos.h">
       <Filter>Header Files\Buffers</Filter>
     </ClInclude>
+    <ClInclude Include="MuColorMaterial.h">
+      <Filter>Header Files\Render\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="MuRenderEngine.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MuRenderEngine2D.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -457,6 +466,15 @@
     </ClCompile>
     <ClCompile Include="MuMS3DModel.cpp">
       <Filter>Source Files\Resources\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MuColorMaterial.cpp">
+      <Filter>Source Files\Render\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="MuRenderEngine2D.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MuRenderEngine.cpp">
+      <Filter>Source Files\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

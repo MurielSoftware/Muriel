@@ -144,7 +144,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MuRenderEngine2D.h" />
     <ClInclude Include="MuBumpMaterial.h" />
+    <ClInclude Include="MuColorMaterial.h" />
     <ClInclude Include="MuMS3DImporter.h" />
     <ClInclude Include="MuMS3DModel.h" />
     <ClInclude Include="MuMS3DStructures.h" />
@@ -188,6 +190,7 @@
     <ClInclude Include="MuPointLight.h" />
     <ClInclude Include="MuPolygonMode.h" />
     <ClInclude Include="MuPrerequisities.h" />
+    <ClInclude Include="MuRenderEngine.h" />
     <ClInclude Include="MuShaderType.h" />
     <ClInclude Include="MuSingleton.h" />
     <ClInclude Include="MuOrbitCamera.h" />
@@ -218,6 +221,7 @@
     <ClCompile Include="MuBaseLight.cpp" />
     <ClCompile Include="MuBoundingBox.cpp" />
     <ClCompile Include="MuBumpMaterial.cpp" />
+    <ClCompile Include="MuColorMaterial.cpp" />
     <ClCompile Include="MuDiffuseMaterial.cpp" />
     <ClCompile Include="MuDirectionalLight.cpp" />
     <ClCompile Include="MuGameComponent.cpp" />
@@ -258,6 +262,7 @@
     <ClCompile Include="MuObject.cpp" />
     <ClCompile Include="MuOrbitCamera.cpp" />
     <ClCompile Include="MuPointLight.cpp" />
+    <ClCompile Include="MuRenderEngine.cpp" />
     <ClCompile Include="MuSpotLight.cpp" />
     <ClCompile Include="MuStringUtils.cpp" />
     <ClCompile Include="MuTexture.cpp" />
@@ -270,6 +275,7 @@
     <ClCompile Include="MuShaderManager.cpp" />
     <ClCompile Include="MuVertexAttributeInformation.cpp" />
     <ClCompile Include="MuVertexBuffer.cpp" />
+    <ClCompile Include="MuRenderEngine2D.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

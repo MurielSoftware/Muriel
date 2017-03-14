@@ -29,6 +29,7 @@ namespace Muriel
 	{
 		_material->SetUniforms(_gameObject);
 		_gameObject->GetModel()->Render();
+		//DebugRender();
 		//VertexBuffer* vertexBuffer = _gameObject->GetModel()->GetVertexBuffer();
 		//IndexBuffer* indexBuffer = _gameObject->GetModel()->GetIndexBuffer();
 		//_material->SetUniforms(_gameObject);
@@ -55,5 +56,9 @@ namespace Muriel
 		_material->End();
 	}
 
-
+	void MeshRenderer::DebugRender()
+	{
+		BoundingBox boundingBox = _gameObject->GetTransformedBoundingBox();
+		boundingBox.Render();
+	}
 }

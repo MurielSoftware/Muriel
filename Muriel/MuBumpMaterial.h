@@ -1,19 +1,26 @@
 #pragma once
 
-#include "MuBaseMaterial.h"
+#include "MuDiffuseMaterial.h"
 
 namespace Muriel
 {
-	class BumpMaterial : public BaseMaterial
+	class BumpMaterial : public DiffuseMaterial
 	{
-	private:
-		Texture* _texture;
+	protected:
+		unsigned _modelViewMatrixId;
+		unsigned _normalMatrixId;
+		unsigned _lightPositionId;
+		unsigned _ambientColorId;
+		unsigned _diffuseColorId;
+		unsigned _specularColorId;
+		unsigned _normalTextureId;
+
 		Texture* _normalTexture;
 	public:
-		BumpMaterial(Shader* shader, Texture* texture, Texture* bumpTexture);
+		BumpMaterial(Shader* shader, Texture* diffuseTexture, Texture* bumpTexture);
 		virtual ~BumpMaterial();
 
-		void SetUniforms(AbstractCamera* camera);
-		void SetUniforms(GameObject* gameObject);
+		virtual void SetUniforms(AbstractCamera* camera);
+		virtual void SetUniforms(GameObject* gameObject);
 	};
 }

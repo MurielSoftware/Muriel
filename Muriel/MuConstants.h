@@ -13,3 +13,4 @@
 #define SHADER_UNIFORM_AMBIENT_COLOR "ambientColor"
 #define SHADER_UNIFORM_DIFFUSE_COLOR "diffuseColor"
 #define SHADER_UNIFORM_SPECULAR_COLOR "specularColor"
+#define SHADER_UNIFORM_COLOR "color"

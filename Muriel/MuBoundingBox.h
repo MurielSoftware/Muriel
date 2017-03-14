@@ -17,13 +17,15 @@ namespace Muriel
 		static unsigned short* _indices;
 		static VertexBuffer* _vertexBuffer;
 		static IndexBuffer* _indexBuffer;
+
+		static VertexPos* CreateVertices();
+		static unsigned short* CreateIndices();
+		static VertexBuffer* CreateVertexBuffer();
+		static IndexBuffer* CreateIndexBuffer();
 	public:
 		BoundingBox();
 		BoundingBox(Vec3 center, Vec3 halfSize);
 		virtual ~BoundingBox();
-
-		static VertexPos* CreateVertices();
-		static unsigned short* CreateIndices();
 
 		inline const Vec3& GetMin() const { return _center - _halfSize; }
 		inline const Vec3& GetMax() const { return _center + _halfSize; }

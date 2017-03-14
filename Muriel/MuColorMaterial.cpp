@@ -1,36 +1,31 @@
 #include "stdafx.h"
-#include "MuDiffuseMaterial.h"
+#include "MuColorMaterial.h"
 #include "MuAbstractCamera.h"
 #include "MuShader.h"
 #include "MuGameObject.h"
-#include "MuTexture.h"
 
 namespace Muriel
 {
-	DiffuseMaterial::DiffuseMaterial(Shader* shader, Texture* texture)
+	ColorMaterial::ColorMaterial(Shader* shader, const Color& color)
 		: BaseMaterial(shader)
 	{
-		_texture = texture;
-
 		_projectionModelViewMatrixId = shader->GetUniformLocation(SHADER_UNIFORM_PROJECTION_VIEW_MATRIX);
-		_diffuseTextureId = shader->GetUniformLocation(SHADER_UNIFORM_DIFFUSE_TEXTURE);
+		_colorId = shader->GetUniformLocation(SHADER_UNIFORM_COLOR);
 		_worldMatrixId = shader->GetUniformLocation(SHADER_UNIFORM_WORLD_MATRIX);
 	}
 
-	DiffuseMaterial::~DiffuseMaterial()
+	ColorMaterial::~ColorMaterial()
 	{
 
 	}
 
-	void DiffuseMaterial::SetUniforms(AbstractCamera* camera)
+	void ColorMaterial::SetUniforms(AbstractCamera* camera)
 	{
 		_shader->UniformMat4x4(SHADER_UNIFORM_PROJECTION_VIEW_MATRIX, _projectionModelViewMatrixId, false, camera->GetProjectionViewMatrix());
-		GL::SetActiveTexture(0);
-		GL::BindTexture(TextureType::Texture2D(), _texture->GetTextureId());
-		_shader->Uniform1i(SHADER_UNIFORM_DIFFUSE_TEXTURE, _diffuseTextureId, 0);
+		_shader->Uniform4f(SHADER_UNIFORM_COLOR, _colorId, _color);
 	}
 
-	void DiffuseMaterial::SetUniforms(GameObject* gameObject)
+	void ColorMaterial::SetUniforms(GameObject* gameObject)
 	{
 		_shader->UniformMat4x4(SHADER_UNIFORM_WORLD_MATRIX, _worldMatrixId, false, gameObject->GetTransform().GetWorldMatrix());
 	}

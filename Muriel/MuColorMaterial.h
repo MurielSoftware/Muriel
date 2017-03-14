@@ -1,18 +1,21 @@
 #pragma once
 
 #include "MuBaseMaterial.h"
+#include "Color.h"
+
+using namespace Glml;
 
 namespace Muriel
 {
-	class DiffuseMaterial : public BaseMaterial
+	class ColorMaterial : public BaseMaterial
 	{
 	private:
-		Texture* _texture;
+		Color _color;
 	protected:
-		unsigned _diffuseTextureId;
+		unsigned _colorId;
 	public:
-		DiffuseMaterial(Shader* shader, Texture* texture);
-		virtual ~DiffuseMaterial();
+		ColorMaterial(Shader* shader, const Color& color);
+		virtual ~ColorMaterial();
 
 		virtual void SetUniforms(AbstractCamera* camera);
 		virtual void SetUniforms(GameObject* gameObject);

@@ -17,5 +17,7 @@ namespace Muriel
 		void PreRender(AbstractCamera* camera);
 		void Render();
 		void PostRender();
+
+		void DebugRender();
 	};
 }

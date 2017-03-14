@@ -7,11 +7,18 @@
 
 namespace Muriel
 {
-	BumpMaterial::BumpMaterial(Shader* shader, Texture* texture, Texture* normalTexture)
-		: BaseMaterial(shader)
+	BumpMaterial::BumpMaterial(Shader* shader, Texture* diffuseTexture, Texture* normalTexture)
+		: DiffuseMaterial(shader, diffuseTexture)
 	{
-		_texture = texture;
 		_normalTexture = normalTexture;
+
+		_modelViewMatrixId = _shader->GetUniformLocation(SHADER_UNIFORM_MODEL_VIEW_MATRIX);
+		_normalMatrixId = _shader->GetUniformLocation(SHADER_UNIFORM_NORMAL_MATRIX);
+		_lightPositionId = _shader->GetUniformLocation(SHADER_UNIFORM_LIGHT_POSITION);
+		_ambientColorId = _shader->GetUniformLocation(SHADER_UNIFORM_AMBIENT_COLOR);
+		_diffuseColorId = _shader->GetUniformLocation(SHADER_UNIFORM_DIFFUSE_COLOR);
+		_specularColorId = _shader->GetUniformLocation(SHADER_UNIFORM_SPECULAR_COLOR);
+		_normalTextureId = _shader->GetUniformLocation(SHADER_UNIFORM_NORMAL_TEXTURE);
 	}
 
 	BumpMaterial::~BumpMaterial()
@@ -21,23 +28,22 @@ namespace Muriel
 
 	void BumpMaterial::SetUniforms(AbstractCamera* camera)
 	{
-		_shader->UniformMat4x4(SHADER_UNIFORM_PROJECTION_VIEW_MATRIX, false, camera->GetProjectionViewMatrix());
-		_shader->UniformMat4x4(SHADER_UNIFORM_MODEL_VIEW_MATRIX, false, camera->GetViewMatrix());
-		_shader->UniformMat3x3(SHADER_UNIFORM_NORMAL_MATRIX, false, camera->GetNormalMatrix());
-		_shader->Uniform3f(SHADER_UNIFORM_LIGHT_POSITION, Vec3(-100, 100, 100));
-		_shader->Uniform4f(SHADER_UNIFORM_AMBIENT_COLOR, Color(0.2f, 0.2f, 0.2f));
-		_shader->Uniform4f(SHADER_UNIFORM_DIFFUSE_COLOR, Color(0.5f, 0.5f, 0.5f));
-		_shader->Uniform4f(SHADER_UNIFORM_SPECULAR_COLOR, Color(0.9f, 0.9f, 0.9f));
-		GL::SetActiveTexture(0);
-		GL::BindTexture(TextureType::Texture2D(), _texture->GetTextureId());
+		DiffuseMaterial::SetUniforms(camera);
+
+		_shader->UniformMat4x4(SHADER_UNIFORM_MODEL_VIEW_MATRIX, _modelViewMatrixId, false, camera->GetViewMatrix());
+		_shader->UniformMat3x3(SHADER_UNIFORM_NORMAL_MATRIX, _normalMatrixId, false, camera->GetNormalMatrix());
+		_shader->Uniform3f(SHADER_UNIFORM_LIGHT_POSITION, _lightPositionId, Vec3(-100, 100, 100));
+		_shader->Uniform4f(SHADER_UNIFORM_AMBIENT_COLOR, _ambientColorId, Color(0.2f, 0.2f, 0.2f));
+		_shader->Uniform4f(SHADER_UNIFORM_DIFFUSE_COLOR, _diffuseColorId, Color(0.5f, 0.5f, 0.5f));
+		_shader->Uniform4f(SHADER_UNIFORM_SPECULAR_COLOR, _specularColorId, Color(0.9f, 0.9f, 0.9f));
+
 		GL::SetActiveTexture(1);
 		GL::BindTexture(TextureType::Texture2D(), _normalTexture->GetTextureId());
-		_shader->Uniform1i(SHADER_UNIFORM_DIFFUSE_TEXTURE, 0);
-		_shader->Uniform1i(SHADER_UNIFORM_NORMAL_TEXTURE, 1);
+		_shader->Uniform1i(SHADER_UNIFORM_NORMAL_TEXTURE, _normalTextureId, 1);
 	}
 
 	void BumpMaterial::SetUniforms(GameObject* gameObject)
 	{
-		_shader->UniformMat4x4(SHADER_UNIFORM_WORLD_MATRIX, false, gameObject->GetTransform().GetWorldMatrix());
+		DiffuseMaterial::SetUniforms(gameObject);
 	}
 }

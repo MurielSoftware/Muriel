@@ -49,51 +49,48 @@ namespace Muriel
 		GL::UseShader(0);
 	}
 
-	void Shader::Uniform1i(const string& name, const int i)
+	unsigned Shader::GetUniformLocation(const string& name)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
+		return GL::GetUniformLocation(_programId, name.c_str());
+	}
+
+	void Shader::Uniform1i(const string& name, unsigned location, const int i)
+	{
 		GL::SetUniform(location, i);
 	}
 
-	void Shader::Uniform1f(const string& name, const float f)
+	void Shader::Uniform1f(const string& name, unsigned location, const float f)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, f);
 	}
 
-	void Shader::Uniform2f(const string& name, const Glml::Vec2& v)
+	void Shader::Uniform2f(const string& name, unsigned location, const Glml::Vec2& v)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, v);
 	}
 
-	void Shader::Uniform3f(const string& name, const Glml::Vec3& v)
+	void Shader::Uniform3f(const string& name, unsigned location, const Glml::Vec3& v)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, v);
 	}
 
-	void Shader::Uniform4f(const string& name, const Glml::Color& c)
+	void Shader::Uniform4f(const string& name, unsigned location, const Glml::Color& c)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, c);
 	}
 
-	void Shader::UniformArray(const string& name, float* values, int size)
+	void Shader::UniformArray(const string& name, unsigned location, float* values, int size)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, size, values);
 	}
 
-	void Shader::UniformMat3x3(const string& name, bool transpose, const Glml::Mat3x3& m)
+	void Shader::UniformMat3x3(const string& name, unsigned location, bool transpose, const Glml::Mat3x3& m)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, transpose, m);
 	}
 
-	void Shader::UniformMat4x4(const string& name, bool transpose, const Glml::Mat4x4& m)
+	void Shader::UniformMat4x4(const string& name, unsigned location, bool transpose, const Glml::Mat4x4& m)
 	{
-		GLint location = GL::GetUniformLocation(_programId, name.c_str());
 		GL::SetUniform(location, transpose, m);
 	}
 

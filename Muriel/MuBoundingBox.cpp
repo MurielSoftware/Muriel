@@ -5,8 +5,8 @@
 
 namespace Muriel
 {
-	static VertexPos* vertices = CreateVertices();
-	static unsigned short* indices = CreateIndices();
+	VertexPos* BoundingBox::_vertices = CreateVertices();
+	unsigned short* BoundingBox::_indices = CreateIndices();
 
 	BoundingBox::BoundingBox()
 	{
@@ -21,13 +21,13 @@ namespace Muriel
 
 	BoundingBox::~BoundingBox()
 	{
-		delete vertices;
-		delete indices;
+		//delete _vertices;
+		//delete _indices;
 	}
 
 	VertexPos* BoundingBox::CreateVertices()
 	{
-		vertices = new VertexPos[8];
+		VertexPos* vertices = new VertexPos[8];
 		vertices[0] = Vec3(-0.5f, -0.5f, -0.5f);
 		vertices[0] = Vec3(0.5f, -0.5f, -0.5f);
 		vertices[0] = Vec3(0.5f, 0.5f, -0.5f);
@@ -36,14 +36,12 @@ namespace Muriel
 		vertices[0] = Vec3(0.5f, -0.5f, 0.5f);
 		vertices[0] = Vec3(0.5f, 0.5f, 0.5f);
 		vertices[0] = Vec3(-0.5f, 0.5f, 0.5f);
-
-		_vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)vertices, sizeof(VertexPos), 8);
-		_vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPos), 0);
+		return vertices;
 	}
 
 	unsigned short* BoundingBox::CreateIndices()
 	{
-		indices = new unsigned short[16];
+		unsigned short* indices = new unsigned short[16];
 		indices[0] = 0;
 		indices[1] = 1;
 		indices[2] = 2;
@@ -63,7 +61,20 @@ namespace Muriel
 		indices[14] = 3;
 		indices[15] = 7;
 
-		_indexBuffer = new IndexBuffer(indices, sizeof(unsigned short), 16, GraphicsDataType::UnsignedShort());
+		//_indexBuffer = new IndexBuffer(_indices, sizeof(unsigned short), 16, GraphicsDataType::UnsignedShort());
+		return indices;
+	}
+
+	VertexBuffer* BoundingBox::CreateVertexBuffer()
+	{
+		VertexBuffer* vertexBuffer = new VertexBuffer(BufferType::ArrayBuffer(), BufferUsage::StaticDraw(), (void*)_vertices, sizeof(VertexPos), 8);
+		vertexBuffer->AddVertexAttributeInformation(0, 3, GraphicsDataType::Float(), false, sizeof(VertexPos), 0);
+		return vertexBuffer;
+	}
+
+	IndexBuffer* BoundingBox::CreateIndexBuffer()
+	{
+		return new IndexBuffer(_indices, sizeof(unsigned short), 16, GraphicsDataType::UnsignedShort());
 	}
 
 	void BoundingBox::Render()

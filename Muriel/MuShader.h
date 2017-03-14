@@ -29,13 +29,14 @@ namespace Muriel
 
 		void Activate();
 		void Deactivate();
-		void Uniform1i(const string& name, const int i);
-		void Uniform1f(const string& name, const float f);
-		void Uniform2f(const string& name, const Glml::Vec2& v);
-		void Uniform3f(const string& name, const Glml::Vec3& v);
-		void Uniform4f(const string& name, const Glml::Color& c);
-		void UniformArray(const string& name, float* values, int size);
-		void UniformMat3x3(const string& name, bool transpose, const Glml::Mat3x3& m);
-		void UniformMat4x4(const string& name, bool transpose, const Glml::Mat4x4& m);
+		unsigned GetUniformLocation(const string& name);
+		void Uniform1i(const string& name, unsigned location, const int i);
+		void Uniform1f(const string& name, unsigned location, const float f);
+		void Uniform2f(const string& name, unsigned location, const Glml::Vec2& v);
+		void Uniform3f(const string& name, unsigned location, const Glml::Vec3& v);
+		void Uniform4f(const string& name, unsigned location, const Glml::Color& c);
+		void UniformArray(const string& name, unsigned location, float* values, int size);
+		void UniformMat3x3(const string& name, unsigned location, bool transpose, const Glml::Mat3x3& m);
+		void UniformMat4x4(const string& name, unsigned location, bool transpose, const Glml::Mat4x4& m);
 	};
 }

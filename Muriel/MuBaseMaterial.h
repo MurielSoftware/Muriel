@@ -7,6 +7,9 @@ namespace Muriel
 	class BaseMaterial
 	{
 	protected:
+		unsigned _projectionModelViewMatrixId;
+		unsigned _worldMatrixId;
+
 		Shader* _shader;
 	public:
 		BaseMaterial(Shader* shader);

@@ -7,6 +7,7 @@ namespace Muriel
 	class BaseMaterial;
 	class Buffer;
 	class BumpMaterial;
+	class ColorMaterial;
 	class DirectionalLight;
 	class IndexBuffer;
 	class FirstPersonCamera;
@@ -25,6 +26,8 @@ namespace Muriel
 	class Object;
 	class OrbitCamera;
 	class PointLight;
+	class RenderEngine;
+	class RenderEngine2D;
 	class SceneManager;
 	class Shader;
 	class ShaderManager;
