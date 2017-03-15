@@ -23,10 +23,26 @@ namespace Muriel
 		{
 			return;
 		}
-		_timer = new Timer();
-		_window = new Window("test");
-		_game = new Game();
+		_timer = GetTimer();
+		_window = GetWindow();
+		_game = GetGame();
+		
 		Run();
+	}
+
+	Game* Engine::GetGame()
+	{
+		return new Game();
+	}
+
+	Window* Engine::GetWindow()
+	{
+		return new Window("test");
+	}
+
+	Timer* Engine::GetTimer()
+	{
+		return new Timer();
 	}
 
 	void Engine::Stop()

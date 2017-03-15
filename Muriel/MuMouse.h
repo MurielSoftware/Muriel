@@ -41,7 +41,7 @@ namespace Muriel
 		float WheelPos() const { return _mouseWheel; }
 		//inline Vector3 GetMousePositionInScene() const { return _mousePositionInScene; }
 
-		BOOL Init(bool mouseToCenter);
+		BOOL Initialize(bool mouseToCenter);
 		void Detach();
 		void HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 		void HideCursor(bool hide);

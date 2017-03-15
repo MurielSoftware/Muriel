@@ -34,20 +34,25 @@ namespace Muriel
 			delete gameObject;
 		}
 		_gameObjects.clear();
+
+		delete _renderEngine;
+		delete _renderEngine2D;
+
 		Log::GetInstance()->Destroy();
 	}
 
 	void Game::Init()
 	{
-		Keyboard::GetInstance()->Init();
-		Mouse::GetInstance()->Init(true);
-	//	CreateCamera();
+		GL::ClearColor(Color(0.0f, 0.0f, 0.0f));
+
+		Keyboard::GetInstance()->Initialize();
+		Mouse::GetInstance()->Initialize(true);
+
 		_renderEngine = new RenderEngine();
-		_renderEngine->Initialize();
 		_renderEngine2D = new RenderEngine2D();
 
-		Shader* shader = ShaderManager::GetInstance()->Load("base", "data/shaders/base");
-		Shader* bumpShader = ShaderManager::GetInstance()->Load("bump", "data/shaders/bump");
+		Shader* shader = ShaderManager::GetInstance()->Load(SHADER_BASE_NAME, SHADER_BASE_PATH);
+		Shader* bumpShader = ShaderManager::GetInstance()->Load(SHADER_BUMP_NAME, SHADER_BUMP_PATH);
 		Shader* directionalLightShader = ShaderManager::GetInstance()->Load("directionallight", "data/shaders/directionallight");
 		Texture* texture = TextureManager::GetInstance()->Load("box", "data/textures/box.jpg");
 		Texture* textureStone = TextureManager::GetInstance()->Load("stone", "data/textures/stone.jpg");
@@ -89,12 +94,6 @@ namespace Muriel
 		Render(timer);
 	}
 
-	//void Game::CreateCamera()
-	//{
-	//	_camera = new OrbitCamera();
-	//	_camera->Perspective(90.0f, 1.3f, 0.1f, 1000.0f);
-	//}
-
 	void Game::Input(Timer* timer)
 	{
 		Keyboard::GetInstance()->Update();
@@ -108,7 +107,7 @@ namespace Muriel
 
 	void Game::Render(Timer* timer)
 	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		GL::ClearBuffers(true, true, false);
 	//	
 	////	_directionalLight->GetShader().Activate();
 	//	for (GameObject* gameObject : _gameObjects)
@@ -129,7 +128,7 @@ namespace Muriel
 		_renderEngine->Render(timer);
 		_renderEngine2D->Render(timer);
 
-		glFlush();
+		//glFlush();
 		SwapBuffers(g_hDC);
 	}
 }

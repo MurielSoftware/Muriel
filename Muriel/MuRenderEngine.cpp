@@ -3,17 +3,19 @@
 #include "MuRenderer.h"
 #include "MuAbstractCamera.h"
 #include "MuOrbitCamera.h"
+#include "MuGL.h"
 
 namespace Muriel
 {
 	RenderEngine::RenderEngine()
 	{
-
+		Initialize();
 	}
 
 	RenderEngine::~RenderEngine()
 	{
 		delete _camera;
+		_renderers.clear();
 	}
 
 	void RenderEngine::Initialize()
@@ -25,6 +27,16 @@ namespace Muriel
 	void RenderEngine::RegisterRenderer(Renderer* renderer)
 	{
 		_renderers.push_back(renderer);
+	}
+
+	void RenderEngine::ClearBuffers()
+	{
+		GL::ClearBuffers(true, true, false);
+	}
+
+	void RenderEngine::SwapBuffers()
+	{
+		GL::SwapBuffers(g_hDC);
 	}
 
 	void RenderEngine::Update(Timer* timer)

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MuGL.h"
 #include "MuTexture.h"
+#include "Color.h"
 
 namespace Muriel
 {
@@ -28,6 +29,48 @@ namespace Muriel
 	void GL::SetCullMode(CullMode mode)
 	{
 		glCullFace(mode.GetMode());
+	}
+
+	void GL::ClearBuffers(bool color, bool depth, bool stencil)
+	{
+		unsigned mask = 0;
+		if (color)
+		{
+			mask = GL_COLOR_BUFFER_BIT;
+		}
+		if (depth)
+		{
+			if (mask == 0)
+			{
+				mask = GL_DEPTH_BUFFER_BIT;
+			}
+			else
+			{
+				mask |= GL_DEPTH_BUFFER_BIT;
+			}
+		}
+		if (stencil)
+		{
+			if (mask == 0)
+			{
+				mask = GL_STENCIL_BUFFER_BIT;
+			}
+			else
+			{
+				mask |= GL_STENCIL_BUFFER_BIT;
+			}
+		}
+		glClear(mask);
+	}
+
+	void GL::SwapBuffers(HDC hDC)
+	{
+		SwapBuffers(hDC);
+	}
+
+	void GL::ClearColor(const Glml::Color& color)
+	{
+		glClearColor(color.r, color.g, color.b, color.a);
 	}
 
 	unsigned int GL::CreateProgram()

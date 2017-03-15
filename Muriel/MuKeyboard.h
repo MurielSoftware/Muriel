@@ -128,7 +128,7 @@ namespace Muriel
 		inline bool KeyUp(Key key) const { return (_pCurrKeyStates[key] & 0x80) ? false : true; }
 		inline bool KeyPressed(Key key) const { return ((_pCurrKeyStates[key] & 0x80) && !(_pPrevKeyStates[key] & 0x80)) ? true : false; }
 
-		void Init();
+		void Initialize();
 		void HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 		void Update();
 	};

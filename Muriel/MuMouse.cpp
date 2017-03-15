@@ -8,7 +8,7 @@ namespace Muriel
 		Detach();
 	}
 
-	BOOL Mouse::Init(bool mouseToCenter)
+	BOOL Mouse::Initialize(bool mouseToCenter)
 	{
 		if (!_cursorVisible)
 		{

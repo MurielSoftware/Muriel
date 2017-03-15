@@ -7,7 +7,7 @@ namespace Muriel
 	{
 	}
 
-	void Keyboard::Init()
+	void Keyboard::Initialize()
 	{
 		_lastChar = 0;
 		_pCurrKeyStates = _keyStates[0];

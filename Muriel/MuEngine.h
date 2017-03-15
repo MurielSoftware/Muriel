@@ -15,6 +15,10 @@ namespace Muriel
 		Engine();
 		virtual ~Engine();
 
+		virtual Game* GetGame();
+		virtual Window* GetWindow();
+		virtual Timer* GetTimer();
+
 		void Start();
 		void Stop();
 		void Run();

@@ -5,12 +5,13 @@ namespace Muriel
 {
 	RenderEngine2D::RenderEngine2D()
 	{
-
+		Initialize();
 	}
 
 	RenderEngine2D::~RenderEngine2D()
 	{
 		delete _camera;
+		_renderers.clear();
 	}
 
 	void RenderEngine2D::Initialize()
