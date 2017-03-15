@@ -45,7 +45,7 @@ namespace Muriel
 		void Detach();
 		void HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 		void HideCursor(bool hide);
-		void MoveTo(UINT x, UINT y);
+		void MoveTo(LONG x, LONG y);
 		void MoveToWindowCenter();
 		void Update();
 		//void CalculateMousePositionInScene();

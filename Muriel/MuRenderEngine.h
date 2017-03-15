@@ -17,7 +17,6 @@ namespace Muriel
 
 		void RegisterRenderer(Renderer* renderer);
 		void ClearBuffers();
-		void SwapBuffers();
 
 		virtual void Update(Timer* timer);
 		virtual void Render(Timer* timer);

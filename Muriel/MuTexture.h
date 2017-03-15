@@ -12,7 +12,7 @@ namespace Muriel
 		unsigned int _textureId;
 	public:
 		Texture(const string& name, unsigned int width, unsigned int height, ColorFormat format, const void* pixels);
-		~Texture();
+		virtual ~Texture();
 
 		inline unsigned int GetTextureId() const { return _textureId; }
 

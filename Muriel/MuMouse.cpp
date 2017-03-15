@@ -66,7 +66,7 @@ namespace Muriel
 		}
 	}
 
-	void Mouse::MoveTo(UINT x, UINT y)
+	void Mouse::MoveTo(LONG x, LONG y)
 	{
 		POINT ptScreen = { x, y };
 

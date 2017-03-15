@@ -34,11 +34,6 @@ namespace Muriel
 		GL::ClearBuffers(true, true, false);
 	}
 
-	void RenderEngine::SwapBuffers()
-	{
-		GL::SwapBuffers(g_hDC);
-	}
-
 	void RenderEngine::Update(Timer* timer)
 	{
 		_camera->UpdateCamera();

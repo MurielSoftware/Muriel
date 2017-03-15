@@ -63,11 +63,6 @@ namespace Muriel
 		glClear(mask);
 	}
 
-	void GL::SwapBuffers(HDC hDC)
-	{
-		SwapBuffers(hDC);
-	}
-
 	void GL::ClearColor(const Glml::Color& color)
 	{
 		glClearColor(color.r, color.g, color.b, color.a);

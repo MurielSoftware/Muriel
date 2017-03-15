@@ -33,7 +33,6 @@ namespace Muriel
 		static void SetPolygonMode(PolygonMode mode);
 		static void SetCullMode(CullMode mode);
 		static void ClearBuffers(bool color, bool depth, bool stencil);
-		static void SwapBuffers(HDC hDC);
 		static void ClearColor(const Color& color);
 
 		static unsigned int CreateProgram();
