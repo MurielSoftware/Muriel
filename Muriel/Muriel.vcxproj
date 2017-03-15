@@ -178,7 +178,7 @@
     <ClInclude Include="MuGraphicsMode.h" />
     <ClInclude Include="MuGraphicsPrimitiveType.h" />
     <ClInclude Include="MuIndexBuffer.h" />
-    <ClInclude Include="MuIRenderer.h" />
+    <ClInclude Include="MuRenderer.h" />
     <ClInclude Include="MuKeyboard.h" />
     <ClInclude Include="MuLog.h" />
     <ClInclude Include="MuBaseMaterial.h" />

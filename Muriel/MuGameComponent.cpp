@@ -3,9 +3,10 @@
 
 namespace Muriel
 {
-	GameComponent::GameComponent(GameObject* owner)
+	GameComponent::GameComponent(GameObject* owner, GameComponentType gameComponentType)
 	{
 		_owner = owner;
+		_gameComponentType = gameComponentType;
 	}
 
 	GameComponent::~GameComponent()

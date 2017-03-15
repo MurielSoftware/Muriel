@@ -8,11 +8,13 @@ namespace Muriel
 	class MURIEL_API Game
 	{
 	private:
-		AbstractCamera* _camera;
+	//	AbstractCamera* _camera;
 		vector<GameObject*> _gameObjects;
 		DirectionalLight* _directionalLight;
+		RenderEngine* _renderEngine;
+		RenderEngine2D* _renderEngine2D;
 	protected:
-		virtual void CreateCamera();
+		//virtual void CreateCamera();
 
 		virtual void Input(Timer* timer);
 		virtual void Update(Timer* timer);

@@ -261,9 +261,6 @@
     <ClInclude Include="MuMeshRenderer.h">
       <Filter>Header Files\Render\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="MuIRenderer.h">
-      <Filter>Header Files\Render</Filter>
-    </ClInclude>
     <ClInclude Include="MuStringUtils.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
@@ -329,6 +326,9 @@
     </ClInclude>
     <ClInclude Include="MuRenderEngine2D.h">
       <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MuRenderer.h">
+      <Filter>Header Files\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

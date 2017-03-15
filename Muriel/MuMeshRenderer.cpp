@@ -9,6 +9,7 @@
 namespace Muriel
 {
 	MeshRenderer::MeshRenderer(GameObject* gameObject, BaseMaterial* material)
+		: Renderer(gameObject, GameComponentType::RENDER)
 	{
 		_gameObject = gameObject;
 		_material = material;

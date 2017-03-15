@@ -1,11 +1,11 @@
 #pragma once
 
 #include "stdafx.h"
-#include "MuIRenderer.h"
+#include "MuRenderer.h"
 
 namespace Muriel
 {
-	class MeshRenderer : public IRenderer
+	class MeshRenderer : public Renderer
 	{
 	private:
 		GameObject* _gameObject;

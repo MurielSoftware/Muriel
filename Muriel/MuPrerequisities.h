@@ -41,5 +41,5 @@ namespace Muriel
 	class VertexPosNormTex;
 	class Window;
 
-	class IRenderer;
+	class Renderer;
 }
