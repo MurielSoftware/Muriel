@@ -1,21 +1,17 @@
 #pragma once
 
+#include "stdafx.h"
 #include "ReExpression.h"
 
 namespace Redneck
 {
 	class NumExpression : public Expression
 	{
-	private:
-		int _value;
 	public:
 		NumExpression();
-		NumExpression(const int value);
+		NumExpression(const string& value);
 		virtual ~NumExpression();
 
-		inline int GetValue() { return _value; }
-		inline ByteCodeId GetByteCodeId() { return ByteCodeId::NUMEXP; }
-		
-		void Accept(StackVisitor& stackVisitor);
+		inline virtual ExpressionType GetExpressionType() { return ExpressionType::NUMBER; }
 	};
 }

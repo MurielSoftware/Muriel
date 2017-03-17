@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "ReParser.h"
-#include "ReNumExpression.h"
 #include "ReAritmeticOperationExpression.h"
+#include "ReNumExpression.h"
 #include "ReToken.h"
+#include "ReLexer.h"
 #include <regex>
 #include <sstream>
 
@@ -10,163 +11,85 @@ namespace Redneck
 {
 	Parser::Parser()
 	{
-
+		_lexer = new Lexer("2*3+2*3");
 	}
 
 	Parser::~Parser()
 	{
-
+		delete _lexer;
 	}
 
-	Expression* Parser::CreateExpressions(const string& s)
+	Expression* Parser::Parse()
 	{
-		vector<string> scanned = Scan(s);
-		vector<Token*> tokens = Tokenize(scanned);
-		return Parse(tokens);
+		//while (!_lexer->Eof())
+		//{
+			return Statement();
+		//}
 	}
 
-	bool Parser::IsKeyword(const string& s)
+	Expression* Parser::Statement()
 	{
-		return false;
-	}
+		Expression* expression = NULL;
 
-	bool Parser::IsIgnored(const string& s)
-	{
-		return false;
-	}
-
-	bool Parser::IsDelimiter(const char c)
-	{
-		if (IsArithmeticOperator(c) || IsWhitespace(c))
+		switch (_lexer->Peek().GetTokenType())
 		{
-			return true;
-		}
-		return false;// regex_match(string(1, c), regex("( |\\+|\\-|\\*|||)"));
-	}
-
-	bool Parser::IsWhitespace(const char c)
-	{
-		return regex_match(string(1, c), regex("( |\\n|\\r|\\t)"));
-	}
-
-	bool Parser::IsArithmeticOperator(const char c)
-	{
-		return regex_match(string(1, c), regex("( |\\+|\\-|\\*|\\/|\\%|\\^)"));
-	}
-
-	bool Parser::IsGreatLessOperator(const char c)
-	{
-		return regex_match(string(1, c), regex("( |\\<|\\>)"));
-	}
-
-	vector<string> Parser::Scan(const string& s)
-	{
-		vector<string> out;
-		string word;
-
-		for (unsigned i = 0; i < s.length(); i++)
-		{
-			if (IsDelimiter(s[i]))
-			{
-				if (word != "")
-				{
-					out.push_back(word);
-				}
-				if (!IsWhitespace(s[i]))
-				{
-					out.push_back(string(1, s[i]));
-				}
-				word = "";
-			}
-			else if (i == s.length() - 1)
-			{
-				word += s[i];
-				out.push_back(word);
-			}
-			else if (s[i])
-			{
-				word += tolower(s[i]);
-			}
-		}
-
-		return out;
-	}
-
-	vector<Token*> Parser::Tokenize(vector<string>& scanned)
-	{
-		vector<Token*> tokens;
-		int intValue;
-		bool boleanValue;
-
-		for (string word : scanned)
-		{
-			istringstream iss(word);
-			if (IsKeyword(word))
-			{
-
-			}
-			else if (word.length() == 1 && isalpha(word[0]))
-			{
-
-			}
-			else if (iss >> intValue)
-			{
-				tokens.push_back(new Token(NUMBER, intValue));
-			}
-			else if (word.length() == 1 && !isalpha(word[0]))
-			{
-				if (IsArithmeticOperator(word[0]))
-				{
-					tokens.push_back(new Token(NUMERIC_OPERATION, word[0]));
-				}
-				else if (IsGreatLessOperator(word[0]))
-				{
-					tokens.push_back(new Token(CHECK_GREAT_LESS, word[0]));
-				}
-			}
-		}
-		
-		for (int i=0; i < tokens.size(); i++)
-		{
-			if (tokens[i]->GetTokenType() == TokenType::NUMERIC_OPERATION)
-			{
-				Token* swap = tokens[i];
-				tokens[i] = tokens[i - 1];
-				tokens[i - 1] = swap;
-			}
-		}
-		return tokens;
-	}
-
-	void Parser::EatToken(vector<Token*>& tokens)
-	{
-		tokens.erase(tokens.begin());
-	}
-
-	void Parser::EatToken(vector<Token*>& tokens, TokenType tokenType)
-	{
-		if (tokens[0]->GetTokenType() != tokenType)
-		{
-			// throw SyntaxException();
-			return;
-		}
-		EatToken(tokens);
-	}
-
-	Expression* Parser::Parse(vector<Token*>& tokens)
-	{
-		Expression* expression;
-		Token currentToken = Token(tokens[0]->GetTokenType(), tokens[0]->GetIntValue(), tokens[0]->GetValue());
-		EatToken(tokens);
-		switch (currentToken.GetTokenType())
-		{
-		case NUMBER:
-			expression = new NumExpression(currentToken.GetIntValue());
+		case TokenType::TOKEN_VARIABLE:
 			break;
-		case NUMERIC_OPERATION:
-			expression = new AritmeticOperationExpression(Parse(tokens), Parse(tokens), currentToken.GetValue());
+		case TokenType::TOKEN_IF:
+			break;
+		case TokenType::TOKEN_FUNC:
+			break;
+		default:
+			expression = Expr();
 			break;
 		}
+
 		return expression;
+	}
+
+	Expression* Parser::Args()
+	{
+		return NULL;
+	}
+
+	Expression* Parser::Expr()
+	{
+		Expression* t = Term();
+		Token nextToken = _lexer->Peek();
+		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_PLUS || nextToken.GetTokenType() == TOKEN_MINUS))
+		{
+			_lexer->Next();
+			Expression* expr = new AritmeticOperationExpression(t, Term(), nextToken.GetValue()[0]);
+			nextToken = _lexer->Peek();
+			t = expr;
+		}
+		return t;
+	}
+	
+	Expression* Parser::Term()
+	{
+		Expression* f = Factor();
+		Token nextToken = _lexer->Peek();
+		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_MULT || nextToken.GetTokenType() == TOKEN_DIV))
+		{
+			_lexer->Next();
+			Expression* term = new AritmeticOperationExpression(f, Factor(), nextToken.GetValue()[0]);
+			nextToken = _lexer->Peek();
+			f = term;
+		}
+		return f;
+	}
+
+	Expression* Parser::Factor()
+	{
+		Token nextToken = _lexer->Next();
+		switch (nextToken.GetTokenType())
+		{
+		case TokenType::TOKEN_INT:
+			return new NumExpression(nextToken.GetValue());
+			break;
+		case TokenType::TOKEN_STRING:
+			break;
+		}
 	}
 }

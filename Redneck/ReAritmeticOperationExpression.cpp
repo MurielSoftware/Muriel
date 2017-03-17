@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "ReAritmeticOperationExpression.h"
-#include "ReStackVisitor.h"
 
 namespace Redneck
 {
@@ -19,10 +18,5 @@ namespace Redneck
 	{
 		delete _arg0;
 		delete _arg1;
-	}
-
-	void AritmeticOperationExpression::Accept(StackVisitor& stackVisitor)
-	{
-		stackVisitor.Visit(*this);
 	}
 }

@@ -8,6 +8,12 @@ namespace Redneck
 
 	}
 
+	Expression::Expression(const string& value)
+		: _value(value)
+	{
+
+	}
+
 	Expression::~Expression()
 	{
 

@@ -18,4 +18,10 @@
 #endif
 
 // TODO: reference additional headers your program requires here
+#include <stack>
+#include <list>
+#include <string>
+
+using namespace std;
+
 #include "RedneckPrerequisities.h"

@@ -141,18 +141,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ByteCodeId.h" />
+    <ClInclude Include="ReAddVirtualMachineWorker.h" />
+    <ClInclude Include="ReDivVirtualMachineWorker.h" />
+    <ClInclude Include="ReIStackData.h" />
+    <ClInclude Include="ReMulVirtualMachineWorker.h" />
+    <ClInclude Include="ReNumExpression.h" />
+    <ClInclude Include="RePushVirtualMachineWorker.h" />
+    <ClInclude Include="ReReader.h" />
+    <ClInclude Include="ReIdentifierReader.h" />
+    <ClInclude Include="ReExpressionType.h" />
+    <ClInclude Include="ReByteCode.h" />
+    <ClInclude Include="ReInstructionGenerator.h" />
     <ClInclude Include="RedneckPrerequisities.h" />
     <ClInclude Include="ReExpression.h" />
+    <ClInclude Include="ReInputStream.h" />
+    <ClInclude Include="ReInstruction.h" />
     <ClInclude Include="ReInterpreter.h" />
-    <ClInclude Include="ReNumExpression.h" />
+    <ClInclude Include="ReLexer.h" />
+    <ClInclude Include="ReNumberReader.h" />
     <ClInclude Include="ReAritmeticOperationExpression.h" />
+    <ClInclude Include="ReOperatorReader.h" />
     <ClInclude Include="ReParser.h" />
+    <ClInclude Include="RePunctReader.h" />
+    <ClInclude Include="ReStringReader.h" />
+    <ClInclude Include="ReSubVirtualMachineWorker.h" />
     <ClInclude Include="ReToken.h" />
     <ClInclude Include="ReTokenType.h" />
-    <ClInclude Include="ReStackVisitor.h" />
+    <ClInclude Include="ReStackData.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ReVirtualMachine.h" />
+    <ClInclude Include="ReVirtualMachineWorker.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -169,19 +188,34 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ReNumExpression.cpp" />
+    <ClCompile Include="RePushVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReAddVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReDivVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReIdentifierReader.cpp" />
     <ClCompile Include="ReAritmeticOperationExpression.cpp" />
     <ClCompile Include="ReExpression.cpp" />
+    <ClCompile Include="ReInputStream.cpp" />
+    <ClCompile Include="ReInstruction.cpp" />
+    <ClCompile Include="ReInstructionGenerator.cpp" />
     <ClCompile Include="ReInterpreter.cpp" />
-    <ClCompile Include="ReNumExpression.cpp" />
+    <ClCompile Include="ReLexer.cpp" />
+    <ClCompile Include="ReMulVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReNumberReader.cpp" />
+    <ClCompile Include="ReOperatorReader.cpp" />
     <ClCompile Include="ReParser.cpp" />
+    <ClCompile Include="RePunctReader.cpp" />
+    <ClCompile Include="ReReader.cpp" />
+    <ClCompile Include="ReStringReader.cpp" />
+    <ClCompile Include="ReSubVirtualMachineWorker.cpp" />
     <ClCompile Include="ReToken.cpp" />
-    <ClCompile Include="ReStackVisitor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ReVirtualMachine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

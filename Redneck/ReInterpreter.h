@@ -11,16 +11,18 @@ namespace Redneck
 	class REDNECK_API Interpreter
 	{
 	private:
-		stack<Expression*> _expressionStack;
-		stack<int> _valueStack;
-		StackVisitor* _stackVisitor;
-
-		template<class T> T Stack_Pop(stack<T>& stack);
+		//stack<Expression*> _expressionStack;
+		//stack<int> _valueStack;
+		//StackVisitor* _stackVisitor;
+		Parser* _parser;
+		InstructionGenerator* _instructionGenerator;
+		VirtualMachine* _virtualMachine;
+		//template<class T> T Stack_Pop(stack<T>& stack);
 	public:
 		Interpreter();
 		virtual ~Interpreter();
 
-		Expression* CreateExpressions(const string& s);
-		void Interpret(Expression* expression);
+		void Interpret(const string& s);
+		//void Interpret(Expression* expression);
 	};
 }

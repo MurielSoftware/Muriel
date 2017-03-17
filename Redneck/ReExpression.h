@@ -1,18 +1,21 @@
 #pragma once
 
 #include "stdafx.h"
-#include "ByteCodeId.h"
+#include "ReExpressionType.h"
 
 namespace Redneck
 {
 	class Expression
 	{
 	private:
+		string _value;
 	public:
 		Expression();
+		Expression(const string& value);
 		virtual ~Expression();
 
-		virtual void Accept(StackVisitor& stackVisitor) = 0;
-		virtual ByteCodeId GetByteCodeId() = 0;
+		inline const string& GetValue() const { return _value; }
+
+		inline virtual ExpressionType GetExpressionType() = 0;
 	};
 }

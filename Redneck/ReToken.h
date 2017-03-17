@@ -1,6 +1,10 @@
 #pragma once
 
 #include "ReTokenType.h"
+#include <string>
+#include <sstream>
+
+using namespace std;
 
 namespace Redneck
 {
@@ -8,19 +12,14 @@ namespace Redneck
 	{
 	private:
 		TokenType _tokenType;
-		int _intValue;
-		char _value;
+		string _value;
 	public:
+		Token();
 		Token(TokenType tokenType);
-		Token(TokenType tokenType, int intValue);
-		Token(TokenType tokenType, char value);
-		Token(TokenType tokenType, int intValue, char value);
+		Token(TokenType tokenType, const string& value );
 		virtual ~Token();
 
 		inline TokenType GetTokenType() { return _tokenType; }
-		inline int GetIntValue() { return _intValue; }
-		inline char GetValue() { return _value; }
-
-		Token& Clone();
+		inline const string& GetValue() const { return _value; }
 	};
 }

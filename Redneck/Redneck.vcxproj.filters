@@ -31,11 +31,26 @@
     <Filter Include="Source Files\Expressions">
       <UniqueIdentifier>{81a2452b-5a13-469e-8035-27a993cdf51a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Stack">
-      <UniqueIdentifier>{b653af15-5afe-4c5d-bd23-846bc11a40f0}</UniqueIdentifier>
+    <Filter Include="Header Files\Lexer">
+      <UniqueIdentifier>{1260de10-36ed-4a1b-817e-3c9df26abbc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Stack">
-      <UniqueIdentifier>{fc93b6c0-b632-4b21-830b-4c564de91683}</UniqueIdentifier>
+    <Filter Include="Source Files\Lexer">
+      <UniqueIdentifier>{134db2ef-340b-47d8-a4c5-3371db373b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lexer\Readers">
+      <UniqueIdentifier>{fc8a5362-80ae-423b-96bd-322d04e05ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lexer\Reader">
+      <UniqueIdentifier>{ebd13b67-0ed2-4b0b-b1df-650c93d8a7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interpret\VirtualMachineWorkers">
+      <UniqueIdentifier>{377e2b7a-2c28-43b2-aed7-f2e33fd9e38c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interpret\VirtualMachineWorkers">
+      <UniqueIdentifier>{783726a2-8052-4262-9feb-edaafc7d3f63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interpret\Stack">
+      <UniqueIdentifier>{0238a553-f2a7-43d9-b1c9-d32d861d8176}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,20 +78,77 @@
     <ClInclude Include="ReExpression.h">
       <Filter>Header Files\Expressions</Filter>
     </ClInclude>
-    <ClInclude Include="ReNumExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
     <ClInclude Include="ReAritmeticOperationExpression.h">
       <Filter>Header Files\Expressions</Filter>
     </ClInclude>
-    <ClInclude Include="ByteCodeId.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReStackVisitor.h">
-      <Filter>Header Files\Stack</Filter>
-    </ClInclude>
     <ClInclude Include="RedneckPrerequisities.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReInputStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReLexer.h">
+      <Filter>Header Files\Lexer</Filter>
+    </ClInclude>
+    <ClInclude Include="ReInstruction.h">
+      <Filter>Header Files\Interpret</Filter>
+    </ClInclude>
+    <ClInclude Include="ReInstructionGenerator.h">
+      <Filter>Header Files\Interpret</Filter>
+    </ClInclude>
+    <ClInclude Include="ReByteCode.h">
+      <Filter>Header Files\Interpret</Filter>
+    </ClInclude>
+    <ClInclude Include="ReExpressionType.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReVirtualMachine.h">
+      <Filter>Header Files\Interpret</Filter>
+    </ClInclude>
+    <ClInclude Include="ReReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIdentifierReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReNumberReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReOperatorReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="RePunctReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReStringReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReAddVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReStackData.h">
+      <Filter>Header Files\Interpret\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSubVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReMulVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReDivVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="RePushVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReNumExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIStackData.h">
+      <Filter>Header Files\Interpret\Stack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,11 +170,56 @@
     <ClCompile Include="ReExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
     </ClCompile>
-    <ClCompile Include="ReStackVisitor.cpp">
-      <Filter>Source Files\Stack</Filter>
-    </ClCompile>
     <ClCompile Include="ReAritmeticOperationExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReInputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReLexer.cpp">
+      <Filter>Source Files\Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="ReInstruction.cpp">
+      <Filter>Source Files\Interpret</Filter>
+    </ClCompile>
+    <ClCompile Include="ReInstructionGenerator.cpp">
+      <Filter>Source Files\Interpret</Filter>
+    </ClCompile>
+    <ClCompile Include="ReVirtualMachine.cpp">
+      <Filter>Source Files\Interpret</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIdentifierReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReNumberReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReOperatorReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="RePunctReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReStringReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReAddVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReDivVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReMulVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="RePushVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReSubVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
     <ClCompile Include="ReNumExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
