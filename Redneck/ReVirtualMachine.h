@@ -15,6 +15,8 @@ namespace Redneck
 	private:
 		static map<ByteCode, VirtualMachineWorker*> _virtualMachineWorkers;
 		stack<IStackData*> _stack;
+		unordered_map<string, IStackData*> _variableTable;
+
 		static map<ByteCode, VirtualMachineWorker*> CreateVirtualMachineWorkers();
 	public:
 		VirtualMachine();

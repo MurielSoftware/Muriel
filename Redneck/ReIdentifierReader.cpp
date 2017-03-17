@@ -27,6 +27,10 @@ namespace Redneck
 		{
 			value += inputStream.Get();
 		}
+		if (value == "var")
+		{
+			return Token(TOKEN_VARIABLE, value);
+		}
 		return Token(TOKEN_IDENTIFIER, value);
 	}
 }

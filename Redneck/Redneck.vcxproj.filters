@@ -150,6 +150,15 @@
     <ClInclude Include="ReIStackData.h">
       <Filter>Header Files\Interpret\Stack</Filter>
     </ClInclude>
+    <ClInclude Include="ReIdentifierExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReDeclarationExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReKeywords.h">
+      <Filter>Header Files\Parser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -222,6 +231,12 @@
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
     <ClCompile Include="ReNumExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReDeclarationExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIdentifierExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
     </ClCompile>
   </ItemGroup>

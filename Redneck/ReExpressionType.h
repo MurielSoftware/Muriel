@@ -5,6 +5,8 @@ namespace Redneck
 	enum ExpressionType
 	{
 		NUMBER,
-		BIN_OPERATION
+		BIN_OPERATION,
+		IDENTIFIER,
+		DECLARATION
 	};
 }

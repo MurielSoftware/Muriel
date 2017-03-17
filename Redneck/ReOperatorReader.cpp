@@ -17,7 +17,7 @@ namespace Redneck
 
 	bool OperatorReader::IsReadable(string s)
 	{
-		return regex_match(s, regex("( |\\+|\\-|\\*|\\/|\\%|\\^)"));
+		return regex_match(s, regex("( |\\+|\\-|\\*|\\/|\\%|\\^|\\=)"));
 	}
 
 	Token OperatorReader::Read(InputStream& inputStream)

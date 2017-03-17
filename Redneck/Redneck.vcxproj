@@ -143,7 +143,9 @@
   <ItemGroup>
     <ClInclude Include="ReAddVirtualMachineWorker.h" />
     <ClInclude Include="ReDivVirtualMachineWorker.h" />
+    <ClInclude Include="ReIdentifierExpression.h" />
     <ClInclude Include="ReIStackData.h" />
+    <ClInclude Include="ReKeywords.h" />
     <ClInclude Include="ReMulVirtualMachineWorker.h" />
     <ClInclude Include="ReNumExpression.h" />
     <ClInclude Include="RePushVirtualMachineWorker.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="ReToken.h" />
     <ClInclude Include="ReTokenType.h" />
     <ClInclude Include="ReStackData.h" />
+    <ClInclude Include="ReDeclarationExpression.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ReVirtualMachine.h" />
@@ -188,6 +191,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ReDeclarationExpression.cpp" />
+    <ClCompile Include="ReIdentifierExpression.cpp" />
     <ClCompile Include="ReNumExpression.cpp" />
     <ClCompile Include="RePushVirtualMachineWorker.cpp" />
     <ClCompile Include="ReAddVirtualMachineWorker.cpp" />

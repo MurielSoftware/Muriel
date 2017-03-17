@@ -2,6 +2,8 @@
 #include "ReParser.h"
 #include "ReAritmeticOperationExpression.h"
 #include "ReNumExpression.h"
+#include "ReIdentifierExpression.h"
+#include "ReDeclarationExpression.h"
 #include "ReToken.h"
 #include "ReLexer.h"
 #include <regex>
@@ -11,7 +13,7 @@ namespace Redneck
 {
 	Parser::Parser()
 	{
-		_lexer = new Lexer("2*3+2*3");
+		_lexer = new Lexer("var x = 2*3+2*3");
 	}
 
 	Parser::~Parser()
@@ -34,6 +36,7 @@ namespace Redneck
 		switch (_lexer->Peek().GetTokenType())
 		{
 		case TokenType::TOKEN_VARIABLE:
+			expression = DefineVariable();
 			break;
 		case TokenType::TOKEN_IF:
 			break;
@@ -45,6 +48,16 @@ namespace Redneck
 		}
 
 		return expression;
+	}
+
+	Expression* Parser::DefineVariable()
+	{
+		_lexer->Consume(TokenType::TOKEN_VARIABLE);
+		string name = _lexer->Next().GetValue();
+		_lexer->Consume(TokenType::TOKEN_EQUAL);
+		Expression* right = Expr();
+		_lexer->Consume(TokenType::TOKEN_SEMI);
+		return new DeclarationExpression(new IdentifierExpression(name), right);
 	}
 
 	Expression* Parser::Args()
