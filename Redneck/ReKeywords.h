@@ -5,11 +5,6 @@
 
 #include "ReTokenType.h"
 
-#include <string>
-#include <unordered_map>
-
-using namespace std;
-
 namespace Redneck
 {
 	class Keywords

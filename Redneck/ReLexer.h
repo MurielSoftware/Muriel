@@ -1,11 +1,7 @@
 #pragma once
 
-#include "stdafx.h"
 #include "ReToken.h"
-#include <string>
-#include <list>
 #include "ReReader.h"
-using namespace std;
 
 namespace Redneck
 {

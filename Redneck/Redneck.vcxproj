@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ReCommon.h" />
     <ClInclude Include="ReCmpVirtualMachineWorker.h" />
     <ClInclude Include="ReIfExpression.h" />
     <ClInclude Include="ReDivideByZeroException.h" />
@@ -152,7 +153,6 @@
     <ClInclude Include="ReAssignVirtualMachineWorker.h" />
     <ClInclude Include="ReDivVirtualMachineWorker.h" />
     <ClInclude Include="ReIdentifierExpression.h" />
-    <ClInclude Include="ReIStackData.h" />
     <ClInclude Include="ReKeywords.h" />
     <ClInclude Include="ReMulVirtualMachineWorker.h" />
     <ClInclude Include="ReNumExpression.h" />
@@ -177,11 +177,11 @@
     <ClInclude Include="ReSubVirtualMachineWorker.h" />
     <ClInclude Include="ReToken.h" />
     <ClInclude Include="ReTokenType.h" />
-    <ClInclude Include="ReStackData.h" />
     <ClInclude Include="ReDeclarationExpression.h" />
     <ClInclude Include="ReVarVirtualMachineWorker.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="ReStringDataType.h" />
+    <ClInclude Include="ReSyntaxException.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ReVirtualMachine.h" />
     <ClInclude Include="ReVirtualMachineWorker.h" />

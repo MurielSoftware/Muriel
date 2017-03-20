@@ -1,9 +1,5 @@
 #pragma once
 
-#include <string>
-
-using namespace std;
-
 namespace Redneck
 {
 	class InputStream

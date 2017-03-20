@@ -18,10 +18,13 @@ namespace Redneck
 
 	}
 
-	list<Instruction*> InstructionGenerator::Generate(Expression* expression)
+	list<Instruction*> InstructionGenerator::Generate(list<Expression*> expressions)
 	{
 		list<Instruction*> instructions;
-		DoGenerate(instructions, expression);
+		for (Expression* expression : expressions)
+		{
+			DoGenerate(instructions, expression);
+		}
 		return instructions;
 	}
 
@@ -29,7 +32,7 @@ namespace Redneck
 	{
 		switch (expression->GetExpressionType())
 		{
-		case ExpressionType::DECLARATION:
+		case ExpressionType::EXPRESSION_DECLARATION:
 		{
 			DeclarationExpression* declarationExpression = (DeclarationExpression*)expression;
 			instructions.push_back(new Instruction(ByteCode::VAR, declarationExpression->GetIdentifier()->GetValue()));
@@ -37,13 +40,13 @@ namespace Redneck
 			instructions.push_back(new Instruction(ByteCode::ASN, declarationExpression->GetIdentifier()->GetValue()));
 		}
 		break;
-		case ExpressionType::NUMBER:
+		case ExpressionType::EXPRESSION_NUMBER:
 		{
 			Expression* numExpression = (Expression*)expression;
 			instructions.push_back(new Instruction(ByteCode::PUSH, numExpression->GetValue()));
 		}
 		break;
-		case ExpressionType::BIN_OPERATION:
+		case ExpressionType::EXPRESSION_BIN_OPERATION:
 		{
 			AritmeticOperationExpression* aritmeticOperationExpression = (AritmeticOperationExpression*)expression;
 			DoGenerate(instructions, aritmeticOperationExpression->GetArg0());

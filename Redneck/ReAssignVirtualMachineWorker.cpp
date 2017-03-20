@@ -1,13 +1,14 @@
 #include "stdafx.h"
 #include "ReAssignVirtualMachineWorker.h"
 #include "ReInstruction.h"
+#include "ReVirtualMachine.h"
 
 namespace Redneck
 {
-	void AssignVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& _memory, Instruction* instruction)
+	void AssignVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
-		DataType* value = stack.top();
-		stack.pop();
-		_memory.Assign(instruction->GetValue(), value);
+		DataType* value = virtualMachine->GetStack().top();
+		virtualMachine->GetStack().pop();
+		virtualMachine->GetMemory().Assign(instruction->GetValue(), value);
 	}
 }

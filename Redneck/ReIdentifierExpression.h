@@ -1,6 +1,5 @@
 #pragma once
 
-#include "stdafx.h"
 #include "ReExpression.h"
 
 namespace Redneck
@@ -12,6 +11,6 @@ namespace Redneck
 		IdentifierExpression(const string& value);
 		virtual ~IdentifierExpression();
 
-		inline virtual ExpressionType GetExpressionType() { return ExpressionType::IDENTIFIER; }
+		inline virtual ExpressionType GetExpressionType() { return ExpressionType::EXPRESSION_IDENTIFIER; }
 	};
 }

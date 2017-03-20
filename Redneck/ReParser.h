@@ -1,11 +1,6 @@
 #pragma once
 
-#include "stdafx.h"
-#include "ReTokenType.h"
-
-#include <string>
-#include <vector>
-using namespace std;
+#include "ReInputStream.h"
 
 namespace Redneck
 {
@@ -26,6 +21,6 @@ namespace Redneck
 		Parser(const InputStream& inputStream);
 		virtual ~Parser();
 
-		Expression* Parse();
+		list<Expression*>& Parse();
 	};
 }

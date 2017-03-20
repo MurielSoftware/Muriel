@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "ReDivVirtualMachineWorker.h"
+#include "ReVirtualMachine.h"
 
 namespace Redneck
 {
-	void DivVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction)
+	void DivVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
-		DataType* rhs = stack.top();
-		stack.pop();
-		DataType* lhs = stack.top();
-		stack.pop();
+		DataType* rhs = virtualMachine->GetStack().top();
+		virtualMachine->GetStack().pop();
+		DataType* lhs = virtualMachine->GetStack().top();
+		virtualMachine->GetStack().pop();
 
-		stack.push(*rhs / *lhs);
+		virtualMachine->GetStack().push(*rhs / *lhs);
 
 		delete rhs;
 		delete lhs;

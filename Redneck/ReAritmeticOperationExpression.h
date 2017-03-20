@@ -18,6 +18,6 @@ namespace Redneck
 		inline Expression* GetArg0() { return _arg0; }
 		inline Expression* GetArg1() { return _arg1; }
 		inline char GetOperator() { return _operator; }
-		inline ExpressionType GetExpressionType() { return ExpressionType::BIN_OPERATION; }
+		inline ExpressionType GetExpressionType() { return ExpressionType::EXPRESSION_BIN_OPERATION; }
 	};
 }

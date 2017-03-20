@@ -2,9 +2,6 @@
 
 #include "ReInputStream.h"
 #include "ReToken.h"
-#include <regex>
-#include <string>
-using namespace std;
 
 namespace Redneck
 {

@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "ReOperatorReader.h"
+#include <regex>
 
 namespace Redneck
 {

@@ -1,9 +1,6 @@
 #pragma once
 
 #include "ReMemory.h"
-#include <stack>
-
-using namespace std;
 
 namespace Redneck
 {
@@ -15,6 +12,6 @@ namespace Redneck
 
 		}
 
-		virtual void ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction) = 0;
+		virtual void ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction) = 0;
 	};
 }

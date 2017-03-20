@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "RePunctReader.h"
+#include <regex>
 
 namespace Redneck
 {
@@ -17,7 +18,7 @@ namespace Redneck
 
 	bool PunctReader::IsReadable(string s)
 	{
-		return regex_match(s, regex("( |\\,|\\;|\\()|\\)|\\{|\\}"));
+		return regex_match(s, regex("( |\\,|\\;|\\(|\\)|\\{|\\})"));
 	}
 
 	Token PunctReader::Read(InputStream& inputStream)
@@ -34,11 +35,11 @@ namespace Redneck
 		}
 		if (value == "(")
 		{
-			return Token(TOKEN_LPAREN, value);
+			return Token(TOKEN_LBRACKET, value);
 		}
 		if (value == ")")
 		{
-			return Token(TOKEN_RPAREN, value);
+			return Token(TOKEN_RBRACKET, value);
 		}
 		if (value == "{")
 		{

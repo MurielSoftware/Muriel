@@ -5,7 +5,7 @@ using namespace Redneck;
 int main()
 {
 	Interpreter interpreter;
-	interpreter.Interpret("scripts/script.txt");
+	interpreter.Interpret("script.txt");
 	//interpreter.Interpret(expression);
 	return 0;
 }

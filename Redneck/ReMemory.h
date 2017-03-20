@@ -1,10 +1,6 @@
 #pragma once
 
 #include "ReDataType.h"
-#include <unordered_map>
-#include <string>
-
-using namespace std;
 
 namespace Redneck
 {

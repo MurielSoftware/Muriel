@@ -2,13 +2,14 @@
 #include "RePushVirtualMachineWorker.h"
 #include "ReInstruction.h"
 #include "ReIntDataType.h"
+#include "ReVirtualMachine.h"
 
 namespace Redneck
 {
-	void PushVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction)
+	void PushVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
 		DataType* dt = new IntDataType(stoi(instruction->GetValue()));
-		stack.push(dt);
+		virtualMachine->GetStack().push(dt);
 		//stack.push();
 		//stack.push(new StackData<int>(stoi(instruction->GetValue())));
 	}

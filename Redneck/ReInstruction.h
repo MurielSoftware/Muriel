@@ -1,9 +1,6 @@
 #pragma once
 
 #include "ReByteCode.h"
-#include <string>
-
-using namespace std;
 
 namespace Redneck
 {

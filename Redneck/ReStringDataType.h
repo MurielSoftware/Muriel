@@ -1,9 +1,7 @@
 #pragma once
 
+#include "ReCommon.h"
 #include "ReDataType.h"
-#include <string>
-
-using namespace std;
 
 namespace Redneck
 {

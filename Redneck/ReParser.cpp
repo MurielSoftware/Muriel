@@ -5,11 +5,7 @@
 #include "ReIdentifierExpression.h"
 #include "ReDeclarationExpression.h"
 #include "ReIfExpression.h"
-#include "ReToken.h"
 #include "ReLexer.h"
-#include "ReInputStream.h"
-#include <regex>
-#include <sstream>
 
 namespace Redneck
 {
@@ -23,12 +19,14 @@ namespace Redneck
 		delete _lexer;
 	}
 
-	Expression* Parser::Parse()
+	list<Expression*>& Parser::Parse()
 	{
-		//while (!_lexer->Eof())
-		//{
-			return Statement();
-		//}
+		list<Expression*> expressions;
+		while (!_lexer->Eof())
+		{
+			expressions.push_back(Statement());
+		}
+		return expressions;
 	}
 
 	Expression* Parser::Statement()
@@ -114,11 +112,18 @@ namespace Redneck
 		Token nextToken = _lexer->Next();
 		switch (nextToken.GetTokenType())
 		{
+		case TokenType::TOKEN_LBRACKET:
+		{
+			Expression* expr = Expr();
+			_lexer->Consume(TokenType::TOKEN_RBRACKET);
+			return expr;
+		}
 		case TokenType::TOKEN_INT:
 			return new NumExpression(nextToken.GetValue());
 			break;
 		case TokenType::TOKEN_STRING:
 			break;
 		}
+		return NULL;
 	}
 }

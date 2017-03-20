@@ -1,10 +1,6 @@
 #pragma once
 
 #include "ReTokenType.h"
-#include <string>
-#include <sstream>
-
-using namespace std;
 
 namespace Redneck
 {

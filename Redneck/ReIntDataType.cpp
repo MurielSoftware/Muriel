@@ -22,7 +22,7 @@ namespace Redneck
 	DataType* IntDataType::operator/(const DataType& dt)
 	{
 		float rhs = ((IntDataType*)&dt)->GetData();
-		if (rhs == 0.0f)
+		if (rhs == 0)
 		{
 			throw DivideByZeroException();
 		}

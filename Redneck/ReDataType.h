@@ -1,7 +1,5 @@
 #pragma once
 
-//#include "ReIntDataType.h"
-
 namespace Redneck
 {
 	class DataType
@@ -22,11 +20,5 @@ namespace Redneck
 		virtual bool operator<(const DataType& dt) = 0;
 		virtual bool operator==(const DataType& dt) = 0;
 		virtual DataType* operator=(const DataType& dt) = 0;
-
-		//static DataType& Create(int data)
-		//{
-		//	return IntDataType(data);
-		//}
-		//inline const T& GetData() const { return _data; }
 	};
 }

@@ -2,11 +2,12 @@
 #include "ReVarVirtualMachineWorker.h"
 #include "ReInstruction.h"
 #include "ReNullDataType.h"
+#include "ReVirtualMachine.h"
 
 namespace Redneck
 {
-	void VarVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction)
+	void VarVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
-		memory.Declare(instruction->GetValue(), new NullDataType());
+		virtualMachine->GetMemory().Declare(instruction->GetValue(), new NullDataType());
 	}
 }

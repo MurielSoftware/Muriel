@@ -1,9 +1,5 @@
 #pragma once
 
-#include <list>
-
-using namespace std;
-
 namespace Redneck
 {
 	class InstructionGenerator
@@ -14,6 +10,6 @@ namespace Redneck
 		InstructionGenerator();
 		virtual ~InstructionGenerator();
 
-		list<Instruction*> Generate(Expression* expression);
+		list<Instruction*> Generate(list<Expression*> expressions);
 	};
 }

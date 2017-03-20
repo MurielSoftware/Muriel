@@ -41,9 +41,11 @@ namespace Redneck
 
 	void VirtualMachine::Execute(list<Instruction*> instructions)
 	{
-		for (Instruction* instruction : instructions)
+		_instructions = instructions;
+
+		for (Instruction* instruction : _instructions)
 		{
-			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(_stack, _memory, instruction);
+			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(this, instruction);
 		}
 		_memory.Clear();
 	}

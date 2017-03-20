@@ -49,17 +49,11 @@
     <Filter Include="Source Files\Interpret\VirtualMachineWorkers">
       <UniqueIdentifier>{783726a2-8052-4262-9feb-edaafc7d3f63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Interpret\Stack">
-      <UniqueIdentifier>{0238a553-f2a7-43d9-b1c9-d32d861d8176}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\DataTypes">
       <UniqueIdentifier>{fc63b465-1129-40fd-b45e-437a420ff81d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Exceptions">
       <UniqueIdentifier>{f394e3d0-0f2d-471d-96dc-ffd646310b5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Exceptions">
-      <UniqueIdentifier>{fd352c92-91b0-4d4c-a5c6-4e61a009e9bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\DataTypes">
       <UniqueIdentifier>{f4f6f772-33c7-4977-a722-d8927cd3f9de}</UniqueIdentifier>
@@ -138,9 +132,6 @@
     <ClInclude Include="ReVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
-    <ClInclude Include="ReStackData.h">
-      <Filter>Header Files\Interpret\Stack</Filter>
-    </ClInclude>
     <ClInclude Include="ReSubVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
@@ -155,9 +146,6 @@
     </ClInclude>
     <ClInclude Include="ReNumExpression.h">
       <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReIStackData.h">
-      <Filter>Header Files\Interpret\Stack</Filter>
     </ClInclude>
     <ClInclude Include="ReIdentifierExpression.h">
       <Filter>Header Files\Expressions</Filter>
@@ -206,6 +194,12 @@
     </ClInclude>
     <ClInclude Include="ReCmpVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSyntaxException.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

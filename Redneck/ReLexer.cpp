@@ -7,6 +7,7 @@
 #include "ReOperatorReader.h"
 #include "RePunctReader.h"
 #include "ReStringReader.h"
+#include "ReSyntaxException.h"
 #include <regex>
 
 namespace Redneck
@@ -50,7 +51,7 @@ namespace Redneck
 	{
 		if (_currentToken.GetTokenType() != tokenType)
 		{
-
+			throw SyntaxException();
 		}
 		_currentToken = Step();
 	}
@@ -69,116 +70,10 @@ namespace Redneck
 		}
 	}
 
-	//Token Lexer::ReadNumber()
-	//{
-	//	string value;
-	//	while (!_inputStream->Eof() && !IsDelimiter(_inputStream->Peek()))
-	//	{
-	//		value += _inputStream->Get();
-	//	}
-	//	return Token(TOKEN_INT, value);
-	//}
-
-	//Token Lexer::ReadString()
-	//{
-	//	string value;
-	//	_inputStream->Ignore();
-	//	while (!_inputStream->Eof() && _inputStream->Peek() != '"')
-	//	{
-	//		value += _inputStream->Get();
-	//	}
-	//	_inputStream->Ignore();
-	//	return Token(TOKEN_STRING, value);
-	//}
-
-	//Token Lexer::ReadIdentifier()
-	//{
-	//	string value;
-	//	while (!_inputStream->Eof() && !IsDelimiter(_inputStream->Peek()))
-	//	{
-	//		value += _inputStream->Get();
-	//	}
-	//	return Token(TOKEN_IDENTIFIER, value);
-	//}
-
-	//Token Lexer::ReadPunct()
-	//{
-	//	string value = string(1, _inputStream->Get());
-
-	//	if (value == ",")
-	//	{
-	//		return Token(TOKEN_COMMA, value);
-	//	}
-	//	if (value == ";")
-	//	{
-	//		return Token(TOKEN_SEMI, value);
-	//	}
-	//	if (value == "(")
-	//	{
-	//		return Token(TOKEN_LPAREN, value);
-	//	}
-	//	if (value == ")")
-	//	{
-	//		return Token(TOKEN_RPAREN, value);
-	//	}
-	//	if (value == "{")
-	//	{
-	//		return Token(TOKEN_LBRACE, value);
-	//	}
-	//	if (value == "}")
-	//	{
-	//		return Token(TOKEN_RBRACE, value);
-	//	}
-	//}
-
-	//Token Lexer::ReadOperators()
-	//{
-	//	string value = string(1, _inputStream->Get());
-	//	if (value == "+")
-	//	{
-	//		return Token(TOKEN_PLUS, value);
-	//	}
-	//	if (value == "-")
-	//	{
-	//		return Token(TOKEN_MINUS, value);
-	//	}
-	//	if (value == "*")
-	//	{
-	//		return Token(TOKEN_MULT, value);
-	//	}
-	//	if (value == "/")
-	//	{
-	//		return Token(TOKEN_DIV, value);
-	//	}
-	//	if (value == "=")
-	//	{
-	//		return Token(TOKEN_EQUAL, value);
-	//	}
-	//}
-
-	//bool Lexer::IsDelimiter(char c)
-	//{
-	//	if (IsOperator(c) || IsWhitespace(c))
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
-
-	//bool Lexer::IsPunct(char c)
-	//{
-	//	return regex_match(string(1, c), regex("( |\\,|\\;|\\()|\\)|\\{|\\}"));
-	//}
-
 	bool Lexer::IsWhitespace(char c)
 	{
 		return regex_match(string(1, c), regex("( |\\n|\\r|\\t)"));
 	}
-
-	//bool Lexer::IsOperator(char c)
-	//{
-	//	return regex_match(string(1, c), regex("( |\\+|\\-|\\*|\\/|\\%|\\^)"));
-	//}
 
 	Token Lexer::Step()
 	{
@@ -198,25 +93,5 @@ namespace Redneck
 				return reader->Read(_inputStream);
 			}
 		}
-		//if (peek == '"')
-		//{
-		//	return ReadString();
-		//}
-		//if (isdigit(peek))
-		//{
-		//	return ReadNumber();
-		//}
-		//if (isalpha(peek))
-		//{
-		//	return ReadIdentifier();
-		//}
-		//if (IsPunct(peek))
-		//{
-		//	return ReadPunct();
-		//}
-		//if (IsOperator(peek))
-		//{
-		//	return ReadOperators();
-		//}
 	}
 }
