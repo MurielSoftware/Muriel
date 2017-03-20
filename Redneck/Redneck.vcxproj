@@ -138,10 +138,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="ReCmpVirtualMachineWorker.h" />
+    <ClInclude Include="ReIfExpression.h" />
+    <ClInclude Include="ReDivideByZeroException.h" />
+    <ClInclude Include="ReInvalidOperationException.h" />
+    <ClInclude Include="ReNullPointerException.h" />
+    <ClInclude Include="ReNullDataType.h" />
+    <ClInclude Include="ReMemory.h" />
+    <ClInclude Include="ReDataType.h" />
+    <ClInclude Include="ReFloatDataType.h" />
+    <ClInclude Include="ReIntDataType.h" />
     <ClInclude Include="ReAddVirtualMachineWorker.h" />
+    <ClInclude Include="ReAssignVirtualMachineWorker.h" />
     <ClInclude Include="ReDivVirtualMachineWorker.h" />
     <ClInclude Include="ReIdentifierExpression.h" />
     <ClInclude Include="ReIStackData.h" />
@@ -171,7 +179,9 @@
     <ClInclude Include="ReTokenType.h" />
     <ClInclude Include="ReStackData.h" />
     <ClInclude Include="ReDeclarationExpression.h" />
+    <ClInclude Include="ReVarVirtualMachineWorker.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="ReStringDataType.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ReVirtualMachine.h" />
     <ClInclude Include="ReVirtualMachineWorker.h" />
@@ -191,8 +201,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ReCmpVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReIfExpression.cpp" />
+    <ClCompile Include="ReKeywords.cpp" />
+    <ClCompile Include="ReNullDataType.cpp" />
+    <ClCompile Include="ReMemory.cpp" />
+    <ClCompile Include="ReAssignVirtualMachineWorker.cpp" />
     <ClCompile Include="ReDeclarationExpression.cpp" />
+    <ClCompile Include="ReFloatDataType.cpp" />
     <ClCompile Include="ReIdentifierExpression.cpp" />
+    <ClCompile Include="ReIntDataType.cpp" />
     <ClCompile Include="ReNumExpression.cpp" />
     <ClCompile Include="RePushVirtualMachineWorker.cpp" />
     <ClCompile Include="ReAddVirtualMachineWorker.cpp" />
@@ -211,9 +229,11 @@
     <ClCompile Include="ReParser.cpp" />
     <ClCompile Include="RePunctReader.cpp" />
     <ClCompile Include="ReReader.cpp" />
+    <ClCompile Include="ReStringDataType.cpp" />
     <ClCompile Include="ReStringReader.cpp" />
     <ClCompile Include="ReSubVirtualMachineWorker.cpp" />
     <ClCompile Include="ReToken.cpp" />
+    <ClCompile Include="ReVarVirtualMachineWorker.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

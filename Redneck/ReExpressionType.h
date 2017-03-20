@@ -7,6 +7,7 @@ namespace Redneck
 		NUMBER,
 		BIN_OPERATION,
 		IDENTIFIER,
-		DECLARATION
+		DECLARATION,
+		EXPRESSION_IF
 	};
 }

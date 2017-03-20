@@ -3,12 +3,16 @@
 
 namespace Redneck
 {
-	void AddVirtualMachineWorker::ProcessInstruction(stack<IStackData*>& stack, Instruction* instruction)
+	void AddVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction)
 	{
-		IStackData* rhs = stack.top();
+		DataType* rhs = stack.top();
 		stack.pop();
-		IStackData* lhs = stack.top();
+		DataType* lhs = stack.top();
 		stack.pop();
-		stack.push(new StackData<int>(lhs->GetNumber() + rhs->GetNumber()));
+		
+		stack.push(*rhs + *lhs);
+		
+		delete rhs;
+		delete lhs;
 	}
 }

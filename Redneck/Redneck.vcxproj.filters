@@ -52,9 +52,18 @@
     <Filter Include="Header Files\Interpret\Stack">
       <UniqueIdentifier>{0238a553-f2a7-43d9-b1c9-d32d861d8176}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <Filter Include="Header Files\DataTypes">
+      <UniqueIdentifier>{fc63b465-1129-40fd-b45e-437a420ff81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{f394e3d0-0f2d-471d-96dc-ffd646310b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceptions">
+      <UniqueIdentifier>{fd352c92-91b0-4d4c-a5c6-4e61a009e9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes">
+      <UniqueIdentifier>{f4f6f772-33c7-4977-a722-d8927cd3f9de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -159,6 +168,45 @@
     <ClInclude Include="ReKeywords.h">
       <Filter>Header Files\Parser</Filter>
     </ClInclude>
+    <ClInclude Include="ReVarVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReAssignVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReFloatDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIntDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReStringDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReMemory.h">
+      <Filter>Header Files\Interpret</Filter>
+    </ClInclude>
+    <ClInclude Include="ReNullDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReDivideByZeroException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReInvalidOperationException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReNullPointerException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIfExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReCmpVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -238,6 +286,36 @@
     </ClCompile>
     <ClCompile Include="ReIdentifierExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReAssignVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReVarVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReFloatDataType.cpp">
+      <Filter>Source Files\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIntDataType.cpp">
+      <Filter>Source Files\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReStringDataType.cpp">
+      <Filter>Source Files\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReMemory.cpp">
+      <Filter>Source Files\Interpret</Filter>
+    </ClCompile>
+    <ClCompile Include="ReNullDataType.cpp">
+      <Filter>Source Files\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReKeywords.cpp">
+      <Filter>Source Files\Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIfExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReCmpVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

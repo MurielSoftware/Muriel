@@ -4,7 +4,7 @@
 
 namespace Redneck
 {
-	class SubVirtualMachineWorker : public VirtualMachineWorker
+	class CmpVirtualMachineWorker : public VirtualMachineWorker
 	{
 	public:
 		void ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction);

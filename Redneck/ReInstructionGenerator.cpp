@@ -3,6 +3,7 @@
 #include "ReExpression.h"
 #include "ReInstruction.h"
 #include "ReAritmeticOperationExpression.h"
+#include "ReIfExpression.h"
 #include "ReDeclarationExpression.h"
 
 namespace Redneck
@@ -35,14 +36,15 @@ namespace Redneck
 			DoGenerate(instructions, declarationExpression->GetDeclaration());
 			instructions.push_back(new Instruction(ByteCode::ASN, declarationExpression->GetIdentifier()->GetValue()));
 		}
-			break;
+		break;
 		case ExpressionType::NUMBER:
 		{
 			Expression* numExpression = (Expression*)expression;
 			instructions.push_back(new Instruction(ByteCode::PUSH, numExpression->GetValue()));
 		}
-			break;
+		break;
 		case ExpressionType::BIN_OPERATION:
+		{
 			AritmeticOperationExpression* aritmeticOperationExpression = (AritmeticOperationExpression*)expression;
 			DoGenerate(instructions, aritmeticOperationExpression->GetArg0());
 			DoGenerate(instructions, aritmeticOperationExpression->GetArg1());
@@ -61,7 +63,17 @@ namespace Redneck
 				instructions.push_back(new Instruction(ByteCode::DIV));
 				break;
 			}
-			break;
+		}
+		break;
+		case ExpressionType::EXPRESSION_IF:
+		{
+			IfExpression* ifExpression = (IfExpression*)expression;
+			DoGenerate(instructions, ifExpression->GetCondition());
+			instructions.push_back(new Instruction(ByteCode::CMP, ""));
+			DoGenerate(instructions, ifExpression->GetStatement());
+			instructions.push_back(new Instruction(ByteCode::END, ""));
+		}
+		break;
 		}
 	}
 }

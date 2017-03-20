@@ -6,6 +6,9 @@
 #include "ReMulVirtualMachineWorker.h"
 #include "ReSubVirtualMachineWorker.h"
 #include "ReDivVirtualMachineWorker.h"
+#include "ReVarVirtualMachineWorker.h"
+#include "ReAssignVirtualMachineWorker.h"
+#include "ReCmpVirtualMachineWorker.h"
 
 namespace Redneck
 {
@@ -19,6 +22,9 @@ namespace Redneck
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::SUB, new SubVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::MULT, new MulVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::DIV, new DivVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::VAR, new VarVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ASN, new AssignVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::CMP, new CmpVirtualMachineWorker()));
 
 		return map;
 	}
@@ -37,7 +43,8 @@ namespace Redneck
 	{
 		for (Instruction* instruction : instructions)
 		{
-			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(_stack, instruction);
+			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(_stack, _memory, instruction);
 		}
+		_memory.Clear();
 	}
 }

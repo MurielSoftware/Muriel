@@ -21,8 +21,9 @@ namespace Redneck
 		Expression* Factor();
 
 		Expression* DefineVariable();
+		Expression* DefineIf();
 	public:
-		Parser();
+		Parser(const InputStream& inputStream);
 		virtual ~Parser();
 
 		Expression* Parse();

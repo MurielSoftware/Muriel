@@ -24,9 +24,9 @@ namespace Redneck
 		return readers;
 	}
 
-	Lexer::Lexer(const string& path)
+	Lexer::Lexer(const InputStream& inputStream)
 	{
-		_inputStream = InputStream(path);
+		_inputStream = inputStream;
 		_currentToken = Step();
 	}
 

@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "ReIdentifierReader.h"
+#include "ReKeywords.h"
 
 namespace Redneck
 {
@@ -27,9 +28,9 @@ namespace Redneck
 		{
 			value += inputStream.Get();
 		}
-		if (value == "var")
+		if (Keywords::IsKeyword(value))
 		{
-			return Token(TOKEN_VARIABLE, value);
+			return Token(Keywords::GetKeywordTokenType(value), value);
 		}
 		return Token(TOKEN_IDENTIFIER, value);
 	}

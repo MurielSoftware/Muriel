@@ -28,7 +28,7 @@ namespace Redneck
 
 		Token Step();
 	public:
-		Lexer(const string& path);
+		Lexer(const InputStream& inputStream);
 		virtual ~Lexer();
 
 		Token Peek();

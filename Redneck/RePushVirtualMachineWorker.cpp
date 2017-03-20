@@ -1,11 +1,15 @@
 #include "stdafx.h"
 #include "RePushVirtualMachineWorker.h"
 #include "ReInstruction.h"
+#include "ReIntDataType.h"
 
 namespace Redneck
 {
-	void PushVirtualMachineWorker::ProcessInstruction(stack<IStackData*>& stack, Instruction* instruction)
+	void PushVirtualMachineWorker::ProcessInstruction(stack<DataType*>& stack, Memory& memory, Instruction* instruction)
 	{
-		stack.push(new StackData<int>(stoi(instruction->GetValue())));
+		DataType* dt = new IntDataType(stoi(instruction->GetValue()));
+		stack.push(dt);
+		//stack.push();
+		//stack.push(new StackData<int>(stoi(instruction->GetValue())));
 	}
 }

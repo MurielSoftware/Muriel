@@ -4,16 +4,18 @@
 #include "ReNumExpression.h"
 #include "ReIdentifierExpression.h"
 #include "ReDeclarationExpression.h"
+#include "ReIfExpression.h"
 #include "ReToken.h"
 #include "ReLexer.h"
+#include "ReInputStream.h"
 #include <regex>
 #include <sstream>
 
 namespace Redneck
 {
-	Parser::Parser()
+	Parser::Parser(const InputStream& inputStream)
 	{
-		_lexer = new Lexer("var x = 2*3+2*3");
+		_lexer = new Lexer(inputStream);
 	}
 
 	Parser::~Parser()
@@ -39,6 +41,7 @@ namespace Redneck
 			expression = DefineVariable();
 			break;
 		case TokenType::TOKEN_IF:
+			expression = DefineIf();
 			break;
 		case TokenType::TOKEN_FUNC:
 			break;
@@ -58,6 +61,19 @@ namespace Redneck
 		Expression* right = Expr();
 		_lexer->Consume(TokenType::TOKEN_SEMI);
 		return new DeclarationExpression(new IdentifierExpression(name), right);
+	}
+
+	Expression* Parser::DefineIf()
+	{
+		_lexer->Consume(TokenType::TOKEN_IF);
+		_lexer->Consume(TokenType::TOKEN_LBRACKET);
+		Expression* condition = Expr();
+		_lexer->Consume(TokenType::TOKEN_RBRACKET);
+		_lexer->Consume(TokenType::TOKEN_LBRACE);
+		Expression* statement = Statement();
+		_lexer->Consume(TokenType::TOKEN_RBRACE);
+
+		return new IfExpression(condition, statement);
 	}
 
 	Expression* Parser::Args()

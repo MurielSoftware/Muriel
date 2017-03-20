@@ -1,28 +1,25 @@
 #pragma once
 
-#include "ReIStackData.h"
-#include <string>
-
-using namespace std;
+#include "ReDataType.h"
 
 namespace Redneck
 {
-	template<class T> class StackData : public IStackData
+	class StackData 
 	{
 	private:
-		T _data;
+		//DataType* _data;
 	public:
 		StackData()
 		{
 
 		}
 
-		StackData(const T& data)
-		{
-			_data = data;
-		}
+		//StackData(const DataType& data)
+		//{
+		//	_data = data;
+		//}
 
-		inline int GetNumber() { return (int)_data; }
+		//inline const DataType& GetData() { return _data; }
 
 		virtual ~StackData()
 		{
