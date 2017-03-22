@@ -6,6 +6,5 @@ int main()
 {
 	Interpreter interpreter;
 	interpreter.Interpret("script.txt");
-	//interpreter.Interpret(expression);
 	return 0;
 }

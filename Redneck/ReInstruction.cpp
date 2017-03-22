@@ -20,6 +20,13 @@ namespace Redneck
 
 	}
 
+	Instruction::Instruction(ByteCode byteCode, const string& value, unsigned short address)
+		: _byteCode(byteCode), _value(value), _address(address)
+	{
+
+	}
+
+
 	Instruction::~Instruction()
 	{
 

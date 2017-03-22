@@ -8,6 +8,7 @@
 #include "RePunctReader.h"
 #include "ReStringReader.h"
 #include "ReSyntaxException.h"
+#include "ReBooleanOperatorReader.h"
 #include <regex>
 
 namespace Redneck
@@ -22,6 +23,7 @@ namespace Redneck
 		readers.push_back(new OperatorReader());
 		readers.push_back(new PunctReader());
 		readers.push_back(new StringReader());
+		readers.push_back(new BooleanOperatorReader());
 		return readers;
 	}
 
@@ -70,9 +72,9 @@ namespace Redneck
 		}
 	}
 
-	bool Lexer::IsWhitespace(char c)
+	bool Lexer::IsWhitespace(string str)
 	{
-		return regex_match(string(1, c), regex("( |\\n|\\r|\\t)"));
+		return regex_match(str, regex("( |\\n|\\r|\\t)"));
 	}
 
 	Token Lexer::Step()
@@ -84,11 +86,11 @@ namespace Redneck
 			return Token(TOKEN_NULL);
 		}
 
-		char peek = _inputStream.Peek();
+		string peek = _inputStream.Peek();
 
 		for (Reader* reader : _readers)
 		{
-			if (reader->IsReadable(string(1, peek)))
+			if (reader->IsReadable(peek))
 			{
 				return reader->Read(_inputStream);
 			}

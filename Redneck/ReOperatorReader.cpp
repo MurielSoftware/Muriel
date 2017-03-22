@@ -23,7 +23,7 @@ namespace Redneck
 
 	Token OperatorReader::Read(InputStream& inputStream)
 	{
-		string value = string(1, inputStream.Get());
+		string value = inputStream.Get();
 		if (value == "+")
 		{
 			return Token(TOKEN_PLUS, value);
@@ -42,7 +42,7 @@ namespace Redneck
 		}
 		if (value == "=")
 		{
-			return Token(TOKEN_EQUAL, value);
+			return Token(TOKEN_ASSIGN, value);
 		}
 	}
 }

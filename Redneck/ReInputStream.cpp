@@ -29,22 +29,56 @@ namespace Redneck
 
 	}
 
-	char InputStream::Peek()
+	string InputStream::Peek()
 	{
 		if (Eof())
 		{
 
 		}
-		return _source[_currentPosition];
+		string current = string(1, _source[_currentPosition]);
+		IsTwoCharToken(current);
+	//	if (current == "=" && _source[_currentPosition+1] == '=')
+		//if(ThisAndNextIs("=", "="))
+		//{
+		//	current += "=";
+		//} 
+		//else if (ThisAndNextIs("!", "="))
+		//{
+		//	current += "=";
+		//}
+		//else if (ThisAndNextIs("<", "="))
+		//{
+		//	current += "=";
+		//}
+		//else if (ThisAndNextIs(">", "="))
+		//{
+		//	current += "=";
+		//}
+		//else if (ThisAndNextIs("|", "|"))
+		//{
+		//	current += "|"
+		//}
+		//else if (ThisAndNextIs("&", "&"))
+		//{
+		//	current += "&";
+		//}
+		return current;
 	}
 
-	char InputStream::Get()
+	string InputStream::Get()
 	{
 		if (Eof())
 		{
 
 		}
-		return _source[_currentPosition++];
+		string current = string(1, _source[_currentPosition]);
+		if (IsTwoCharToken(current))
+		{
+			//current += "=";
+			_currentPosition++;
+		}
+		_currentPosition++;
+		return current;
 	}
 
 	void InputStream::Ignore()
@@ -55,5 +89,44 @@ namespace Redneck
 	bool InputStream::Eof()
 	{
 		return _currentPosition >= _source.length();
+	}
+
+	bool InputStream::IsTwoCharToken(string& current)
+	{
+		if (ThisAndNextIs("=", "="))
+		{
+			current += "=";
+		}
+		else if (ThisAndNextIs("!", "="))
+		{
+			current += "=";
+		}
+		else if (ThisAndNextIs("<", "="))
+		{
+			current += "=";
+		}
+		else if (ThisAndNextIs(">", "="))
+		{
+			current += "=";
+		}
+		else if (ThisAndNextIs("|", "|"))
+		{
+			current += "|";
+		}
+		else if (ThisAndNextIs("&", "&"))
+		{
+			current += "&";
+		}
+
+		if (current.length() == 2)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	bool InputStream::ThisAndNextIs(const string& th, const string& ne)
+	{
+		return string(1, _source[_currentPosition]) == th && string(1, _source[_currentPosition + 1]) == ne;
 	}
 }

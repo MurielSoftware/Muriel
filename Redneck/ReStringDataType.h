@@ -18,6 +18,9 @@ namespace Redneck
 		virtual DataType* operator*(const DataType& dt);
 		virtual bool operator>(const DataType& dt);
 		virtual bool operator<(const DataType& dt);
+		virtual bool operator<=(const DataType& dt);
+		virtual bool operator>=(const DataType& dt);
+		virtual bool operator!=(const DataType& dt);
 		virtual bool operator==(const DataType& dt);
 		virtual DataType* operator=(const DataType& dt);
 

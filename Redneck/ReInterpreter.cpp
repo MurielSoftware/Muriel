@@ -10,14 +10,12 @@ namespace Redneck
 {
 	Interpreter::Interpreter()
 	{
-		//_parser = new Parser();
 		_instructionGenerator = new InstructionGenerator();
 		_virtualMachine = new VirtualMachine();
 	}
 
 	Interpreter::~Interpreter()
 	{
-		//delete _parser;
 		delete _instructionGenerator;
 		delete _virtualMachine;
 	}

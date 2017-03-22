@@ -10,6 +10,8 @@ namespace Redneck
 		unordered_map<string, TokenType> map;
 		map.insert(pair<string, TokenType>(VAR, TOKEN_VARIABLE));
 		map.insert(pair<string, TokenType>(IF, TOKEN_IF));
+		map.insert(pair<string, TokenType>(FUNC, TOKEN_FUNC));
+		map.insert(pair<string, TokenType>(WHILE, TOKEN_WHILE));
 		return map;
 	}
 

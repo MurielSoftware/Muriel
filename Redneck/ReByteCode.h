@@ -14,6 +14,8 @@ namespace Redneck
 		DIV,    
 		IF,
 		CMP,
-		END
+		END,
+		LOOP,
+		JUMP
 	};
 }

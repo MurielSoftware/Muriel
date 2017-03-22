@@ -24,7 +24,7 @@ namespace Redneck
 	{
 		string value;
 		inputStream.Ignore();
-		while (!inputStream.Eof() && inputStream.Peek() != '"')
+		while (!inputStream.Eof() && inputStream.Peek() != "\"")
 		{
 			value += inputStream.Get();
 		}

@@ -23,7 +23,7 @@ namespace Redneck
 
 	Token PunctReader::Read(InputStream& inputStream)
 	{
-		string value = string(1, inputStream.Get());
+		string value = inputStream.Get();
 
 		if (value == ",")
 		{

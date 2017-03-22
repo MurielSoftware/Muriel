@@ -19,7 +19,7 @@ namespace Redneck
 
 		//bool IsDelimiter(char c);
 		//bool IsPunct(char c);
-		bool IsWhitespace(char c);
+		bool IsWhitespace(string str);
 		//bool IsOperator(char c);
 
 		Token Step();

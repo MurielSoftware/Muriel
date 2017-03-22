@@ -23,7 +23,7 @@ namespace Redneck
 	Token NumberReader::Read(InputStream& inputStream)
 	{
 		string value;
-		while (!inputStream.Eof() && !IsDelimiter(string(1, inputStream.Peek())))
+		while (!inputStream.Eof() && !IsDelimiter(inputStream.Peek()))
 		{
 			value += inputStream.Get();
 		}

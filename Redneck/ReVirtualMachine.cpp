@@ -25,7 +25,6 @@ namespace Redneck
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::VAR, new VarVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ASN, new AssignVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::CMP, new CmpVirtualMachineWorker()));
-
 		return map;
 	}
 

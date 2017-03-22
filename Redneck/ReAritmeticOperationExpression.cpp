@@ -7,7 +7,7 @@ namespace Redneck
 	{
 	}
 
-	AritmeticOperationExpression::AritmeticOperationExpression(Expression* arg0, Expression* arg1, char op)
+	AritmeticOperationExpression::AritmeticOperationExpression(Expression* arg0, Expression* arg1, const string& op)
 	{
 		_arg0 = arg0;
 		_arg1 = arg1;

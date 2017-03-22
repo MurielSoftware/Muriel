@@ -2,6 +2,8 @@
 
 #define VAR "var"
 #define IF "if"
+#define FUNC "func"
+#define WHILE "while"
 
 #include "ReTokenType.h"
 

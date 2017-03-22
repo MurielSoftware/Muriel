@@ -138,8 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BooleanOperationExpression.h" />
+    <ClInclude Include="ReArgumentExpression.h" />
+    <ClInclude Include="ReAssociationExpression.h" />
+    <ClInclude Include="ReBooleanOperatorReader.h" />
     <ClInclude Include="ReCommon.h" />
     <ClInclude Include="ReCmpVirtualMachineWorker.h" />
+    <ClInclude Include="ReFunctionExpression.h" />
     <ClInclude Include="ReIfExpression.h" />
     <ClInclude Include="ReDivideByZeroException.h" />
     <ClInclude Include="ReInvalidOperationException.h" />
@@ -179,6 +184,7 @@
     <ClInclude Include="ReTokenType.h" />
     <ClInclude Include="ReDeclarationExpression.h" />
     <ClInclude Include="ReVarVirtualMachineWorker.h" />
+    <ClInclude Include="ReWhileExpression.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="ReStringDataType.h" />
     <ClInclude Include="ReSyntaxException.h" />
@@ -201,7 +207,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ReArgumentExpression.cpp" />
+    <ClCompile Include="ReAssociationExpression.cpp" />
+    <ClCompile Include="ReBooleanOperatorReader.cpp" />
     <ClCompile Include="ReCmpVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReFunctionExpression.cpp" />
     <ClCompile Include="ReIfExpression.cpp" />
     <ClCompile Include="ReKeywords.cpp" />
     <ClCompile Include="ReNullDataType.cpp" />
@@ -234,6 +244,7 @@
     <ClCompile Include="ReSubVirtualMachineWorker.cpp" />
     <ClCompile Include="ReToken.cpp" />
     <ClCompile Include="ReVarVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReWhileExpression.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

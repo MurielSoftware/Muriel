@@ -5,6 +5,8 @@
 #include "ReAritmeticOperationExpression.h"
 #include "ReIfExpression.h"
 #include "ReDeclarationExpression.h"
+#include "ReAssociationExpression.h"
+#include "ReWhileExpression.h"
 
 namespace Redneck
 {
@@ -35,15 +37,22 @@ namespace Redneck
 		case ExpressionType::EXPRESSION_DECLARATION:
 		{
 			DeclarationExpression* declarationExpression = (DeclarationExpression*)expression;
-			instructions.push_back(new Instruction(ByteCode::VAR, declarationExpression->GetIdentifier()->GetValue()));
+			AddInstruction(instructions, ByteCode::VAR, declarationExpression->GetIdentifier()->GetValue());
 			DoGenerate(instructions, declarationExpression->GetDeclaration());
-			instructions.push_back(new Instruction(ByteCode::ASN, declarationExpression->GetIdentifier()->GetValue()));
+			AddInstruction(instructions, ByteCode::ASN, declarationExpression->GetIdentifier()->GetValue());
+		}
+		break;
+		case ExpressionType::EXPRESSION_ASSOCIATION:
+		{
+			AssociationExpression* associationExpression = (AssociationExpression*)expression;
+			DoGenerate(instructions, associationExpression->GetDeclaration());
+			AddInstruction(instructions, ByteCode::ASN, associationExpression->GetIdentifier()->GetValue());
 		}
 		break;
 		case ExpressionType::EXPRESSION_NUMBER:
 		{
 			Expression* numExpression = (Expression*)expression;
-			instructions.push_back(new Instruction(ByteCode::PUSH, numExpression->GetValue()));
+			AddInstruction(instructions, ByteCode::PUSH, numExpression->GetValue());
 		}
 		break;
 		case ExpressionType::EXPRESSION_BIN_OPERATION:
@@ -51,20 +60,26 @@ namespace Redneck
 			AritmeticOperationExpression* aritmeticOperationExpression = (AritmeticOperationExpression*)expression;
 			DoGenerate(instructions, aritmeticOperationExpression->GetArg0());
 			DoGenerate(instructions, aritmeticOperationExpression->GetArg1());
-			switch (aritmeticOperationExpression->GetOperator())
+
+			if (aritmeticOperationExpression->GetOperator() == "+")
 			{
-			case '+':
-				instructions.push_back(new Instruction(ByteCode::ADD));
-				break;
-			case '-':
-				instructions.push_back(new Instruction(ByteCode::SUB));
-				break;
-			case '*':
-				instructions.push_back(new Instruction(ByteCode::MULT));
-				break;
-			case '/':
-				instructions.push_back(new Instruction(ByteCode::DIV));
-				break;
+				AddInstruction(instructions, ByteCode::ADD, "");
+			}
+			if (aritmeticOperationExpression->GetOperator() == "-")
+			{
+				AddInstruction(instructions, ByteCode::SUB, "");
+			}
+			if (aritmeticOperationExpression->GetOperator() == "*")
+			{
+				AddInstruction(instructions, ByteCode::MULT, "");
+			}
+			if (aritmeticOperationExpression->GetOperator() == "/")
+			{
+				AddInstruction(instructions, ByteCode::DIV, "");
+			}
+			if (aritmeticOperationExpression->GetOperator() == "==")
+			{
+				AddInstruction(instructions, ByteCode::CMP, "");
 			}
 		}
 		break;
@@ -72,11 +87,27 @@ namespace Redneck
 		{
 			IfExpression* ifExpression = (IfExpression*)expression;
 			DoGenerate(instructions, ifExpression->GetCondition());
-			instructions.push_back(new Instruction(ByteCode::CMP, ""));
+			AddInstruction(instructions, ByteCode::CMP, "");
 			DoGenerate(instructions, ifExpression->GetStatement());
-			instructions.push_back(new Instruction(ByteCode::END, ""));
+			AddInstruction(instructions, ByteCode::END, "");
+		}
+		break;
+		case ExpressionType::EXPRESSION_WHILE:
+		{
+			WhileExpression* whileExpression = (WhileExpression*)expression;
+			AddInstruction(instructions, ByteCode::LOOP, "loop1");
+			DoGenerate(instructions, whileExpression->GetCondition());
+			AddInstruction(instructions, ByteCode::CMP, "");
+			DoGenerate(instructions, whileExpression->GetStatement());
+			AddInstruction(instructions, ByteCode::JUMP, "loop1");
 		}
 		break;
 		}
+	}
+
+	void InstructionGenerator::AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value)
+	{
+		static unsigned short address = 0;
+		instructions.push_back(new Instruction(byteCode, value, address++));
 	}
 }

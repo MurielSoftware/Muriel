@@ -201,6 +201,24 @@
     <ClInclude Include="ReSyntaxException.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
+    <ClInclude Include="ReAssociationExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReArgumentExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReFunctionExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReWhileExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ReBooleanOperatorReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
+    </ClInclude>
+    <ClInclude Include="BooleanOperationExpression.h">
+      <Filter>Header Files\Expressions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -310,6 +328,21 @@
     </ClCompile>
     <ClCompile Include="ReCmpVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReAssociationExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReArgumentExpression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReFunctionExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReWhileExpression.cpp">
+      <Filter>Source Files\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="ReBooleanOperatorReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

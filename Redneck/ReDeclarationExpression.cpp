@@ -16,6 +16,7 @@ namespace Redneck
 
 	DeclarationExpression::~DeclarationExpression()
 	{
-
+		delete _identifier;
+		delete _declaration;
 	}
 }
