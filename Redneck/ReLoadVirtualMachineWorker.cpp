@@ -6,6 +6,6 @@ namespace Redneck
 {
 	void LoadVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
-		virtualMachine->GetStack().push(virtualMachine->GetMemory().Get(instruction->GetValue()));
+		virtualMachine->GetStack().push(virtualMachine->GetMemory().Get(instruction->GetValue())->Clone());
 	}
 }

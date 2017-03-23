@@ -70,4 +70,14 @@ namespace Redneck
 		_data = ((FloatDataType*)&dt)->GetData();
 		return this;
 	}
+
+	string FloatDataType::ToString()
+	{
+		return std::to_string(_data);
+	}
+
+	DataType* FloatDataType::Clone()
+	{
+		return new FloatDataType(_data);
+	}
 }

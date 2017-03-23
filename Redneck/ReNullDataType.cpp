@@ -62,4 +62,14 @@ namespace Redneck
 	{
 		throw NullPointerException();
 	}
+
+	string NullDataType::ToString()
+	{
+		throw NullPointerException();
+	}
+
+	DataType* NullDataType::Clone()
+	{
+		throw NullPointerException();
+	}
 }

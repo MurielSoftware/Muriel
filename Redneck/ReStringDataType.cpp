@@ -65,4 +65,14 @@ namespace Redneck
 		_data = ((StringDataType*)&dt)->GetData();
 		return this;
 	}
+
+	string StringDataType::ToString()
+	{
+		return _data;
+	}
+
+	DataType* StringDataType::Clone()
+	{
+		return new StringDataType(_data);
+	}
 }

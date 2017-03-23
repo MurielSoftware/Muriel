@@ -21,6 +21,8 @@ namespace Redneck
 		virtual DataType* operator!=(const DataType& dt);
 		virtual DataType* operator==(const DataType& dt);
 		virtual DataType* operator=(const DataType& dt);
+		virtual string ToString();
+		virtual DataType* Clone();
 
 		inline int GetData() { throw ""; }
 	};

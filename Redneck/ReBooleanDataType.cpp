@@ -65,4 +65,14 @@ namespace Redneck
 		_data = ((BooleanDataType*)&dt)->GetData();
 		return this;
 	}
+
+	string BooleanDataType::ToString()
+	{
+		return _data ? "true" : "false";
+	}
+
+	DataType* BooleanDataType::Clone()
+	{
+		return new BooleanDataType(_data);
+	}
 }

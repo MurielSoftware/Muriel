@@ -70,4 +70,14 @@ namespace Redneck
 		_data = ((IntDataType*)&dt)->GetData();
 		return this;
 	}
+
+	string IntDataType::ToString()
+	{
+		return std::to_string(_data);
+	}
+
+	DataType* IntDataType::Clone()
+	{
+		return new IntDataType(_data);
+	}
 }
