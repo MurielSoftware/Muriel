@@ -141,13 +141,16 @@
     <ClInclude Include="BooleanOperationExpression.h" />
     <ClInclude Include="ReArgumentExpression.h" />
     <ClInclude Include="ReAssociationExpression.h" />
+    <ClInclude Include="ReBooleanDataType.h" />
     <ClInclude Include="ReBooleanOperatorReader.h" />
     <ClInclude Include="ReCommon.h" />
     <ClInclude Include="ReCmpVirtualMachineWorker.h" />
+    <ClInclude Include="ReEqualsVirtualMachineWorker.h" />
     <ClInclude Include="ReFunctionExpression.h" />
     <ClInclude Include="ReIfExpression.h" />
     <ClInclude Include="ReDivideByZeroException.h" />
     <ClInclude Include="ReInvalidOperationException.h" />
+    <ClInclude Include="ReLoadVirtualMachineWorker.h" />
     <ClInclude Include="ReNullPointerException.h" />
     <ClInclude Include="ReNullDataType.h" />
     <ClInclude Include="ReMemory.h" />
@@ -209,11 +212,14 @@
     </ClCompile>
     <ClCompile Include="ReArgumentExpression.cpp" />
     <ClCompile Include="ReAssociationExpression.cpp" />
+    <ClCompile Include="ReBooleanDataType.cpp" />
     <ClCompile Include="ReBooleanOperatorReader.cpp" />
     <ClCompile Include="ReCmpVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReEqualsVirtualMachineWorker.cpp" />
     <ClCompile Include="ReFunctionExpression.cpp" />
     <ClCompile Include="ReIfExpression.cpp" />
     <ClCompile Include="ReKeywords.cpp" />
+    <ClCompile Include="ReLoadVirtualMachineWorker.cpp" />
     <ClCompile Include="ReNullDataType.cpp" />
     <ClCompile Include="ReMemory.cpp" />
     <ClCompile Include="ReAssignVirtualMachineWorker.cpp" />

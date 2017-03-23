@@ -28,17 +28,32 @@ namespace Redneck
 		throw NullPointerException();
 	}
 
-	bool NullDataType::operator>(const DataType& dt)
+	DataType* NullDataType::operator>(const DataType& dt)
 	{
 		throw NullPointerException();
 	}
 
-	bool NullDataType::operator<(const DataType& dt)
+	DataType* NullDataType::operator<(const DataType& dt)
 	{
 		throw NullPointerException();
 	}
 
-	bool NullDataType::operator==(const DataType& dt)
+	DataType* NullDataType::operator>=(const DataType& dt)
+	{
+		throw NullPointerException();
+	}
+
+	DataType* NullDataType::operator<=(const DataType& dt)
+	{
+		throw NullPointerException();
+	}
+
+	DataType* NullDataType::operator!=(const DataType& dt)
+	{
+		throw NullPointerException();
+	}
+
+	DataType* NullDataType::operator==(const DataType& dt)
 	{
 		throw NullPointerException();
 	}

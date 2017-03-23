@@ -4,11 +4,12 @@
 
 namespace Redneck
 {
-	class NullDataType : public DataType
+	class BooleanDataType : public DataType
 	{
 	private:
+		bool _data;
 	public:
-		NullDataType();
+		BooleanDataType(bool data);
 
 		virtual DataType* operator+(const DataType& dt);
 		virtual DataType* operator-(const DataType& dt);
@@ -22,6 +23,6 @@ namespace Redneck
 		virtual DataType* operator==(const DataType& dt);
 		virtual DataType* operator=(const DataType& dt);
 
-		inline int GetData() { throw ""; }
+		inline bool GetData() { return _data; }
 	};
 }

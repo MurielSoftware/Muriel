@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ReStringDataType.h"
 #include "ReInvalidOperationException.h"
+#include "ReBooleanDataType.h"
 
 namespace Redneck
 {
@@ -29,19 +30,34 @@ namespace Redneck
 		throw InvalidOperationException();
 	}
 
-	bool StringDataType::operator>(const DataType& dt)
+	DataType* StringDataType::operator>(const DataType& dt)
 	{
-		return _data > ((StringDataType*)&dt)->GetData();
+		return new BooleanDataType(_data > ((StringDataType*)&dt)->GetData());
 	}
 
-	bool StringDataType::operator<(const DataType& dt)
+	DataType* StringDataType::operator<(const DataType& dt)
 	{
-		return _data < ((StringDataType*)&dt)->GetData();
+		return new BooleanDataType(_data < ((StringDataType*)&dt)->GetData());
 	}
 
-	bool StringDataType::operator==(const DataType& dt)
+	DataType* StringDataType::operator>=(const DataType& dt)
 	{
-		return _data == ((StringDataType*)&dt)->GetData();
+		return new BooleanDataType(_data >= ((StringDataType*)&dt)->GetData());
+	}
+
+	DataType* StringDataType::operator<=(const DataType& dt)
+	{
+		return new BooleanDataType(_data <= ((StringDataType*)&dt)->GetData());
+	}
+
+	DataType* StringDataType::operator!=(const DataType& dt)
+	{
+		return new BooleanDataType(_data != ((StringDataType*)&dt)->GetData());
+	}
+
+	DataType* StringDataType::operator==(const DataType& dt)
+	{
+		return new BooleanDataType(_data == ((StringDataType*)&dt)->GetData());
 	}
 
 	DataType* StringDataType::operator=(const DataType& dt)

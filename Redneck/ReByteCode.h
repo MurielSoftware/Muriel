@@ -16,6 +16,8 @@ namespace Redneck
 		CMP,
 		END,
 		LOOP,
-		JUMP
+		JUMP,
+		EQUALS,
+		LOAD
 	};
 }

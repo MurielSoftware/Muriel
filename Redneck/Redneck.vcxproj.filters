@@ -219,6 +219,15 @@
     <ClInclude Include="BooleanOperationExpression.h">
       <Filter>Header Files\Expressions</Filter>
     </ClInclude>
+    <ClInclude Include="ReEqualsVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReBooleanDataType.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReLoadVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -343,6 +352,15 @@
     </ClCompile>
     <ClCompile Include="ReBooleanOperatorReader.cpp">
       <Filter>Source Files\Lexer\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ReEqualsVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReBooleanDataType.cpp">
+      <Filter>Source Files\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReLoadVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

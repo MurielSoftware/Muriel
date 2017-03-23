@@ -9,6 +9,8 @@
 #include "ReVarVirtualMachineWorker.h"
 #include "ReAssignVirtualMachineWorker.h"
 #include "ReCmpVirtualMachineWorker.h"
+#include "ReEqualsVirtualMachineWorker.h"
+#include "ReLoadVirtualMachineWorker.h"
 
 namespace Redneck
 {
@@ -25,6 +27,8 @@ namespace Redneck
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::VAR, new VarVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ASN, new AssignVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::CMP, new CmpVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new EqualsVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOAD, new LoadVirtualMachineWorker()));
 		return map;
 	}
 

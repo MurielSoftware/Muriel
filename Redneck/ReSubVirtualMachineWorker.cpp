@@ -11,7 +11,7 @@ namespace Redneck
 		DataType* lhs = virtualMachine->GetStack().top();
 		virtualMachine->GetStack().pop();
 
-		virtualMachine->GetStack().push(*rhs - *lhs);
+		virtualMachine->GetStack().push(*lhs - *rhs);
 
 		delete rhs;
 		delete lhs;

@@ -2,12 +2,18 @@
 #include "ReCmpVirtualMachineWorker.h"
 #include "ReInstruction.h"
 #include "ReVirtualMachine.h"
+#include "ReBooleanDataType.h"
 
 namespace Redneck
 {
 	void CmpVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
 	{
-		DataType* condition = virtualMachine->GetStack().top();
+		BooleanDataType* condition = (BooleanDataType*)virtualMachine->GetStack().top();
 		virtualMachine->GetStack().pop();
+
+		if (condition->GetData())
+		{
+
+		}
 	}
 }

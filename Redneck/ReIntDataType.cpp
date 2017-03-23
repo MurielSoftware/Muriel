@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ReIntDataType.h"
 #include "ReDivideByZeroException.h"
+#include "ReBooleanDataType.h"
 
 namespace Redneck
 {
@@ -34,19 +35,34 @@ namespace Redneck
 		return new IntDataType(_data * ((IntDataType*)&dt)->GetData());
 	}
 
-	bool IntDataType::operator>(const DataType& dt)
+	DataType* IntDataType::operator>(const DataType& dt)
 	{
-		return _data > ((IntDataType*)&dt)->GetData();
+		return new BooleanDataType(_data > ((IntDataType*)&dt)->GetData());
 	}
 
-	bool IntDataType::operator<(const DataType& dt)
+	DataType* IntDataType::operator<(const DataType& dt)
 	{
-		return _data < ((IntDataType*)&dt)->GetData();
+		return new BooleanDataType(_data < ((IntDataType*)&dt)->GetData());
 	}
 
-	bool IntDataType::operator==(const DataType& dt)
+	DataType* IntDataType::operator>=(const DataType& dt)
 	{
-		return _data == ((IntDataType*)&dt)->GetData();
+		return new BooleanDataType(_data >= ((IntDataType*)&dt)->GetData());
+	}
+
+	DataType* IntDataType::operator<=(const DataType& dt)
+	{
+		return new BooleanDataType(_data <= ((IntDataType*)&dt)->GetData());
+	}
+
+	DataType* IntDataType::operator!=(const DataType& dt)
+	{
+		return new BooleanDataType(_data != ((IntDataType*)&dt)->GetData());
+	}
+
+	DataType* IntDataType::operator==(const DataType& dt)
+	{
+		return new BooleanDataType(_data == ((IntDataType*)&dt)->GetData());
 	}
 
 	DataType* IntDataType::operator=(const DataType& dt)

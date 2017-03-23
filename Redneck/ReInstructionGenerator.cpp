@@ -6,6 +6,8 @@
 #include "ReIfExpression.h"
 #include "ReDeclarationExpression.h"
 #include "ReAssociationExpression.h"
+#include "ReNumExpression.h"
+#include "ReIdentifierExpression.h"
 #include "ReWhileExpression.h"
 
 namespace Redneck
@@ -51,8 +53,14 @@ namespace Redneck
 		break;
 		case ExpressionType::EXPRESSION_NUMBER:
 		{
-			Expression* numExpression = (Expression*)expression;
+			NumExpression* numExpression = (NumExpression*)expression;
 			AddInstruction(instructions, ByteCode::PUSH, numExpression->GetValue());
+		}
+		break;
+		case ExpressionType::EXPRESSION_IDENTIFIER:
+		{
+			IdentifierExpression* identifierExpression = (IdentifierExpression*)expression;
+			AddInstruction(instructions, ByteCode::LOAD, identifierExpression->GetValue());
 		}
 		break;
 		case ExpressionType::EXPRESSION_BIN_OPERATION:
@@ -79,7 +87,7 @@ namespace Redneck
 			}
 			if (aritmeticOperationExpression->GetOperator() == "==")
 			{
-				AddInstruction(instructions, ByteCode::CMP, "");
+				AddInstruction(instructions, ByteCode::EQUALS, "");
 			}
 		}
 		break;

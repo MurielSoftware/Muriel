@@ -14,6 +14,7 @@ namespace Redneck
 
 		void Declare(const string& name, DataType* value);
 		void Assign(const string& name, DataType* value);
+		DataType* Get(const string& name);
 		void Clear();
 	};
 }

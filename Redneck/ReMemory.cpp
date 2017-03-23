@@ -23,6 +23,11 @@ namespace Redneck
 		_variables[name] = value;
 	}
 
+	DataType* Memory::Get(const string& name)
+	{
+		return _variables[name];
+	}
+
 	void Memory::Clear()
 	{
 		for (pair<string, DataType*> variable : _variables)
