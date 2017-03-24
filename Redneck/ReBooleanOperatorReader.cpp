@@ -6,6 +6,20 @@
 
 namespace Redneck
 {
+	map<string, TokenType> BooleanOperatorReader::_stringToTokenBooleanOperatorTokenType = CreateStringToTokenBooleanOperatorTokenType();
+
+	map<string, TokenType> BooleanOperatorReader::CreateStringToTokenBooleanOperatorTokenType()
+	{
+		map<string, TokenType> map;
+		map.insert(pair<string, TokenType>("<", TokenType::TOKEN_LESS));
+		map.insert(pair<string, TokenType>(">", TokenType::TOKEN_GREATER));
+		map.insert(pair<string, TokenType>("<=", TokenType::TOKEN_LESS_EQUAL));
+		map.insert(pair<string, TokenType>(">=", TokenType::TOKEN_GREATER_EQUAL));
+		map.insert(pair<string, TokenType>("!=", TokenType::TOKEN_NOT_EQUALS));
+		map.insert(pair<string, TokenType>("==", TokenType::TOKEN_EQUALS));
+		return map;
+	}
+
 	BooleanOperatorReader::BooleanOperatorReader()
 	{
 
@@ -18,23 +32,12 @@ namespace Redneck
 
 	bool BooleanOperatorReader::IsReadable(string s)
 	{
-		return regex_match(s, regex("(\\<|\\>|\\==)"));
+		return regex_match(s, regex("(\\<|\\>|\\==|\\!=|\\<=|\\>=|)"));
 	}
 
 	Token BooleanOperatorReader::Read(InputStream& inputStream)
 	{
 		string value = inputStream.Get();
-		if (value == "<")
-		{
-			return Token(TokenType::TOKEN_LESS, value);
-		}
-		if (value == ">")
-		{
-			return Token(TokenType::TOKEN_GREATER, value);
-		}
-		if (value == "==")
-		{
-			return Token(TokenType::TOKEN_EQUALS, value);
-		}
+		return Token(_stringToTokenBooleanOperatorTokenType[value], value);
 	}
 }

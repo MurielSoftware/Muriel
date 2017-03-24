@@ -6,6 +6,19 @@
 
 namespace Redneck
 {
+	map<string, TokenType> OperatorReader::_stringToOperatorTokenType = CreateStringToOperatorTokenType();
+
+	map<string, TokenType> OperatorReader::CreateStringToOperatorTokenType()
+	{
+		map<string, TokenType> map;
+		map.insert(pair<string, TokenType>("+", TokenType::TOKEN_PLUS));
+		map.insert(pair<string, TokenType>("-", TokenType::TOKEN_MINUS));
+		map.insert(pair<string, TokenType>("*", TokenType::TOKEN_MULT));
+		map.insert(pair<string, TokenType>("/", TokenType::TOKEN_DIV));
+		map.insert(pair<string, TokenType>("=", TokenType::TOKEN_ASSIGN));
+		return map;
+	}
+
 	OperatorReader::OperatorReader()
 	{
 
@@ -24,25 +37,6 @@ namespace Redneck
 	Token OperatorReader::Read(InputStream& inputStream)
 	{
 		string value = inputStream.Get();
-		if (value == "+")
-		{
-			return Token(TOKEN_PLUS, value);
-		}
-		if (value == "-")
-		{
-			return Token(TOKEN_MINUS, value);
-		}
-		if (value == "*")
-		{
-			return Token(TOKEN_MULT, value);
-		}
-		if (value == "/")
-		{
-			return Token(TOKEN_DIV, value);
-		}
-		if (value == "=")
-		{
-			return Token(TOKEN_ASSIGN, value);
-		}
+		return Token(_stringToOperatorTokenType[value], value);
 	}
 }

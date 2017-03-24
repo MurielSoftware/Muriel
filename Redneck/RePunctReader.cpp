@@ -6,6 +6,20 @@
 
 namespace Redneck
 {
+	map<string, TokenType> PunctReader::_stringToPunctTokenType = CreateStringToPunctTokenType();
+
+	map<string, TokenType> PunctReader::CreateStringToPunctTokenType()
+	{
+		map<string, TokenType> map;
+		map.insert(pair<string, TokenType>(",", TokenType::TOKEN_COMMA));
+		map.insert(pair<string, TokenType>(";", TokenType::TOKEN_SEMI));
+		map.insert(pair<string, TokenType>("(", TokenType::TOKEN_LBRACKET));
+		map.insert(pair<string, TokenType>(")", TokenType::TOKEN_RBRACKET));
+		map.insert(pair<string, TokenType>("{", TokenType::TOKEN_LBRACE));
+		map.insert(pair<string, TokenType>("}", TokenType::TOKEN_RBRACE));
+		return map;
+	}
+
 	PunctReader::PunctReader()
 	{
 
@@ -24,30 +38,6 @@ namespace Redneck
 	Token PunctReader::Read(InputStream& inputStream)
 	{
 		string value = inputStream.Get();
-
-		if (value == ",")
-		{
-			return Token(TOKEN_COMMA, value);
-		}
-		if (value == ";")
-		{
-			return Token(TOKEN_SEMI, value);
-		}
-		if (value == "(")
-		{
-			return Token(TOKEN_LBRACKET, value);
-		}
-		if (value == ")")
-		{
-			return Token(TOKEN_RBRACKET, value);
-		}
-		if (value == "{")
-		{
-			return Token(TOKEN_LBRACE, value);
-		}
-		if (value == "}")
-		{
-			return Token(TOKEN_RBRACE, value);
-		}
+		return Token(_stringToPunctTokenType[value], value);
 	}
 }
