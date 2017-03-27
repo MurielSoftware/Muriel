@@ -13,7 +13,7 @@ namespace Redneck
 		Expression(const string& value);
 		virtual ~Expression();
 
-		inline const string& GetValue() const { return _value; }
+		inline virtual const string& GetValue() const { return _value; }
 
 		inline virtual ExpressionType GetExpressionType() = 0;
 	};

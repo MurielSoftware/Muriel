@@ -7,15 +7,20 @@ namespace Redneck
 	{
 	}
 
-	WhileExpression::WhileExpression(Expression* condition, Expression* statement)
+	WhileExpression::WhileExpression(Expression* condition, list<Expression*>& statements)
 	{
 		_condition = condition;
-		_statement = statement;
+		_statements = statements;
 	}
 
 	WhileExpression::~WhileExpression()
 	{
 		delete _condition;
-		delete _statement;
+
+		for (Expression* statement : _statements)
+		{
+			delete statement;
+		}
+		_statements.clear();
 	}
 }

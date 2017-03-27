@@ -17,7 +17,7 @@ namespace Redneck
 
 	bool NumberReader::IsReadable(string s)
 	{
-		return isdigit(s[0]);
+		return isdigit(s[0]) == 0 ? false : true;
 	}
 
 	Token NumberReader::Read(InputStream& inputStream)

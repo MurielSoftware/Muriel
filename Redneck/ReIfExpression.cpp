@@ -7,15 +7,20 @@ namespace Redneck
 	{
 	}
 
-	IfExpression::IfExpression(Expression* condition, Expression* statement)
+	IfExpression::IfExpression(Expression* condition, list<Expression*>& statements)
 	{
 		_condition = condition;
-		_statement = statement;
+		_statements = statements;
 	}
 
 	IfExpression::~IfExpression()
 	{
 		delete _condition;
-		delete _statement;
+
+		for (Expression* statement : _statements)
+		{
+			delete statement;
+		}
+		_statements.clear();
 	}
 }

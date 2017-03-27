@@ -8,20 +8,25 @@ namespace Redneck
 
 	}
 
-	FunctionExpression::FunctionExpression(Expression* identifier, list<ArgumentExpression*>& arguments, Expression* statement)
-		: _identifier(identifier), _arguments(arguments), _statement(statement)
+	FunctionExpression::FunctionExpression(Expression* identifier, list<ArgumentExpression*>& arguments, list<Expression*>& statements)
+		: _identifier(identifier), _arguments(arguments), _statements(statements)
 	{
 	}
 
 	FunctionExpression::~FunctionExpression()
 	{
 		delete _identifier;
-		delete _statement;
 
 		for (ArgumentExpression* argument : _arguments)
 		{
 			delete argument;
 		}
+
+		for (Expression* statement : _statements)
+		{
+			delete statement;
+		}
+		_statements.clear();
 		_arguments.clear();
 	}
 }

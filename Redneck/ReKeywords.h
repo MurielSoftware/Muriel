@@ -1,9 +1,11 @@
 #pragma once
 
-#define VAR "var"
-#define IF "if"
-#define FUNC "func"
-#define WHILE "while"
+#define KW_VAR "var"
+#define KW_IF "if"
+#define KW_FUNC "func"
+#define KW_WHILE "while"
+#define KW_TRUE "true"
+#define KW_FALSE "false"
 
 #include "ReTokenType.h"
 

@@ -4,20 +4,28 @@ namespace Redneck
 {
 	enum ByteCode
 	{
-		NOP,
+	//	NOP,
 		VAR, 
 		ASN,  
 		PUSH,   
+		LOAD,
+
 		ADD,    
 		SUB,    
 		MULT,   
 		DIV,    
+		
 		IF,
 		CMP,
 		END,
 		LOOP,
 		JUMP,
+		
 		EQUALS,
-		LOAD
+		NEQUALS,
+		GRT,
+		LS,
+		GRTE,
+		LSE
 	};
 }

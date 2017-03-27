@@ -2,7 +2,6 @@
 
 #include "stdafx.h"
 #include "ReBooleanOperatorReader.h"
-#include <regex>
 
 namespace Redneck
 {
@@ -32,7 +31,7 @@ namespace Redneck
 
 	bool BooleanOperatorReader::IsReadable(string s)
 	{
-		return regex_match(s, regex("(\\<|\\>|\\==|\\!=|\\<=|\\>=|)"));
+		return _stringToTokenBooleanOperatorTokenType.find(s) != _stringToTokenBooleanOperatorTokenType.end();
 	}
 
 	Token BooleanOperatorReader::Read(InputStream& inputStream)

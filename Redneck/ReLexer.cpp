@@ -95,5 +95,6 @@ namespace Redneck
 				return reader->Read(_inputStream);
 			}
 		}
+		return Token(TOKEN_NULL);
 	}
 }

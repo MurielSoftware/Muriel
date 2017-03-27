@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ReParser.h"
-#include "ReAritmeticOperationExpression.h"
-#include "ReNumExpression.h"
+#include "ReBinaryOperationExpression.h"
+#include "ReValueExpression.h"
 #include "ReIdentifierExpression.h"
 #include "ReDeclarationExpression.h"
 #include "ReAssociationExpression.h"
@@ -10,6 +10,7 @@
 #include "ReFunctionExpression.h"
 #include "ReLexer.h"
 #include "ReWhileExpression.h"
+#include "ReDataType.h"
 
 namespace Redneck
 {
@@ -26,7 +27,7 @@ namespace Redneck
 	list<Expression*> Parser::Parse()
 	{
 		list<Expression*> expressions;
-		while (!_lexer->Eof())
+		while (!_lexer->Eof() && _lexer->Peek().GetTokenType() != TokenType::TOKEN_RBRACE)
 		{
 			expressions.push_back(Statement());
 		}
@@ -51,15 +52,11 @@ namespace Redneck
 		case TokenType::TOKEN_FUNC:
 			expression = DefineFunction();
 			break;
-		//case TokenType::TOKEN_IDENTIFIER:
-		//	expression = DefineAssociation();
-		//	break;
 		default:
 			expression = Expr();
 			_lexer->Consume(TokenType::TOKEN_SEMI);
 			break;
 		}
-
 		return expression;
 	}
 
@@ -89,9 +86,9 @@ namespace Redneck
 		Expression* condition = Expr();
 		_lexer->Consume(TokenType::TOKEN_RBRACKET);
 		_lexer->Consume(TokenType::TOKEN_LBRACE);
-		Expression* statement = Statement();
+		list<Expression*> statements = Parse();
 		_lexer->Consume(TokenType::TOKEN_RBRACE);
-		return new IfExpression(condition, statement);
+		return new IfExpression(condition, statements);
 	}
 
 	Expression* Parser::DefineWhile()
@@ -101,9 +98,9 @@ namespace Redneck
 		Expression* condition = Expr();
 		_lexer->Consume(TokenType::TOKEN_RBRACKET);
 		_lexer->Consume(TokenType::TOKEN_LBRACE);
-		Expression* statement = Statement();
+		list<Expression*> statements = Parse();
 		_lexer->Consume(TokenType::TOKEN_RBRACE);
-		return new WhileExpression(condition, statement);
+		return new WhileExpression(condition, statements);
 	}
 
 	Expression* Parser::DefineFunction()
@@ -114,10 +111,10 @@ namespace Redneck
 		list<ArgumentExpression*> args = DefineArgs();
 		_lexer->Consume(TokenType::TOKEN_RBRACKET);
 		_lexer->Consume(TokenType::TOKEN_LBRACE);
-		Expression* statement = Statement();
+		list<Expression*> statements = Parse();
 		_lexer->Consume(TokenType::TOKEN_RBRACE);
 
-		return new FunctionExpression(new IdentifierExpression(name), args, statement);
+		return new FunctionExpression(new IdentifierExpression(name), args, statements);
 	}
 
 	list<ArgumentExpression*> Parser::DefineArgs()
@@ -146,7 +143,7 @@ namespace Redneck
 		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_PLUS || nextToken.GetTokenType() == TOKEN_MINUS))
 		{
 			_lexer->Next();
-			Expression* expr = new AritmeticOperationExpression(t, Term(), nextToken.GetValue());
+			Expression* expr = new BinaryOperationExpression(t, Term(), nextToken.GetValue());
 			nextToken = _lexer->Peek();
 			t = expr;
 		}
@@ -160,7 +157,7 @@ namespace Redneck
 		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_MULT || nextToken.GetTokenType() == TOKEN_DIV))
 		{
 			_lexer->Next();
-			Expression* term = new AritmeticOperationExpression(f, Bool(), nextToken.GetValue());
+			Expression* term = new BinaryOperationExpression(f, Bool(), nextToken.GetValue());
 			nextToken = _lexer->Peek();
 			f = term;
 		}
@@ -174,7 +171,7 @@ namespace Redneck
 		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_GREATER || nextToken.GetTokenType() == TOKEN_LESS || nextToken.GetTokenType() == TOKEN_EQUALS))
 		{
 			_lexer->Next();
-			Expression* term = new AritmeticOperationExpression(f, Expr(), nextToken.GetValue());
+			Expression* term = new BinaryOperationExpression(f, Expr(), nextToken.GetValue());
 			nextToken = _lexer->Peek();
 			f = term;
 		}
@@ -209,9 +206,11 @@ namespace Redneck
 			return expr;
 		}
 		case TokenType::TOKEN_INT:
-			return new NumExpression(nextToken.GetValue());
 		case TokenType::TOKEN_STRING:
-			break;
+		case TokenType::TOKEN_FLOAT:
+		case TokenType::TOKEN_FALSE:
+		case TokenType::TOKEN_TRUE:
+			return new ValueExpression(nextToken.GetValue());
 		}
 		return NULL;
 	}

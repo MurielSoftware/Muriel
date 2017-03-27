@@ -4,16 +4,16 @@
 
 namespace Redneck
 {
-	class AritmeticOperationExpression : public Expression
+	class BinaryOperationExpression : public Expression
 	{
 	private:
 		Expression* _arg0;
 		Expression* _arg1;
 		string _operator;
 	public:
-		AritmeticOperationExpression();
-		AritmeticOperationExpression(Expression* arg0, Expression* arg1, const string& op);
-		virtual ~AritmeticOperationExpression();
+		BinaryOperationExpression();
+		BinaryOperationExpression(Expression* arg0, Expression* arg1, const string& op);
+		virtual ~BinaryOperationExpression();
 
 		inline Expression* GetArg0() { return _arg0; }
 		inline Expression* GetArg1() { return _arg1; }

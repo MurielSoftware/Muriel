@@ -8,14 +8,14 @@ namespace Redneck
 	{
 	private:
 		Expression* _condition;
-		Expression* _statement;
+		list<Expression*> _statements;
 	public:
 		IfExpression();
-		IfExpression(Expression* condition, Expression* statement);
+		IfExpression(Expression* condition, list<Expression*>& statements);
 		virtual ~IfExpression();
 
 		inline Expression* GetCondition() { return _condition; }
-		inline Expression* GetStatement() { return _statement; }
+		inline list<Expression*>& GetStatements() { return _statements; }
 		inline virtual ExpressionType GetExpressionType() { return ExpressionType::EXPRESSION_IF; }
 	};
 }

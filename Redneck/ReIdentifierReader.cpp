@@ -18,7 +18,7 @@ namespace Redneck
 
 	bool IdentifierReader::IsReadable(string s)
 	{
-		return isalpha(s[0]);
+		return isalpha(s[0]) == 0 ? false : true;
 	}
 
 	Token IdentifierReader::Read(InputStream& inputStream)

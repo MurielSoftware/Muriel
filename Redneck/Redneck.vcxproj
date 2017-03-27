@@ -138,10 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BooleanOperationExpression.h" />
     <ClInclude Include="ReArgumentExpression.h" />
     <ClInclude Include="ReAssociationExpression.h" />
     <ClInclude Include="ReBooleanDataType.h" />
+    <ClInclude Include="ReSkipVirtualMachineWorker.h" />
+    <ClInclude Include="ReValueExpression.h" />
     <ClInclude Include="ReBooleanOperatorReader.h" />
     <ClInclude Include="ReCommon.h" />
     <ClInclude Include="ReCmpVirtualMachineWorker.h" />
@@ -163,7 +164,6 @@
     <ClInclude Include="ReIdentifierExpression.h" />
     <ClInclude Include="ReKeywords.h" />
     <ClInclude Include="ReMulVirtualMachineWorker.h" />
-    <ClInclude Include="ReNumExpression.h" />
     <ClInclude Include="RePushVirtualMachineWorker.h" />
     <ClInclude Include="ReReader.h" />
     <ClInclude Include="ReIdentifierReader.h" />
@@ -177,7 +177,7 @@
     <ClInclude Include="ReInterpreter.h" />
     <ClInclude Include="ReLexer.h" />
     <ClInclude Include="ReNumberReader.h" />
-    <ClInclude Include="ReAritmeticOperationExpression.h" />
+    <ClInclude Include="ReBinaryOperationExpression.h" />
     <ClInclude Include="ReOperatorReader.h" />
     <ClInclude Include="ReParser.h" />
     <ClInclude Include="RePunctReader.h" />
@@ -213,6 +213,8 @@
     <ClCompile Include="ReArgumentExpression.cpp" />
     <ClCompile Include="ReAssociationExpression.cpp" />
     <ClCompile Include="ReBooleanDataType.cpp" />
+    <ClCompile Include="ReSkipVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReValueExpression.cpp" />
     <ClCompile Include="ReBooleanOperatorReader.cpp" />
     <ClCompile Include="ReCmpVirtualMachineWorker.cpp" />
     <ClCompile Include="ReEqualsVirtualMachineWorker.cpp" />
@@ -227,12 +229,11 @@
     <ClCompile Include="ReFloatDataType.cpp" />
     <ClCompile Include="ReIdentifierExpression.cpp" />
     <ClCompile Include="ReIntDataType.cpp" />
-    <ClCompile Include="ReNumExpression.cpp" />
     <ClCompile Include="RePushVirtualMachineWorker.cpp" />
     <ClCompile Include="ReAddVirtualMachineWorker.cpp" />
     <ClCompile Include="ReDivVirtualMachineWorker.cpp" />
     <ClCompile Include="ReIdentifierReader.cpp" />
-    <ClCompile Include="ReAritmeticOperationExpression.cpp" />
+    <ClCompile Include="ReBinaryOperationExpression.cpp" />
     <ClCompile Include="ReExpression.cpp" />
     <ClCompile Include="ReInputStream.cpp" />
     <ClCompile Include="ReInstruction.cpp" />

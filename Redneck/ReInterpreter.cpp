@@ -22,10 +22,18 @@ namespace Redneck
 
 	void Interpreter::Interpret(const string& path)
 	{
-		InputStream* inputStream = new InputStream(path);
-		Parser* parser = new Parser(*inputStream);
-		list<Expression*> expressions = parser->Parse();
-		list<Instruction*> instructions = _instructionGenerator->Generate(expressions);
-		_virtualMachine->Execute(instructions);
+		try
+		{
+			InputStream* inputStream = new InputStream(path);
+			Parser* parser = new Parser(*inputStream);
+			list<Expression*> expressions = parser->Parse();
+			list<Instruction*> instructions = _instructionGenerator->Generate(expressions);
+			_virtualMachine->Execute(instructions);
+		}
+		catch (exception& ex)
+		{
+			printf("%s", ex.what());
+			return;
+		}
 	}
 }

@@ -1,3 +1,14 @@
 var x = (3+10*5+2)/5-1;
 var y = x + 5;
 var z = x == y;
+x = x + 5;
+if(x == y)
+{
+   x = 0;
+   y = 0;
+}
+
+var booleanValue = true;
+var stringValue = "ahoj";
+var floatValue = 1.23;
+var intValue = 123;

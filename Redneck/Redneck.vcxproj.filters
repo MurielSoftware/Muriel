@@ -58,6 +58,24 @@
     <Filter Include="Source Files\DataTypes">
       <UniqueIdentifier>{f4f6f772-33c7-4977-a722-d8927cd3f9de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Expressions\DataTypes">
+      <UniqueIdentifier>{11d665ba-8a55-49a4-bb36-385852c4c6be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Expressions\Operations">
+      <UniqueIdentifier>{560dde60-d7f8-4402-8493-cad6f4e1edea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Expressions\Keywords">
+      <UniqueIdentifier>{12570d46-40d0-42a9-805c-e412a52ac971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Expressions\DataTypes">
+      <UniqueIdentifier>{de40959a-ea92-4bac-a760-d4e0521dbfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Expressions\Operations">
+      <UniqueIdentifier>{c506c0df-ee02-46b8-9ce8-069f65549333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Expressions\Keywords">
+      <UniqueIdentifier>{5c4fba4c-db09-468c-9da1-1754c6a0ccd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -79,9 +97,6 @@
       <Filter>Header Files\Parser</Filter>
     </ClInclude>
     <ClInclude Include="ReExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReAritmeticOperationExpression.h">
       <Filter>Header Files\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="RedneckPrerequisities.h">
@@ -144,15 +159,6 @@
     <ClInclude Include="RePushVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
-    <ClInclude Include="ReNumExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReIdentifierExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReDeclarationExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
     <ClInclude Include="ReKeywords.h">
       <Filter>Header Files\Parser</Filter>
     </ClInclude>
@@ -189,9 +195,6 @@
     <ClInclude Include="ReNullPointerException.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="ReIfExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
     <ClInclude Include="ReCmpVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
@@ -201,23 +204,8 @@
     <ClInclude Include="ReSyntaxException.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="ReAssociationExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReArgumentExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReFunctionExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReWhileExpression.h">
-      <Filter>Header Files\Expressions</Filter>
-    </ClInclude>
     <ClInclude Include="ReBooleanOperatorReader.h">
       <Filter>Header Files\Lexer\Readers</Filter>
-    </ClInclude>
-    <ClInclude Include="BooleanOperationExpression.h">
-      <Filter>Header Files\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="ReEqualsVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
@@ -226,6 +214,36 @@
       <Filter>Header Files\DataTypes</Filter>
     </ClInclude>
     <ClInclude Include="ReLoadVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReAssociationExpression.h">
+      <Filter>Header Files\Expressions\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="ReDeclarationExpression.h">
+      <Filter>Header Files\Expressions\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="ReArgumentExpression.h">
+      <Filter>Header Files\Expressions\Keywords</Filter>
+    </ClInclude>
+    <ClInclude Include="ReFunctionExpression.h">
+      <Filter>Header Files\Expressions\Keywords</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIdentifierExpression.h">
+      <Filter>Header Files\Expressions\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReIfExpression.h">
+      <Filter>Header Files\Expressions\Keywords</Filter>
+    </ClInclude>
+    <ClInclude Include="ReWhileExpression.h">
+      <Filter>Header Files\Expressions\Keywords</Filter>
+    </ClInclude>
+    <ClInclude Include="ReValueExpression.h">
+      <Filter>Header Files\Expressions\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReBinaryOperationExpression.h">
+      <Filter>Header Files\Expressions\Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSkipVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -246,9 +264,6 @@
       <Filter>Source Files\Parser</Filter>
     </ClCompile>
     <ClCompile Include="ReExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
-    <ClCompile Include="ReAritmeticOperationExpression.cpp">
       <Filter>Source Files\Expressions</Filter>
     </ClCompile>
     <ClCompile Include="ReInputStream.cpp">
@@ -299,15 +314,6 @@
     <ClCompile Include="ReSubVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
-    <ClCompile Include="ReNumExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
-    <ClCompile Include="ReDeclarationExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
-    <ClCompile Include="ReIdentifierExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
     <ClCompile Include="ReAssignVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
@@ -332,23 +338,11 @@
     <ClCompile Include="ReKeywords.cpp">
       <Filter>Source Files\Parser</Filter>
     </ClCompile>
-    <ClCompile Include="ReIfExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
     <ClCompile Include="ReCmpVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
-    <ClCompile Include="ReAssociationExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
     <ClCompile Include="ReArgumentExpression.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReFunctionExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
-    </ClCompile>
-    <ClCompile Include="ReWhileExpression.cpp">
-      <Filter>Source Files\Expressions</Filter>
     </ClCompile>
     <ClCompile Include="ReBooleanOperatorReader.cpp">
       <Filter>Source Files\Lexer\Reader</Filter>
@@ -360,6 +354,33 @@
       <Filter>Source Files\DataTypes</Filter>
     </ClCompile>
     <ClCompile Include="ReLoadVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReAssociationExpression.cpp">
+      <Filter>Source Files\Expressions\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="ReDeclarationExpression.cpp">
+      <Filter>Source Files\Expressions\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="ReFunctionExpression.cpp">
+      <Filter>Source Files\Expressions\Keywords</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIdentifierExpression.cpp">
+      <Filter>Source Files\Expressions\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReIfExpression.cpp">
+      <Filter>Source Files\Expressions\Keywords</Filter>
+    </ClCompile>
+    <ClCompile Include="ReWhileExpression.cpp">
+      <Filter>Source Files\Expressions\Keywords</Filter>
+    </ClCompile>
+    <ClCompile Include="ReValueExpression.cpp">
+      <Filter>Source Files\Expressions\DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReBinaryOperationExpression.cpp">
+      <Filter>Source Files\Expressions\Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="ReSkipVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
   </ItemGroup>

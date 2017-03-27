@@ -11,6 +11,7 @@
 #include "ReCmpVirtualMachineWorker.h"
 #include "ReEqualsVirtualMachineWorker.h"
 #include "ReLoadVirtualMachineWorker.h"
+#include "ReSkipVirtualMachineWorker.h"
 
 namespace Redneck
 {
@@ -29,6 +30,7 @@ namespace Redneck
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::CMP, new CmpVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new EqualsVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOAD, new LoadVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::END, new SkipVirtualMachineWorker()));
 		return map;
 	}
 

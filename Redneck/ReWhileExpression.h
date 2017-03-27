@@ -8,14 +8,14 @@ namespace Redneck
 	{
 	private:
 		Expression* _condition;
-		Expression* _statement;
+		list<Expression*> _statements;
 	public:
 		WhileExpression();
-		WhileExpression(Expression* condition, Expression* statement);
+		WhileExpression(Expression* condition, list<Expression*>& statements);
 		virtual ~WhileExpression();
 
 		inline Expression* GetCondition() { return _condition; }
-		inline Expression* GetStatement() { return _statement; }
+		inline list<Expression*>& GetStatements() { return _statements; }
 		inline virtual ExpressionType GetExpressionType() { return ExpressionType::EXPRESSION_WHILE; }
 	};
 }

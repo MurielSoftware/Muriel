@@ -22,12 +22,12 @@ namespace Redneck
 
 	DataType* IntDataType::operator/(const DataType& dt)
 	{
-		float rhs = ((IntDataType*)&dt)->GetData();
+		int rhs = ((IntDataType*)&dt)->GetData();
 		if (rhs == 0)
 		{
 			throw DivideByZeroException();
 		}
-		return new IntDataType(_data / rhs);
+		return new IntDataType((int)_data / (int)rhs);
 	}
 
 	DataType* IntDataType::operator*(const DataType& dt)

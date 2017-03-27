@@ -1,5 +1,7 @@
 #pragma once
 
+#define EMPTY ""
+
 namespace Redneck
 {
 	class AritmeticOperationExpression;
