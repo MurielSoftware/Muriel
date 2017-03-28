@@ -112,7 +112,7 @@ namespace Redneck
 		}
 		else if (binaryOperationExpression->GetOperator() == "/")
 		{
-			AddInstruction(instructions, ByteCode::DIV, "");
+			AddInstruction(instructions, ByteCode::DIV, EMPTY);
 		}
 		else if (binaryOperationExpression->GetOperator() == "==")
 		{
