@@ -17,7 +17,7 @@ namespace Redneck
 
 		void DoGenerateInner(list<Instruction*>& instructions, list<Expression*> expressions);
 		void DoGenerate(list<Instruction*>& instructions, Expression* expression);
-		void AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value);
+		void AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value, unsigned short address = 0);
 	public:
 		InstructionGenerator();
 		virtual ~InstructionGenerator();

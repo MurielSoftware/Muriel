@@ -159,9 +159,8 @@ namespace Redneck
 		AddInstruction(instructions, ByteCode::JUMP, "loop1");
 	}
 
-	void InstructionGenerator::AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value)
+	void InstructionGenerator::AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value, unsigned short address)
 	{
-		static unsigned short address = 0;
-		instructions.push_back(new Instruction(byteCode, value, address++));
+		instructions.push_back(new Instruction(byteCode, value, address));
 	}
 }

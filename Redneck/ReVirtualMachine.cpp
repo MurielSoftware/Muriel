@@ -52,6 +52,12 @@ namespace Redneck
 		{
 			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(this, instruction);
 		}
+
+		//for (unsigned i = 0; i < _instructions.size(); i++)
+		//{
+		//	i = _virtualMachineWorkers[_instructions[i]->GetByteCode()]->ProcessInstruction(this, _instructions[i], i);
+		//}
+
 		_memory.Clear();
 	}
 }

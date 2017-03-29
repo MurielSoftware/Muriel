@@ -14,6 +14,7 @@ namespace Redneck
 		TOKEN_WHILE,
 		TOKEN_IF,
 		TOKEN_FUNC,
+		TOKEN_ELSE,
 		
 		TOKEN_COMMA,
 		TOKEN_SEMI,

@@ -88,6 +88,10 @@ namespace Redneck
 		_lexer->Consume(TokenType::TOKEN_LBRACE);
 		list<Expression*> statements = Parse();
 		_lexer->Consume(TokenType::TOKEN_RBRACE);
+		if (_lexer->Peek().GetTokenType() == TokenType::TOKEN_ELSE)
+		{
+
+		}
 		return new IfExpression(condition, statements);
 	}
 
