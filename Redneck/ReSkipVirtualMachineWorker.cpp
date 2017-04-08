@@ -4,7 +4,9 @@
 
 namespace Redneck
 {
-	void SkipVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned SkipVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
+		instructionIndex++;
+		return instructionIndex;
 	}
 }

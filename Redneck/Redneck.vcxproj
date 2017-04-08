@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -28,26 +28,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -146,7 +146,7 @@
     <ClInclude Include="ReBooleanOperatorReader.h" />
     <ClInclude Include="ReCommon.h" />
     <ClInclude Include="ReCmpVirtualMachineWorker.h" />
-    <ClInclude Include="ReEqualsVirtualMachineWorker.h" />
+    <ClInclude Include="ReBooleanOperatorVirtualMachineWorker.h" />
     <ClInclude Include="ReFunctionExpression.h" />
     <ClInclude Include="ReIfExpression.h" />
     <ClInclude Include="ReDivideByZeroException.h" />
@@ -158,12 +158,10 @@
     <ClInclude Include="ReDataType.h" />
     <ClInclude Include="ReFloatDataType.h" />
     <ClInclude Include="ReIntDataType.h" />
-    <ClInclude Include="ReAddVirtualMachineWorker.h" />
+    <ClInclude Include="ReArithmeticOperatorVirtualMachineWorker.h" />
     <ClInclude Include="ReAssignVirtualMachineWorker.h" />
-    <ClInclude Include="ReDivVirtualMachineWorker.h" />
     <ClInclude Include="ReIdentifierExpression.h" />
     <ClInclude Include="ReKeywords.h" />
-    <ClInclude Include="ReMulVirtualMachineWorker.h" />
     <ClInclude Include="RePushVirtualMachineWorker.h" />
     <ClInclude Include="ReReader.h" />
     <ClInclude Include="ReIdentifierReader.h" />
@@ -182,7 +180,6 @@
     <ClInclude Include="ReParser.h" />
     <ClInclude Include="RePunctReader.h" />
     <ClInclude Include="ReStringReader.h" />
-    <ClInclude Include="ReSubVirtualMachineWorker.h" />
     <ClInclude Include="ReToken.h" />
     <ClInclude Include="ReTokenType.h" />
     <ClInclude Include="ReDeclarationExpression.h" />
@@ -230,8 +227,7 @@
     <ClCompile Include="ReIdentifierExpression.cpp" />
     <ClCompile Include="ReIntDataType.cpp" />
     <ClCompile Include="RePushVirtualMachineWorker.cpp" />
-    <ClCompile Include="ReAddVirtualMachineWorker.cpp" />
-    <ClCompile Include="ReDivVirtualMachineWorker.cpp" />
+    <ClCompile Include="ReArithmeticOperatorVirtualMachineWorker.cpp" />
     <ClCompile Include="ReIdentifierReader.cpp" />
     <ClCompile Include="ReBinaryOperationExpression.cpp" />
     <ClCompile Include="ReExpression.cpp" />
@@ -240,7 +236,6 @@
     <ClCompile Include="ReInstructionGenerator.cpp" />
     <ClCompile Include="ReInterpreter.cpp" />
     <ClCompile Include="ReLexer.cpp" />
-    <ClCompile Include="ReMulVirtualMachineWorker.cpp" />
     <ClCompile Include="ReNumberReader.cpp" />
     <ClCompile Include="ReOperatorReader.cpp" />
     <ClCompile Include="ReParser.cpp" />
@@ -248,7 +243,6 @@
     <ClCompile Include="ReReader.cpp" />
     <ClCompile Include="ReStringDataType.cpp" />
     <ClCompile Include="ReStringReader.cpp" />
-    <ClCompile Include="ReSubVirtualMachineWorker.cpp" />
     <ClCompile Include="ReToken.cpp" />
     <ClCompile Include="ReVarVirtualMachineWorker.cpp" />
     <ClCompile Include="ReWhileExpression.cpp" />

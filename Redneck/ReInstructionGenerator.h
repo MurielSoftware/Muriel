@@ -7,21 +7,22 @@ namespace Redneck
 	class InstructionGenerator
 	{
 	private:
-		void GenerateDeclaration(list<Instruction*>& instructions, Expression* expression);
-		void GenerateAssociation(list<Instruction*>& instructions, Expression* expression);
-		void GenerateValue(list<Instruction*>& instructions, Expression* expression);
-		void GenerateIdentifier(list<Instruction*>& instructions, Expression* expression);
-		void GenerateBinaryOperation(list<Instruction*>& instructions, Expression* expression);
-		void GenerateIf(list<Instruction*>& instructions, Expression* expression);
-		void GenerateWhile(list<Instruction*>& instructions, Expression* expression);
+		string GetJumpAddress(const string& name, int depth);
+		void GenerateDeclaration(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateAssociation(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateValue(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateIdentifier(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateBinaryOperation(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateIf(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void GenerateWhile(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
 
-		void DoGenerateInner(list<Instruction*>& instructions, list<Expression*> expressions);
-		void DoGenerate(list<Instruction*>& instructions, Expression* expression);
-		void AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value);
+		void DoGenerateInner(vector<Instruction*>& instructions, list<Expression*> expressions, unsigned depth);
+		void DoGenerate(vector<Instruction*>& instructions, Expression* expression, unsigned depth);
+		void AddInstruction(vector<Instruction*>& instructions, ByteCode byteCode, const string& value);
 	public:
 		InstructionGenerator();
 		virtual ~InstructionGenerator();
 
-		list<Instruction*> Generate(list<Expression*> expressions);
+		vector<Instruction*> Generate(list<Expression*> expressions);
 	};
 }

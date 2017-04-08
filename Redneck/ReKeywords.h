@@ -6,6 +6,7 @@
 #define KW_WHILE "while"
 #define KW_TRUE "true"
 #define KW_FALSE "false"
+#define KW_ELSE "else"
 
 #include "ReTokenType.h"
 

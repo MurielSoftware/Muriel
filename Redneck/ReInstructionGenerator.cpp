@@ -22,81 +22,81 @@ namespace Redneck
 
 	}
 
-	list<Instruction*> InstructionGenerator::Generate(list<Expression*> expressions)
+	vector<Instruction*> InstructionGenerator::Generate(list<Expression*> expressions)
 	{
-		list<Instruction*> instructions;
-		DoGenerateInner(instructions, expressions);
+		vector<Instruction*> instructions;
+		DoGenerateInner(instructions, expressions, 0);
 		return instructions;
 	}
 
-	void InstructionGenerator::DoGenerateInner(list<Instruction*>& instructions, list<Expression*> expressions)
+	void InstructionGenerator::DoGenerateInner(vector<Instruction*>& instructions, list<Expression*> expressions, unsigned depth)
 	{
 		for (Expression* expression : expressions)
 		{
-			DoGenerate(instructions, expression);
+			DoGenerate(instructions, expression, depth);
 		}
 	}
 
-	void InstructionGenerator::DoGenerate(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::DoGenerate(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		switch (expression->GetExpressionType())
 		{
 		case ExpressionType::EXPRESSION_DECLARATION:
-			GenerateDeclaration(instructions, expression);
+			GenerateDeclaration(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_ASSOCIATION:
-			GenerateAssociation(instructions, expression);
+			GenerateAssociation(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_VALUE:
-			GenerateValue(instructions, expression);
+			GenerateValue(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_IDENTIFIER:
-			GenerateIdentifier(instructions, expression);
+			GenerateIdentifier(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_BIN_OPERATION:
-			GenerateBinaryOperation(instructions, expression);
+			GenerateBinaryOperation(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_IF:
-			GenerateIf(instructions, expression);
+			GenerateIf(instructions, expression, depth);
 		break;
 		case ExpressionType::EXPRESSION_WHILE:
-			GenerateWhile(instructions, expression);
+			GenerateWhile(instructions, expression, depth);
 		break;
 		}
 	}
 
-	void InstructionGenerator::GenerateDeclaration(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateDeclaration(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		DeclarationExpression* declarationExpression = (DeclarationExpression*)expression;
 		AddInstruction(instructions, ByteCode::VAR, declarationExpression->GetIdentifier()->GetValue());
-		DoGenerate(instructions, declarationExpression->GetDeclaration());
+		DoGenerate(instructions, declarationExpression->GetDeclaration(), depth);
 		AddInstruction(instructions, ByteCode::ASN, declarationExpression->GetIdentifier()->GetValue());
 	}
 
-	void InstructionGenerator::GenerateAssociation(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateAssociation(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		AssociationExpression* associationExpression = (AssociationExpression*)expression;
-		DoGenerate(instructions, associationExpression->GetDeclaration());
+		DoGenerate(instructions, associationExpression->GetDeclaration(), depth);
 		AddInstruction(instructions, ByteCode::ASN, associationExpression->GetIdentifier()->GetValue());
 	}
 
-	void InstructionGenerator::GenerateValue(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateValue(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		ValueExpression* valueExpression = (ValueExpression*)expression;
 		AddInstruction(instructions, ByteCode::PUSH, valueExpression->GetValue());
 	}
 
-	void InstructionGenerator::GenerateIdentifier(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateIdentifier(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		IdentifierExpression* identifierExpression = (IdentifierExpression*)expression;
 		AddInstruction(instructions, ByteCode::LOAD, identifierExpression->GetValue());
 	}
 
-	void InstructionGenerator::GenerateBinaryOperation(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateBinaryOperation(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		BinaryOperationExpression* binaryOperationExpression = (BinaryOperationExpression*)expression;
-		DoGenerate(instructions, binaryOperationExpression->GetArg0());
-		DoGenerate(instructions, binaryOperationExpression->GetArg1());
+		DoGenerate(instructions, binaryOperationExpression->GetArg0(), depth);
+		DoGenerate(instructions, binaryOperationExpression->GetArg1(), depth);
 
 		if (binaryOperationExpression->GetOperator() == "+")
 		{
@@ -140,28 +140,43 @@ namespace Redneck
 		}
 	}
 
-	void InstructionGenerator::GenerateIf(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateIf(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		IfExpression* ifExpression = (IfExpression*)expression;
-		DoGenerate(instructions, ifExpression->GetCondition());
-		AddInstruction(instructions, ByteCode::CMP, EMPTY);
-		DoGenerateInner(instructions, ifExpression->GetStatements());
-		AddInstruction(instructions, ByteCode::END, EMPTY);
+		string jumpAddress = GetJumpAddress("cond", depth++);
+		DoGenerate(instructions, ifExpression->GetCondition(), depth);
+		//AddInstruction(instructions, ByteCode::CMP, EMPTY);
+		AddInstruction(instructions, ByteCode::JZERO, jumpAddress);
+		DoGenerateInner(instructions, ifExpression->GetStatements(), depth);
+		AddInstruction(instructions, ByteCode::END, jumpAddress);
 	}
 
-	void InstructionGenerator::GenerateWhile(list<Instruction*>& instructions, Expression* expression)
+	void InstructionGenerator::GenerateWhile(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
 		WhileExpression* whileExpression = (WhileExpression*)expression;
-		AddInstruction(instructions, ByteCode::LOOP, "loop1");
-		DoGenerate(instructions, whileExpression->GetCondition());
+		string jumpAddress = GetJumpAddress("loop", depth++);
+		AddInstruction(instructions, ByteCode::LOOP, jumpAddress);
+		DoGenerate(instructions, whileExpression->GetCondition(), depth);
 		AddInstruction(instructions, ByteCode::CMP, EMPTY);
-		DoGenerateInner(instructions, whileExpression->GetStatements());
-		AddInstruction(instructions, ByteCode::JUMP, "loop1");
+		DoGenerateInner(instructions, whileExpression->GetStatements(), depth);
+		AddInstruction(instructions, ByteCode::JUMP, jumpAddress);
 	}
 
-	void InstructionGenerator::AddInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value)
+	void InstructionGenerator::AddInstruction(vector<Instruction*>& instructions, ByteCode byteCode, const string& value)
 	{
-		static unsigned short address = 0;
-		instructions.push_back(new Instruction(byteCode, value, address++));
+		//static unsigned short address = 0;
+		instructions.push_back(new Instruction(byteCode, value));
 	}
+
+	string InstructionGenerator::GetJumpAddress(const string& name, int depth)
+	{
+		stringstream sstream;
+		sstream << name << depth;
+		return sstream.str();
+	}
+
+	//void InstructionGenerator::AddJumpInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value, int address)
+	//{
+
+	//}
 }

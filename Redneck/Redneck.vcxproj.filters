@@ -141,19 +141,7 @@
     <ClInclude Include="ReStringReader.h">
       <Filter>Header Files\Lexer\Readers</Filter>
     </ClInclude>
-    <ClInclude Include="ReAddVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
     <ClInclude Include="ReVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
-    <ClInclude Include="ReSubVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
-    <ClInclude Include="ReMulVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
-    <ClInclude Include="ReDivVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
     <ClInclude Include="RePushVirtualMachineWorker.h">
@@ -207,9 +195,6 @@
     <ClInclude Include="ReBooleanOperatorReader.h">
       <Filter>Header Files\Lexer\Readers</Filter>
     </ClInclude>
-    <ClInclude Include="ReEqualsVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
     <ClInclude Include="ReBooleanDataType.h">
       <Filter>Header Files\DataTypes</Filter>
     </ClInclude>
@@ -244,6 +229,12 @@
       <Filter>Header Files\Expressions\Operations</Filter>
     </ClInclude>
     <ClInclude Include="ReSkipVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReBooleanOperatorVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReArithmeticOperatorVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -299,19 +290,7 @@
     <ClCompile Include="ReStringReader.cpp">
       <Filter>Source Files\Lexer\Reader</Filter>
     </ClCompile>
-    <ClCompile Include="ReAddVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClCompile>
-    <ClCompile Include="ReDivVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClCompile>
-    <ClCompile Include="ReMulVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClCompile>
     <ClCompile Include="RePushVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClCompile>
-    <ClCompile Include="ReSubVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
     <ClCompile Include="ReAssignVirtualMachineWorker.cpp">
@@ -381,6 +360,9 @@
       <Filter>Source Files\Expressions\Operations</Filter>
     </ClCompile>
     <ClCompile Include="ReSkipVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReArithmeticOperatorVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,17 +1,41 @@
 #include "stdafx.h"
-#include "ReEqualsVirtualMachineWorker.h"
+#include "ReBooleanOperatorVirtualMachineWorker.h"
 #include "ReInstruction.h"
 #include "ReVirtualMachine.h"
 
 namespace Redneck
 {
-	void EqualsVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned BooleanOperatorVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
 		DataType* rhs = virtualMachine->GetStack().top();
 		virtualMachine->GetStack().pop();
 		DataType* lhs = virtualMachine->GetStack().top();
 		virtualMachine->GetStack().pop();
 
-		virtualMachine->GetStack().push(*rhs == *lhs);
+		switch (instruction->GetByteCode())
+		{
+		case EQUALS:
+			virtualMachine->GetStack().push(*rhs == *lhs);
+			break;
+		case NEQUALS:
+			virtualMachine->GetStack().push(*rhs != *lhs);
+			break;
+		case GRT:
+			virtualMachine->GetStack().push(*rhs > *lhs);
+			break;
+		case GRTE:
+			virtualMachine->GetStack().push(*rhs >= *lhs);
+			break;
+		case LS:
+			virtualMachine->GetStack().push(*rhs < *lhs);
+			break;
+		case LSE:
+			virtualMachine->GetStack().push(*rhs <= *lhs);
+			break;
+		}
+		instructionIndex++;
+		delete rhs;
+		delete lhs;
+		return instructionIndex;
 	}
 }

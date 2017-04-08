@@ -7,6 +7,6 @@ namespace Redneck
 	class LoadVirtualMachineWorker : public VirtualMachineWorker
 	{
 	public:
-		void ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction);
+		unsigned ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex);
 	};
 }

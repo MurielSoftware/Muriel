@@ -21,6 +21,7 @@
 #include <stack>
 #include <list>
 #include <string>
+#include <sstream>
 #include <unordered_map>
 
 using namespace std;

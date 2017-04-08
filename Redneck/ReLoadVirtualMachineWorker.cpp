@@ -4,8 +4,10 @@
 
 namespace Redneck
 {
-	void LoadVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned LoadVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
-		virtualMachine->GetStack().push(virtualMachine->GetMemory().Get(instruction->GetValue())->Clone());
+		virtualMachine->GetStack().push(virtualMachine->GetMemory().Get(instruction->GetValue())->Clone());	
+		instructionIndex++;
+		return instructionIndex;
 	}
 }

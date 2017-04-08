@@ -88,6 +88,10 @@ namespace Redneck
 		_lexer->Consume(TokenType::TOKEN_LBRACE);
 		list<Expression*> statements = Parse();
 		_lexer->Consume(TokenType::TOKEN_RBRACE);
+		//if (TokenType::TOKEN_ELSE == _lexer->Peek().GetTokenType())
+		//{
+
+		//}
 		return new IfExpression(condition, statements);
 	}
 
@@ -168,7 +172,12 @@ namespace Redneck
 	{
 		Expression* f = Assignment();
 		Token nextToken = _lexer->Peek();
-		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_GREATER || nextToken.GetTokenType() == TOKEN_LESS || nextToken.GetTokenType() == TOKEN_EQUALS))
+		while (!_lexer->Eof() && (nextToken.GetTokenType() == TOKEN_GREATER
+			|| nextToken.GetTokenType() == TOKEN_GREATER_EQUAL
+			|| nextToken.GetTokenType() == TOKEN_LESS 
+			|| nextToken.GetTokenType() == TOKEN_LESS_EQUAL
+			|| nextToken.GetTokenType() == TOKEN_EQUALS 
+			|| nextToken.GetTokenType() == TOKEN_NOT_EQUALS))
 		{
 			_lexer->Next();
 			Expression* term = new BinaryOperationExpression(f, Expr(), nextToken.GetValue());
