@@ -4,7 +4,6 @@ namespace Redneck
 {
 	enum ByteCode
 	{
-	//	NOP,
 		VAR, 
 		ASN,  
 		PUSH,   
@@ -26,6 +25,8 @@ namespace Redneck
 		GRT,
 		LS,
 		GRTE,
-		LSE
+		LSE,
+
+		JZERO
 	};
 }

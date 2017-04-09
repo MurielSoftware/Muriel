@@ -27,7 +27,7 @@ namespace Redneck
 			InputStream* inputStream = new InputStream(path);
 			Parser* parser = new Parser(*inputStream);
 			list<Expression*> expressions = parser->Parse();
-			list<Instruction*> instructions = _instructionGenerator->Generate(expressions);
+			vector<Instruction*> instructions = _instructionGenerator->Generate(expressions);
 			_virtualMachine->Execute(instructions);
 		}
 		catch (exception& ex)

@@ -14,15 +14,15 @@ namespace Redneck
 		static map<ByteCode, VirtualMachineWorker*> CreateVirtualMachineWorkers();
 		stack<DataType*> _stack;
 		Memory _memory;
-		list<Instruction*> _instructions;
+		vector<Instruction*> _instructions;
 	public:
 		VirtualMachine();
 		~VirtualMachine();
 
-		void Execute(list<Instruction*> instructions);
+		void Execute(vector<Instruction*> instructions);
 
 		inline Memory& GetMemory() { return _memory; }
 		inline stack<DataType*>& GetStack() { return _stack; }
-		inline list<Instruction*>& GetInstructions() { return _instructions; }
+		inline vector<Instruction*>& GetInstructions() { return _instructions; }
 	};
 }

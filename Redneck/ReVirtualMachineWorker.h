@@ -12,6 +12,6 @@ namespace Redneck
 
 		}
 
-		virtual void ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction) = 0;
+		virtual unsigned ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex) = 0;
 	};
 }

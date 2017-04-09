@@ -6,8 +6,10 @@
 
 namespace Redneck
 {
-	void VarVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned VarVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
 		virtualMachine->GetMemory().Declare(instruction->GetValue(), new NullDataType());
+		instructionIndex++;
+		return instructionIndex;
 	}
 }

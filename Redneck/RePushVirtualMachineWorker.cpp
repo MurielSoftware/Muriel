@@ -11,9 +11,11 @@
 
 namespace Redneck
 {
-	void PushVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned PushVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
 		virtualMachine->GetStack().push(GetDataTypeValue(instruction->GetValue()));
+		instructionIndex++;
+		return instructionIndex;
 	}
 
 	DataType* PushVirtualMachineWorker::GetDataTypeValue(const string& value)

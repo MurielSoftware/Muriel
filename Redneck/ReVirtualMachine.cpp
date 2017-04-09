@@ -2,14 +2,11 @@
 #include "ReVirtualMachine.h"
 #include "ReInstruction.h"
 #include "RePushVirtualMachineWorker.h"
-#include "ReAddVirtualMachineWorker.h"
-#include "ReMulVirtualMachineWorker.h"
-#include "ReSubVirtualMachineWorker.h"
-#include "ReDivVirtualMachineWorker.h"
+#include "ReArithmeticOperatorVirtualMachineWorker.h"
 #include "ReVarVirtualMachineWorker.h"
 #include "ReAssignVirtualMachineWorker.h"
 #include "ReCmpVirtualMachineWorker.h"
-#include "ReEqualsVirtualMachineWorker.h"
+#include "ReBooleanOperatorVirtualMachineWorker.h"
 #include "ReLoadVirtualMachineWorker.h"
 #include "ReSkipVirtualMachineWorker.h"
 
@@ -20,16 +17,22 @@ namespace Redneck
 	map<ByteCode, VirtualMachineWorker*> VirtualMachine::CreateVirtualMachineWorkers()
 	{
 		map<ByteCode, VirtualMachineWorker*> map;
+		
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ADD, new ArithmeticOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::SUB, new ArithmeticOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::MULT, new ArithmeticOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::DIV, new ArithmeticOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::NEQUALS, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRT, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRTE, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LS, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LSE, new BooleanOperatorVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::PUSH, new PushVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ADD, new AddVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::SUB, new SubVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::MULT, new MulVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::DIV, new DivVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOAD, new LoadVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::VAR, new VarVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ASN, new AssignVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::CMP, new CmpVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new EqualsVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOAD, new LoadVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::JZERO, new CmpVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::END, new SkipVirtualMachineWorker()));
 		return map;
 	}
@@ -44,13 +47,15 @@ namespace Redneck
 
 	}
 
-	void VirtualMachine::Execute(list<Instruction*> instructions)
+	void VirtualMachine::Execute(vector<Instruction*> instructions)
 	{
 		_instructions = instructions;
+		unsigned instructionIndex = 0;
 
-		for (Instruction* instruction : _instructions)
+		while (instructionIndex < _instructions.size())
 		{
-			_virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(this, instruction);
+			Instruction* instruction = _instructions[instructionIndex];
+			instructionIndex = _virtualMachineWorkers[instruction->GetByteCode()]->ProcessInstruction(this, instruction, instructionIndex);
 		}
 
 		//for (unsigned i = 0; i < _instructions.size(); i++)

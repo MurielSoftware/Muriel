@@ -1,12 +1,15 @@
 #pragma once
 
 #include "ReVirtualMachineWorker.h"
+#include "ReByteCode.h"
 
 namespace Redneck
 {
 	class CmpVirtualMachineWorker : public VirtualMachineWorker
 	{
+	protected:
+		unsigned JumpToInstruction(VirtualMachine* virtualMachine, unsigned instructionIndex, const string& value);
 	public:
-		void ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction);
+		unsigned ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex);
 	};
 }

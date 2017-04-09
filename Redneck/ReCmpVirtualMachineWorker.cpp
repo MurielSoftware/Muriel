@@ -6,14 +6,27 @@
 
 namespace Redneck
 {
-	void CmpVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction)
+	unsigned CmpVirtualMachineWorker::ProcessInstruction(VirtualMachine* virtualMachine, Instruction* instruction, unsigned instructionIndex)
 	{
 		BooleanDataType* condition = (BooleanDataType*)virtualMachine->GetStack().top();
-		virtualMachine->GetStack().pop();
 
 		if (condition->GetData())
 		{
-
+			instructionIndex++;
 		}
+		else
+		{
+			instructionIndex = JumpToInstruction(virtualMachine, instructionIndex, instruction->GetValue());
+		}
+		return instructionIndex;
+	}
+
+	unsigned CmpVirtualMachineWorker::JumpToInstruction(VirtualMachine* virtualMachine, unsigned instructionIndex, const string& value)
+	{
+		while (instructionIndex < virtualMachine->GetInstructions().size() && virtualMachine->GetInstructions().at(instructionIndex)->GetValue() != value)
+		{
+			instructionIndex++;
+		}
+		return instructionIndex;
 	}
 }
