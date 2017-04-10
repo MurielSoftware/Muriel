@@ -5,10 +5,11 @@
 #include "ReArithmeticOperatorVirtualMachineWorker.h"
 #include "ReVarVirtualMachineWorker.h"
 #include "ReAssignVirtualMachineWorker.h"
-#include "ReCmpVirtualMachineWorker.h"
-#include "ReBooleanOperatorVirtualMachineWorker.h"
+#include "ReCompareVirtualMachineWorker.h"
+#include "ReJumpVirtualMachineWorker.h"
 #include "ReLoadVirtualMachineWorker.h"
 #include "ReSkipVirtualMachineWorker.h"
+#include "ReLoopVirtualMachineWorker.h"
 
 namespace Redneck
 {
@@ -22,18 +23,20 @@ namespace Redneck
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::SUB, new ArithmeticOperatorVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::MULT, new ArithmeticOperatorVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::DIV, new ArithmeticOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new BooleanOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::NEQUALS, new BooleanOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRT, new BooleanOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRTE, new BooleanOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LS, new BooleanOperatorVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LSE, new BooleanOperatorVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::EQUALS, new CompareVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::NEQUALS, new CompareVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRT, new CompareVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::GRTE, new CompareVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LS, new CompareVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LSE, new CompareVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::PUSH, new PushVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOAD, new LoadVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::VAR, new VarVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::ASN, new AssignVirtualMachineWorker()));
-		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::JZERO, new CmpVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::JZERO, new JumpVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::LOOP, new LoopVirtualMachineWorker()));
 		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::END, new SkipVirtualMachineWorker()));
+		map.insert(pair<ByteCode, VirtualMachineWorker*>(ByteCode::SKIP, new SkipVirtualMachineWorker()));
 		return map;
 	}
 

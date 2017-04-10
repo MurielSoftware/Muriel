@@ -142,29 +142,27 @@ namespace Redneck
 
 	void InstructionGenerator::GenerateIf(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
-		IfExpression* ifExpression = (IfExpression*)expression;
-		string jumpAddress = GetJumpAddress("cond", depth++);
-		DoGenerate(instructions, ifExpression->GetCondition(), depth);
-		//AddInstruction(instructions, ByteCode::CMP, EMPTY);
-		AddInstruction(instructions, ByteCode::JZERO, jumpAddress);
-		DoGenerateInner(instructions, ifExpression->GetStatements(), depth);
-		AddInstruction(instructions, ByteCode::END, jumpAddress);
+		//IfExpression* ifExpression = (IfExpression*)expression;
+		//string jumpAddress = GetJumpAddress("cond", depth++);
+		//DoGenerate(instructions, ifExpression->GetCondition(), depth);
+		//AddInstruction(instructions, ByteCode::JZERO, jumpAddress);
+		//DoGenerateInner(instructions, ifExpression->GetStatements(), depth);
+		//AddInstruction(instructions, ByteCode::END, jumpAddress);
 	}
 
 	void InstructionGenerator::GenerateWhile(vector<Instruction*>& instructions, Expression* expression, unsigned depth)
 	{
-		WhileExpression* whileExpression = (WhileExpression*)expression;
-		string jumpAddress = GetJumpAddress("loop", depth++);
-		AddInstruction(instructions, ByteCode::LOOP, jumpAddress);
-		DoGenerate(instructions, whileExpression->GetCondition(), depth);
-		AddInstruction(instructions, ByteCode::CMP, EMPTY);
-		DoGenerateInner(instructions, whileExpression->GetStatements(), depth);
-		AddInstruction(instructions, ByteCode::JUMP, jumpAddress);
+		//WhileExpression* whileExpression = (WhileExpression*)expression;
+		//string jumpAddress = GetJumpAddress("loop", depth++);
+		//AddInstruction(instructions, ByteCode::SKIP, jumpAddress);
+		//DoGenerate(instructions, whileExpression->GetCondition(), depth);
+		//AddInstruction(instructions, ByteCode::JZERO, EMPTY);
+		//DoGenerateInner(instructions, whileExpression->GetStatements(), depth);
+		//AddInstruction(instructions, ByteCode::LOOP, jumpAddress);
 	}
 
 	void InstructionGenerator::AddInstruction(vector<Instruction*>& instructions, ByteCode byteCode, const string& value)
 	{
-		//static unsigned short address = 0;
 		instructions.push_back(new Instruction(byteCode, value));
 	}
 
@@ -174,9 +172,4 @@ namespace Redneck
 		sstream << name << depth;
 		return sstream.str();
 	}
-
-	//void InstructionGenerator::AddJumpInstruction(list<Instruction*>& instructions, ByteCode byteCode, const string& value, int address)
-	//{
-
-	//}
 }

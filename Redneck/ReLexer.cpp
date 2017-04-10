@@ -8,7 +8,7 @@
 #include "RePunctReader.h"
 #include "ReStringReader.h"
 #include "ReSyntaxException.h"
-#include "ReBooleanOperatorReader.h"
+#include "ReCompareOperatorReader.h"
 #include <regex>
 
 namespace Redneck
@@ -23,7 +23,7 @@ namespace Redneck
 		readers.push_back(new OperatorReader());
 		readers.push_back(new PunctReader());
 		readers.push_back(new StringReader());
-		readers.push_back(new BooleanOperatorReader());
+		readers.push_back(new CompareOperatorReader());
 		return readers;
 	}
 

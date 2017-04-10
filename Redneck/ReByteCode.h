@@ -27,6 +27,7 @@ namespace Redneck
 		GRTE,
 		LSE,
 
-		JZERO
+		JZERO,
+		SKIP
 	};
 }

@@ -5,6 +5,6 @@ using namespace Redneck;
 int main()
 {
 	Interpreter interpreter;
-	interpreter.Interpret("script.txt");
+	interpreter.Interpret("script_loop.txt");
 	return 0;
 }

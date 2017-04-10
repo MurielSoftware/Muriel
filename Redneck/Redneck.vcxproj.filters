@@ -183,17 +183,11 @@
     <ClInclude Include="ReNullPointerException.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="ReCmpVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
     <ClInclude Include="ReCommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReSyntaxException.h">
       <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="ReBooleanOperatorReader.h">
-      <Filter>Header Files\Lexer\Readers</Filter>
     </ClInclude>
     <ClInclude Include="ReBooleanDataType.h">
       <Filter>Header Files\DataTypes</Filter>
@@ -231,11 +225,20 @@
     <ClInclude Include="ReSkipVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
     </ClInclude>
-    <ClInclude Include="ReBooleanOperatorVirtualMachineWorker.h">
-      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClInclude>
     <ClInclude Include="ReArithmeticOperatorVirtualMachineWorker.h">
       <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReLoopVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReJumpVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReCompareVirtualMachineWorker.h">
+      <Filter>Header Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClInclude>
+    <ClInclude Include="ReCompareOperatorReader.h">
+      <Filter>Header Files\Lexer\Readers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -317,17 +320,8 @@
     <ClCompile Include="ReKeywords.cpp">
       <Filter>Source Files\Parser</Filter>
     </ClCompile>
-    <ClCompile Include="ReCmpVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
-    </ClCompile>
     <ClCompile Include="ReArgumentExpression.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReBooleanOperatorReader.cpp">
-      <Filter>Source Files\Lexer\Reader</Filter>
-    </ClCompile>
-    <ClCompile Include="ReEqualsVirtualMachineWorker.cpp">
-      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
     </ClCompile>
     <ClCompile Include="ReBooleanDataType.cpp">
       <Filter>Source Files\DataTypes</Filter>
@@ -364,6 +358,18 @@
     </ClCompile>
     <ClCompile Include="ReArithmeticOperatorVirtualMachineWorker.cpp">
       <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReLoopVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReJumpVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReCompareVirtualMachineWorker.cpp">
+      <Filter>Source Files\Interpret\VirtualMachineWorkers</Filter>
+    </ClCompile>
+    <ClCompile Include="ReCompareOperatorReader.cpp">
+      <Filter>Source Files\Lexer\Reader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
